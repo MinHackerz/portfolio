@@ -37,16 +37,16 @@ const Hero = () => {
               />
               <div className="absolute inset-0 animate-pulse-outline rounded-full"></div>
               {/* Roles around the circular profile picture */}
-              <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-green-700 text-white px-2 py-1 rounded-full">
+              <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-green-700 text-white px-2 py-1 rounded-full hidden lg:block">
                 Digital Marketing
               </div>
-              <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-600 text-gray-900 px-2 py-1 rounded-full">
+              <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-600 text-gray-900 px-2 py-1 rounded-full hidden lg:block">
                 Data Engineering
               </div>
-              <div className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-blue-700 text-white px-2 py-1 rounded-full">
+              <div className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-blue-700 text-white px-2 py-1 rounded-full hidden lg:block">
                 Web Development
               </div>
-              <div className="absolute bottom-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-orange-700 text-white px-2 py-1 rounded-full">
+              <div className="absolute bottom-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-orange-700 text-white px-2 py-1 rounded-full hidden lg:block">
                 Prompt Engineering
               </div>
             </div>
