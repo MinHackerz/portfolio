@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import dynamic from "next/dynamic";
+
 
 const skills = [
   { name: 'SAP BODS', rating: 4 },
@@ -72,4 +74,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default dynamic (() => Promise.resolve(Skills), {ssr: false})

@@ -1,4 +1,5 @@
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import dynamic from "next/dynamic";
 
 const Footer = () => {
   return (
@@ -40,4 +41,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default dynamic (() => Promise.resolve(Footer), {ssr: false})

@@ -81,3 +81,20 @@
   border-radius: 10px;
   padding: 2rem;
 }
+
+.rotate-on-hover:hover {
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bg-celebration {
+  background-image: url('/celebration.gif');
+}

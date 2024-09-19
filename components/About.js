@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import dynamic from "next/dynamic";
 
 const About = () => {
   useEffect(() => {
@@ -40,4 +41,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default dynamic (() => Promise.resolve(About), {ssr: false})

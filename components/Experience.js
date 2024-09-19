@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FaBriefcase, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import dynamic from "next/dynamic";
+
 
 const Experience = () => {
   const [expandedExp, setExpandedExp] = useState(null);
@@ -88,4 +90,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default dynamic (() => Promise.resolve(Experience), {ssr: false})

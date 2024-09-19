@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import dynamic from 'next/dynamic';
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -15,14 +16,15 @@ const ProjectCard = ({ project, index }) => {
       data-aos-delay={index * 200}
     >
       <div
-        className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 opacity-0 transition-opacity duration-300 z-0"
-        style={{ opacity: isHovered ? 0.2 : 0 }}
+        className={`absolute inset-0 z-0 transition-opacity duration-300 ${
+          isHovered ? 'animate-celebrate' : 'opacity-1'
+        }`}
       ></div>
       <div className="relative z-10">
-        <h3 className="text-xl font-semibold mb-2 text-gray-800 group-hover:text-white transition-colors duration-300">
+        <h3 className="text-xl font-semibold mb-2 text-purple-800 group-hover:text-white transition-colors duration-300">
           {project.title}
         </h3>
-        <p className="text-gray-600 mb-4 group-hover:text-gray-200 transition-colors duration-300">
+        <p className="text-gray-600 mb-4 group-hover:text-gray-300 transition-colors duration-300">
           {project.description}
         </p>
         <div className="flex space-x-4">
@@ -55,22 +57,36 @@ const Projects = () => {
     {
       title: 'YouTube Channel Statistics Analyzer',
       description:
-        'Developed an open-source Python project using YouTube API to extract channel data and generate analytics dashboards',
+        'An open-source Python project that uses the YouTube API to extract channel data and generate analytics dashboards.',
       link: 'https://youtube-stats.streamlit.app/',
       github: 'https://github.com/MinHackerz/youtube-stats',
     },
     {
       title: 'Quran GPT',
       description:
-        'Created an AI-powered platform using Gemini Pro API for Islamic query responses with references',
+        'An AI-powered platform that uses the Gemini Pro API to provide Islamic query responses with references.',
       link: 'https://quran-gpt.netlify.app/',
       github: null,
     },
     {
       title: 'IG Tools',
       description:
-        'Designed and developed a WordPress website featuring 100+ productivity tools for social media, SEO, and web development',
+        'A WordPress website featuring over 100 productivity tools for social media, SEO, and web development.',
       link: 'https://igtoolsapk.in/',
+      github: null,
+    },
+    {
+      title: 'TNP Cell',
+      description:
+        'A job portal website that aims to provide relevant job opportunities to IT professionals during this tough time.',
+      link: 'https://tnpcell.in/',
+      github: null,
+    },
+    {
+      title: 'Mock Nest',
+      description:
+        'A mock test providing website that helps candidates prepare themselves with relevant questions for any competitive test.',
+      link: 'https://mocknest.com/',
       github: null,
     },
   ];
@@ -80,7 +96,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
+    <section id="projects" className="py-20 bg-gradient-to-r from-blue-150 to-purple-50">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-800" data-aos="fade-left">
           Projects
@@ -95,4 +111,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default dynamic(() => Promise.resolve(Projects), { ssr: false });

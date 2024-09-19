@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import dynamic from 'next/dynamic';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,13 +26,18 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Replace with your actual API endpoint
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: '5c1122d0-3a1b-4b7c-ba09-048c8f317862', // replace with your access key
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
       });
 
       if (response.ok) {
@@ -119,4 +125,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default dynamic(() => Promise.resolve(Contact), { ssr: false });
