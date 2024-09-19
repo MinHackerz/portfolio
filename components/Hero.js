@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
-            <div className="glassmorphism p-6 sm:p-8 rounded-lg bg-white/30 backdrop-blur-md shadow-lg">
+            <div className="glassmorphism p-6 sm:p-8 rounded-lg bg-white/30 backdrop-blur-sm shadow-lg">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 animate-fade-in-up">
                 Hi, I&apos;m <span className="text-yellow-400">Menajul Hoque</span>
               </h1>
