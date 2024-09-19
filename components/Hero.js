@@ -15,8 +15,8 @@ const Hero = () => {
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl mb-8 animate-fade-in-up animation-delay-300">
                 <span className="inline-block text-black-500">Data Engineer</span>
-                <span className="inline-block text-blue-600"> | Web Developer</span>
-                <span className="inline-block text-green-600"> | Digital Marketing Specialist</span>
+                <span className="inline-block text-blue-600"> | WordPress Developer</span>
+                <span className="inline-block text-green-600"> | SEO Specialist</span>
               </p>
               <a
                 href="#contact"
@@ -41,13 +41,13 @@ const Hero = () => {
                 Digital Marketing
               </div>
               <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-600 text-gray-900 px-2 py-1 rounded-full">
-                Data Engineer
+                Data Engineering
               </div>
               <div className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-blue-700 text-white px-2 py-1 rounded-full">
-                Web Developer
+                Web Development
               </div>
               <div className="absolute bottom-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-orange-700 text-white px-2 py-1 rounded-full">
-                AI Enthusiast
+                Prompt Engineering
               </div>
             </div>
           </div>
