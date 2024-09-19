@@ -4,7 +4,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import dynamic from "next/dynamic";
 
-
 const skills = [
   { name: 'SAP BODS', rating: 4 },
   { name: 'Oracle SQL', rating: 4 },
@@ -74,4 +73,4 @@ const Skills = () => {
   );
 };
 
-export default dynamic (() => Promise.resolve(Skills), {ssr: false})
+export default dynamic(() => Promise.resolve(Skills), { ssr: false });
