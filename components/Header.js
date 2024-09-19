@@ -23,7 +23,7 @@ const Header = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header
-        className={`fixed w-full z-50 transition-all duration-300 md:w-full ${
+        className={`fixed top-0 w-full z-50 transition-all duration-300 md:w-full ${
           scrolled ? 'glassmorphism shadow-md' : 'bg-transparent'
         }`}
       >
