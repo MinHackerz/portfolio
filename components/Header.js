@@ -65,21 +65,23 @@ const Header = () => {
         </nav>
         {isMenuOpen && (
           <div className="md:hidden glassmorphism shadow-md w-full">
-            <NavLink href="#about" mobile>
-              About
-            </NavLink>
-            <NavLink href="#skills" mobile>
-              Skills
-            </NavLink>
-            <NavLink href="#experience" mobile>
-              Experience
-            </NavLink>
-            <NavLink href="#projects" mobile>
-              Projects
-            </NavLink>
-            <NavLink href="#contact" mobile>
-              Contact
-            </NavLink>
+            <div className="w-full">
+              <NavLink href="#about" mobile>
+                About
+              </NavLink>
+              <NavLink href="#skills" mobile>
+                Skills
+              </NavLink>
+              <NavLink href="#experience" mobile>
+                Experience
+              </NavLink>
+              <NavLink href="#projects" mobile>
+                Projects
+              </NavLink>
+              <NavLink href="#contact" mobile>
+                Contact
+              </NavLink>
+            </div>
           </div>
         )}
       </header>
