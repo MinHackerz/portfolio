@@ -9,30 +9,30 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-white relative">
+    <section id="about" className="py-16 sm:py-20 bg-white relative px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-circles"></div>
-      <div className="container mx-auto px-6 relative z-10">
-        <h2 className="text-4xl font-extrabold mb-12 text-center text-gray-800" data-aos="fade-up">
+      <div className="container mx-auto relative z-10 max-w-4xl">
+        <h2 className="text-3xl sm:text-4xl font-extrabold mb-8 sm:mb-12 text-center text-gray-800" data-aos="fade-up">
           About Me
         </h2>
         <div
-          className="max-w-3xl mx-auto bg-white bg-opacity-10 p-8 rounded-lg shadow-lg backdrop-blur-md"
+          className="bg-white bg-opacity-10 p-6 sm:p-8 rounded-lg shadow-lg backdrop-blur-md"
           data-aos="fade-up"
         >
-          <p className="text-lg mb-6 leading-relaxed">
-            I'm a results-driven Data Engineer with a strong background in ETL development
+          <p className="text-base sm:text-lg mb-6 leading-relaxed">
+            I&apos;m a results-driven Data Engineer with a strong background in ETL development
             and data analysis. My expertise lies in designing and implementing robust data
             pipelines, optimizing data workflows, and translating complex business
             requirements into efficient, scalable technical solutions.
           </p>
-          <p className="text-lg mb-6 leading-relaxed">
+          <p className="text-base sm:text-lg mb-6 leading-relaxed">
             In addition to my data engineering skills, I have experience in digital marketing.
-            I've created websites using WordPress and performed technical SEO, including on-page
+            I&apos;ve created websites using WordPress and performed technical SEO, including on-page
             and off-page SEO, as well as setting up Google Analytics and Google AdSense.
           </p>
-          <p className="text-lg leading-relaxed">
-            I'm passionate about solving complex data challenges and continuously expanding
-            my skillset. When I'm not working, you can find me traveling, reading books,
+          <p className="text-base sm:text-lg leading-relaxed">
+            I&apos;m passionate about solving complex data challenges and continuously expanding
+            my skillset. When I&apos;m not working, you can find me traveling, reading books,
             cycling, or watching movies.
           </p>
         </div>
