@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="relative bg-white text-gray-900 min-h-screen flex items-center overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-dots"></div>
-      <div className="container mx-auto relative z-10 max-w-7xl">
+      <div className="container mx-auto relative z-10">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
             <div className="glassmorphism p-6 sm:p-8 rounded-lg">
