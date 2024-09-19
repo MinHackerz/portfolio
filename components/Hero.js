@@ -34,7 +34,7 @@ const Hero = () => {
                   }}
                 />
               </p>
-              <a
+              
                 href="#contact"
                 className="bg-yellow-400 text-gray-900 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-yellow-300 transition duration-300 animate-fade-in-up animation-delay-600 inline-block"
               >
@@ -59,4 +59,4 @@ const Hero = () => {
   );
 };
 
-export default dynamic(() => Promise.resolve(Hero), { ssr: false });
+export default dynamic (() => Promise.resolve(Hero), {ssr: false})
