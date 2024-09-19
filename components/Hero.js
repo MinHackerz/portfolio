@@ -54,16 +54,16 @@ const Hero = () => {
               />
               <div className="absolute inset-0 animate-pulse-outline rounded-full"></div>
               <div className="absolute inset-0 animate-pulse-text">
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-white px-4 py-2 rounded-full">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-white px-4 py-2 rounded-full">
                   Data Engineer
                 </div>
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded-full">
+                <div className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded-full">
                   Web Developer
                 </div>
-                <div className="absolute top-0 right-1/2 transform translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-4 py-2 rounded-full">
+                <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-green-500 text-white px-4 py-2 rounded-full">
                   Digital Marketing Specialist
                 </div>
-                <div className="absolute bottom-0 right-1/2 transform translate-x-1/2 translate-y-1/2 bg-orange-500 text-white px-4 py-2 rounded-full">
+                <div className="absolute bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 bg-orange-500 text-white px-4 py-2 rounded-full">
                   AI Enthusiast
                 </div>
               </div>
