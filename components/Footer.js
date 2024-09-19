@@ -1,5 +1,5 @@
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 const Footer = () => {
   return (
@@ -17,6 +17,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition duration-300"
+              aria-label="Visit Menajul Hoque's LinkedIn profile"
             >
               <FaLinkedin size={28} />
             </a>
@@ -25,12 +26,14 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition duration-300"
+              aria-label="Visit Menajul Hoque's GitHub profile"
             >
               <FaGithub size={28} />
             </a>
             <a
               href="mailto:menajulhoque99@gmail.com"
               className="hover:text-primary transition duration-300"
+              aria-label="Send an email to Menajul Hoque"
             >
               <FaEnvelope size={28} />
             </a>
@@ -41,4 +44,4 @@ const Footer = () => {
   );
 };
 
-export default dynamic (() => Promise.resolve(Footer), {ssr: false})
+export default dynamic(() => Promise.resolve(Footer), { ssr: false });
