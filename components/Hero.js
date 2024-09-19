@@ -18,10 +18,7 @@ const Hero = () => {
                 <TypewriterComponent
                   options={{
                     strings: [
-                      'I am a Data Engineer',
-                      'I am a Web Developer',
-                      'I am a Digital Marketer',
-                      'I am an AI Enthusiast',
+                      'Data Engineer | Web Developer | Digital Marketing Specialist',
                     ],
                     autoStart: true,
                     loop: true,
