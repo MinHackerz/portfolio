@@ -11,16 +11,16 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
             <div className="glassmorphism p-6 sm:p-8 rounded-lg bg-white/30 backdrop-blur-sm shadow-lg">
               <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 animate-fade-in-up">
-                Hi, I&apos;m <span className="text-yellow-400">Menajul Hoque</span>
+                Hi, I&apos;m <span className="text-yellow-500">Menajul Hoque</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl mb-8 animate-fade-in-up animation-delay-300">
-                <span className="inline-block text-yellow-400">Data Engineer</span>
-                <span className="inline-block text-blue-500"> | Web Developer</span>
-                <span className="inline-block text-green-500"> | Digital Marketing Specialist</span>
+                <span className="inline-block text-yellow-500">Data Engineer</span>
+                <span className="inline-block text-blue-600"> | Web Developer</span>
+                <span className="inline-block text-green-600"> | Digital Marketing Specialist</span>
               </p>
               <a
                 href="#contact"
-                className="bg-yellow-400 text-gray-900 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-yellow-300 transition duration-300 animate-fade-in-up animation-delay-600 inline-block"
+                className="bg-yellow-500 text-gray-900 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-yellow-400 transition duration-300 animate-fade-in-up animation-delay-600 inline-block"
               >
                 Get in Touch
               </a>
@@ -37,16 +37,16 @@ const Hero = () => {
               />
               <div className="absolute inset-0 animate-pulse-outline rounded-full"></div>
               {/* Roles around the circular profile picture */}
-              <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-2 py-1 rounded-full">
+              <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-green-700 text-white px-2 py-1 rounded-full">
                 Digital Marketing
               </div>
-              <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-400 text-white px-2 py-1 rounded-full">
+              <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-600 text-gray-900 px-2 py-1 rounded-full">
                 Data Engineer
               </div>
-              <div className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-2 py-1 rounded-full">
+              <div className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-blue-700 text-white px-2 py-1 rounded-full">
                 Web Developer
               </div>
-              <div className="absolute bottom-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-2 py-1 rounded-full">
+              <div className="absolute bottom-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-orange-700 text-white px-2 py-1 rounded-full">
                 AI Enthusiast
               </div>
             </div>
