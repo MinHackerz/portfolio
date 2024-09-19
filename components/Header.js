@@ -1,62 +1,102 @@
-import React from 'react';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import Image from 'next/image';
-import TypewriterComponent from 'typewriter-effect';
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
-const Hero = () => {
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="relative bg-white text-gray-900 min-h-screen flex items-center overflow-hidden px-4 sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-dots"></div>
-      <div className="container mx-auto relative z-10 max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center">
-          <div className="w-full lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0">
-            <div className="glassmorphism p-6 sm:p-8 rounded-lg">
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 animate-fade-in-up">
-                Hi, I&apos;m <span className="text-yellow-400">Menajul Hoque</span>
-              </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl mb-8 animate-fade-in-up animation-delay-300">
-                <TypewriterComponent
-                  options={{
-                    strings: [
-                      'I am a Data Engineer',
-                      'I am a Web Developer',
-                      'I am a Digital Marketer',
-                      'I am an AI Enthusiast',
-                    ],
-                    autoStart: true,
-                    loop: true,
-                    cursor: '',
-                    wrapperClassName: 'text-yellow-400',
-                    cursorClassName: 'text-yellow-400',
-                    colors: ['#FBBF24', '#3B82F6', '#10B981', '#F59E0B'],
-                    delay: 100,
-                    deleteSpeed: 50,
-                  }}
-                />
-              </p>
-              <a
-                href="#contact"
-                className="bg-yellow-400 text-gray-900 px-6 sm:px-8 py-3 rounded-full text-base sm:text-lg font-semibold hover:bg-yellow-300 transition duration-300 animate-fade-in-up animation-delay-600 inline-block"
-              >
-                Get in Touch
-              </a>
-            </div>
+    <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <header
+        className={`fixed w-full z-50 transition-all duration-300 ${
+          scrolled ? 'glassmorphism shadow-md' : 'bg-transparent'
+        }`}
+      >
+        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/Minhaj Logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="logo-rotate rotate-on-hover"
+            />
+            <span className="ml-2 text-xl sm:text-2xl font-bold transition-colors duration-300 text-gray-800 rotate-on-hover">
+              MHQ
+            </span>
+          </Link>
+          <div className="hidden md:flex space-x-6">
+            <NavLink href="#about" scrolled={scrolled}>
+              About
+            </NavLink>
+            <NavLink href="#skills" scrolled={scrolled}>
+              Skills
+            </NavLink>
+            <NavLink href="#experience" scrolled={scrolled}>
+              Experience
+            </NavLink>
+            <NavLink href="#projects" scrolled={scrolled}>
+              Projects
+            </NavLink>
+            <NavLink href="#contact" scrolled={scrolled}>
+              Contact
+            </NavLink>
           </div>
-          <div className="w-full lg:w-1/2 flex justify-center">
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 animate-float glassmorphism-circle rounded-full p-4">
-              <Image
-                src="/profile-picture.jpg"
-                alt="Menajul Hoque"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-full"
-              />
-            </div>
+          <div className="md:hidden">
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-800">
+              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
           </div>
-        </div>
-      </div>
-    </section>
+        </nav>
+        {isMenuOpen && (
+          <div className="md:hidden glassmorphism shadow-md">
+            <NavLink href="#about" mobile>
+              About
+            </NavLink>
+            <NavLink href="#skills" mobile>
+              Skills
+            </NavLink>
+            <NavLink href="#experience" mobile>
+              Experience
+            </NavLink>
+            <NavLink href="#projects" mobile>
+              Projects
+            </NavLink>
+            <NavLink href="#contact" mobile>
+              Contact
+            </NavLink>
+          </div>
+        )}
+      </header>
+    </>
   );
 };
 
-export default dynamic(() => Promise.resolve(Hero), { ssr: false });
+const NavLink = ({ href, children, mobile, scrolled }) => (
+  <Link
+    href={href}
+    className={`
+      ${mobile ? 'block py-2 px-4 text-gray-800' : 'text-gray-800'}
+      hover:text-primary transition duration-300 text-base sm:text-lg font-medium
+    `}
+  >
+    {children}
+  </Link>
+);
+
+export default dynamic(() => Promise.resolve(Header), { ssr: false });
