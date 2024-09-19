@@ -38,7 +38,7 @@ const Hero = () => {
               <div className="absolute inset-0 animate-pulse-outline rounded-full"></div>
               {/* Roles around the circular profile picture */}
               <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-2 py-1 rounded-full">
-                Digital Marketing Specialist
+                Digital Marketing
               </div>
               <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-400 text-white px-2 py-1 rounded-full">
                 Data Engineer
