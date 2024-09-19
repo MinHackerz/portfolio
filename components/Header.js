@@ -27,7 +27,7 @@ const Header = () => {
           scrolled ? 'glassmorphism shadow-md' : 'bg-transparent'
         }`}
       >
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <Image
               src="/Minhaj Logo.png"
@@ -36,7 +36,7 @@ const Header = () => {
               height={40}
               className="logo-rotate rotate-on-hover"
             />
-            <span className="ml-2 text-2xl font-bold transition-colors duration-300 text-gray-800 rotate-on-hover">
+            <span className="ml-2 text-xl sm:text-2xl font-bold transition-colors duration-300 text-gray-800 rotate-on-hover">
               MHQ
             </span>
           </Link>
@@ -92,7 +92,7 @@ const NavLink = ({ href, children, mobile, scrolled }) => (
     href={href}
     className={`
       ${mobile ? 'block py-2 px-4 text-gray-800' : 'text-gray-800'}
-      hover:text-primary transition duration-300 text-lg font-medium
+      hover:text-primary transition duration-300 text-base sm:text-lg font-medium
     `}
   >
     {children}
