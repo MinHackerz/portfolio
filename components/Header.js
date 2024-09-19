@@ -28,7 +28,7 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex justify-between items-center h-16">
+          <nav className="flex flex-wrap justify-between items-center h-16">
             <Link href="/" className="flex items-center">
               <Image
                 src="/Minhaj Logo.png"
@@ -57,17 +57,17 @@ const Header = () => {
                 {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
               </button>
             </div>
+            {isMenuOpen && (
+              <div className="md:hidden w-full mt-2">
+                <NavLink href="#about" mobile>About</NavLink>
+                <NavLink href="#skills" mobile>Skills</NavLink>
+                <NavLink href="#experience" mobile>Experience</NavLink>
+                <NavLink href="#projects" mobile>Projects</NavLink>
+                <NavLink href="#contact" mobile>Contact</NavLink>
+              </div>
+            )}
           </nav>
         </div>
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 w-full bg-white shadow-md glassmorphism">
-            <NavLink href="#about" mobile>About</NavLink>
-            <NavLink href="#skills" mobile>Skills</NavLink>
-            <NavLink href="#experience" mobile>Experience</NavLink>
-            <NavLink href="#projects" mobile>Projects</NavLink>
-            <NavLink href="#contact" mobile>Contact</NavLink>
-          </div>
-        )}
       </header>
     </>
   );
@@ -77,7 +77,7 @@ const NavLink = ({ href, children, mobile, scrolled }) => (
   <Link
     href={href}
     className={`
-      ${mobile ? 'block py-2 px-4 text-gray-800' : 'text-gray-800'}
+      ${mobile ? 'block py-2 px-4 text-gray-800 hover:bg-gray-100' : 'text-gray-800'}
       hover:text-primary transition duration-300 text-base sm:text-lg font-medium
     `}
   >
