@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import TypewriterComponent from 'typewriter-effect';
-import dynamic from "next/dynamic";
+import dynamic from 'next/dynamic';
 
 const Hero = () => {
   return (
@@ -15,15 +15,19 @@ const Hero = () => {
                 Hi, I&apos;m <span className="text-yellow-400">Menajul Hoque</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl mb-8 animate-fade-in-up animation-delay-300">
+                <span className="text-yellow-400">I am a </span>
                 <TypewriterComponent
                   options={{
                     strings: [
-                      'Data Engineer | Web Developer | Digital Marketing Specialist',
+                      'Data Engineer',
+                      'Web Developer',
+                      'Digital Marketing Specialist',
+                      'AI Enthusiast',
                     ],
                     autoStart: true,
                     loop: true,
                     cursor: '',
-                    wrapperClassName: 'text-yellow-400',
+                    wrapperClassName: 'inline-block',
                     cursorClassName: 'text-yellow-400',
                     colors: ['#FBBF24', '#3B82F6', '#10B981', '#F59E0B'],
                     delay: 100,
@@ -48,6 +52,21 @@ const Hero = () => {
                 objectFit="cover"
                 className="rounded-full"
               />
+              <div className="absolute inset-0 animate-pulse-outline rounded-full"></div>
+              <div className="absolute inset-0 animate-pulse-text">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-yellow-400 text-white px-4 py-2 rounded-full">
+                  Data Engineer
+                </div>
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 bg-blue-500 text-white px-4 py-2 rounded-full">
+                  Web Developer
+                </div>
+                <div className="absolute top-0 right-1/2 transform translate-x-1/2 -translate-y-1/2 bg-green-500 text-white px-4 py-2 rounded-full">
+                  Digital Marketing Specialist
+                </div>
+                <div className="absolute bottom-0 right-1/2 transform translate-x-1/2 translate-y-1/2 bg-orange-500 text-white px-4 py-2 rounded-full">
+                  AI Enthusiast
+                </div>
+              </div>
             </div>
           </div>
         </div>
