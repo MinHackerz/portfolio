@@ -14,7 +14,6 @@ const Hero = () => {
                 Hi, I&apos;m <span className="text-yellow-400">Menajul Hoque</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl mb-8 animate-fade-in-up animation-delay-300">
-                <span className="text-yellow-400">I am a </span>
                 <span className="inline-block text-yellow-400">Data Engineer</span>
                 <span className="inline-block text-blue-500"> | Web Developer</span>
                 <span className="inline-block text-green-500"> | Digital Marketing Specialist</span>
@@ -38,16 +37,16 @@ const Hero = () => {
               />
               <div className="absolute inset-0 animate-pulse-outline rounded-full"></div>
               {/* Roles around the circular profile picture */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-2 py-1 rounded-full">
+              <div className="absolute top-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-2 py-1 rounded-full">
                 Digital Marketing Specialist
               </div>
-              <div className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-yellow-400 text-white px-2 py-1 rounded-full">
+              <div className="absolute left-[-2rem] top-1/2 transform -translate-y-1/2 bg-yellow-400 text-white px-2 py-1 rounded-full">
                 Data Engineer
               </div>
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-2 py-1 rounded-full">
+              <div className="absolute right-[-2rem] top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-2 py-1 rounded-full">
                 Web Developer
               </div>
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-2 py-1 rounded-full">
+              <div className="absolute bottom-[-1.5rem] left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-2 py-1 rounded-full">
                 AI Enthusiast
               </div>
             </div>
