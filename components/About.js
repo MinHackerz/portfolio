@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section id="about" className="py-16 sm:py-20 bg-white relative px-4 sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-circles"></div>
-      <div className="container mx-auto relative z-10 max-w-4xl">
+      <div className="container mx-auto relative z-10">
         <h2 className="text-3xl sm:text-4xl font-extrabold mb-8 sm:mb-12 text-center text-gray-800" data-aos="fade-up">
           About Me
         </h2>
@@ -41,4 +41,4 @@ const About = () => {
   );
 };
 
-export default dynamic (() => Promise.resolve(About), {ssr: false})
+export default dynamic(() => Promise.resolve(About), { ssr: false });
