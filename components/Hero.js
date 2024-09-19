@@ -14,7 +14,7 @@ const Hero = () => {
                 Hi, I&apos;m <span className="text-yellow-500">Menajul Hoque</span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl mb-8 animate-fade-in-up animation-delay-300">
-                <span className="inline-block text-yellow-500">Data Engineer</span>
+                <span className="inline-block text-black-500">Data Engineer</span>
                 <span className="inline-block text-blue-600"> | Web Developer</span>
                 <span className="inline-block text-green-600"> | Digital Marketing Specialist</span>
               </p>
