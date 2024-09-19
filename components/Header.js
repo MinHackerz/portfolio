@@ -27,7 +27,7 @@ const Header = () => {
           scrolled ? 'glassmorphism shadow-md' : 'bg-transparent'
         }`}
       >
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center md:w-full">
           <Link href="/" className="flex items-center">
             <Image
               src="/Minhaj Logo.png"
@@ -64,7 +64,7 @@ const Header = () => {
           </div>
         </nav>
         {isMenuOpen && (
-          <div className="md:hidden glassmorphism shadow-md">
+          <div className="md:hidden glassmorphism shadow-md w-full">
             <NavLink href="#about" mobile>
               About
             </NavLink>
