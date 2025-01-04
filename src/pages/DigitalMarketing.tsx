@@ -44,9 +44,8 @@ const DigitalMarketing: FC = () => {
             {skills.map((skill) => (
               <SkillBar 
                 key={skill.name}
-                name={skill.name}
+                skill={skill.name}
                 level={skill.level}
-                maxLevel={4}
               />
             ))}
           </div>
