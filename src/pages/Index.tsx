@@ -1,9 +1,13 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Database, Globe, Megaphone } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Index: FC = () => {
+  useEffect(() => {
+    document.title = 'Menajul Hoque Portfolio | Home';
+  }, []);
+
   const roles = [
     { title: "Data Engineer", icon: Database, path: "/data-engineer", description: "Building robust data pipelines and analytics solutions" },
     { title: "Web Developer", icon: Globe, path: "/web-developer", description: "Creating modern and responsive web applications" },

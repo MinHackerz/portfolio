@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { motion } from "framer-motion";
 import SkillBar from "@/components/SkillBar";
 import ContactForm from "@/components/ContactForm";
@@ -6,6 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Github, ChevronRight } from 'lucide-react';
 
 const DigitalMarketing: FC = () => {
+  useEffect(() => {
+    document.title = 'Menajul Hoque | Digital Marketing Portfolio';
+  }, []);
+
   const skills = [
     { skill: "SEO", level: 4 },
     { skill: "Content Marketing", level: 4 },

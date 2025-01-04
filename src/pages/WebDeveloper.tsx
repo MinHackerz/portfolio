@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { motion } from "framer-motion";
 import SkillBar from "@/components/SkillBar";
 import ContactForm from "@/components/ContactForm";
@@ -6,6 +6,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Github, ChevronRight } from 'lucide-react';
 
 const WebDeveloper: FC = () => {
+  useEffect(() => {
+    document.title = 'Menajul Hoque | Web Developer Portfolio';
+  }, []);
+
   const skills = [
     { skill: "Next.js", level: 3 },
     { skill: "TypeScript", level: 3 },
