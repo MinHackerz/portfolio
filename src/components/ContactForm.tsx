@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm } from "@web3forms/react";
+import useForm from "@web3forms/react";
 
 const ContactForm = () => {
   const [result, setResult] = useState("");
