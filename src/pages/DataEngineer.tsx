@@ -2,19 +2,20 @@ import { FC } from "react";
 import SkillBar from "@/components/SkillBar";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const DataEngineer: FC = () => {
   const skills = [
-    { skill: "SAP BODS", level: 4 },
-    { skill: "Oracle SQL", level: 4 },
-    { skill: "Microsoft SQL Server", level: 3 },
-    { skill: "Python", level: 2 },
-    { skill: "Power BI", level: 3 },
-    { skill: "Excel", level: 3 },
-    { skill: "ETL", level: 4 },
-    { skill: "Data Warehousing", level: 4 },
-    { skill: "Data Modeling", level: 2 },
-    { skill: "Big Data", level: 2 },
+    { skill: "SAP BODS", level: 5 },
+    { skill: "Oracle SQL", level: 5 },
+    { skill: "Microsoft SQL Server", level: 4 },
+    { skill: "Python", level: 3 },
+    { skill: "Power BI", level: 4 },
+    { skill: "Excel", level: 4 },
+    { skill: "ETL", level: 5 },
+    { skill: "Data Warehousing", level: 5 },
+    { skill: "Data Modeling", level: 3 },
+    { skill: "Big Data", level: 3 },
   ];
 
   const experiences = [
@@ -43,18 +44,55 @@ const DataEngineer: FC = () => {
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
-      <div className="max-w-5xl mx-auto px-4 py-16 space-y-24">
-        <header className="text-center space-y-4">
-          <h1 className="text-6xl font-light text-primary">Data Engineer</h1>
+      {/* Header */}
+      <header className="border-b border-primary/10 bg-background/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <img
+              src="/placeholder.svg"
+              alt="Menajul Hoque"
+              className="w-10 h-10 rounded-full object-cover border border-accent/20"
+            />
+            <img
+              src="/placeholder.svg"
+              alt="Signature"
+              className="h-8 object-contain"
+            />
+          </div>
+          <div className="flex items-center space-x-6 text-sm text-muted">
+            <a href="mailto:contact@example.com" className="flex items-center hover:text-accent">
+              <Mail className="w-4 h-4 mr-2" />
+              contact@example.com
+            </a>
+            <a href="tel:+1234567890" className="flex items-center hover:text-accent">
+              <Phone className="w-4 h-4 mr-2" />
+              +1234567890
+            </a>
+            <span className="flex items-center">
+              <MapPin className="w-4 h-4 mr-2" />
+              Location, Country
+            </span>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <div className="max-w-5xl mx-auto px-4 pt-24 pb-16 space-y-24">
+        <section className="text-center space-y-4">
+          <h1 className="text-6xl font-light text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Data Engineer
+          </h1>
           <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
             I'm a results-driven Data Engineer with a strong background in ETL development and data analysis. 
             My expertise lies in designing and implementing robust data pipelines, optimizing data workflows, 
             and translating complex business requirements into efficient, scalable technical solutions.
           </p>
-        </header>
+        </section>
 
         <section className="space-y-8">
-          <h2 className="text-3xl font-light text-primary">Experience</h2>
+          <h2 className="text-3xl font-light text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Experience
+          </h2>
           <div className="grid gap-8">
             {experiences.map((exp) => (
               <Card key={exp.title + exp.period} className="border-primary/10 hover:border-accent/50 transition-colors">
@@ -81,7 +119,9 @@ const DataEngineer: FC = () => {
         </section>
 
         <section className="space-y-8">
-          <h2 className="text-3xl font-light text-primary">Skills</h2>
+          <h2 className="text-3xl font-light text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Skills
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
             {skills.map((skill) => (
               <SkillBar 
@@ -94,7 +134,9 @@ const DataEngineer: FC = () => {
         </section>
 
         <section className="space-y-8">
-          <h2 className="text-3xl font-light text-primary">Featured Project</h2>
+          <h2 className="text-3xl font-light text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Featured Project
+          </h2>
           <Card className="border-primary/10 hover:border-accent/50 transition-colors">
             <CardContent className="p-6">
               <h3 className="text-xl text-primary mb-3">YouTube Channel Statistics Analyzer</h3>
@@ -125,7 +167,9 @@ const DataEngineer: FC = () => {
         </section>
 
         <section className="space-y-8">
-          <h2 className="text-3xl font-light text-primary">Contact</h2>
+          <h2 className="text-3xl font-light text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Contact
+          </h2>
           <Card className="border-primary/10">
             <CardContent className="p-6">
               <ContactForm />

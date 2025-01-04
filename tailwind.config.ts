@@ -27,7 +27,7 @@ export default {
         background: "#ffffff",
         text: "#1A1F2C",
         muted: "#8E9196",
-        accent: "#FEC6A1",
+        accent: "#F97316", // Deeper orange color
         foreground: "rgb(var(--foreground))",
         border: "rgb(var(--border))",
       },
