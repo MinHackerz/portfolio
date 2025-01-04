@@ -1,54 +1,80 @@
 import { useState } from "react";
 import useForm from "@web3forms/react";
+import { toast } from "sonner";
 
 const ContactForm = () => {
-  const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const { submit } = useForm({
     access_key: "YOUR_ACCESS_KEY",
     onSuccess: (successMessage: string) => {
-      setResult(successMessage);
+      toast.success("Message sent successfully!");
+      setIsLoading(false);
     },
     onError: (errorMessage: string) => {
-      setResult(errorMessage);
+      toast.error("Failed to send message. Please try again.");
+      setIsLoading(false);
     }
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     const target = e.target as HTMLFormElement;
     await submit(target);
+    target.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
-      <input
-        type="text"
-        name="name"
-        required
-        placeholder="Your Name"
-        className="w-full p-2 border border-primary/20 rounded focus:border-primary bg-transparent text-primary"
-      />
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="Your Email"
-        className="w-full p-2 border border-primary/20 rounded focus:border-primary bg-transparent text-primary"
-      />
-      <textarea
-        name="message"
-        required
-        placeholder="Your Message"
-        rows={4}
-        className="w-full p-2 border border-primary/20 rounded focus:border-primary bg-transparent text-primary"
-      />
+    <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
+      <div className="space-y-2">
+        <label htmlFor="name" className="text-sm font-light text-text">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          className="w-full p-3 bg-transparent border border-gray-200 rounded-lg focus:border-accent focus:ring-1 focus:ring-accent text-text"
+          placeholder="John Doe"
+        />
+      </div>
+      
+      <div className="space-y-2">
+        <label htmlFor="email" className="text-sm font-light text-text">
+          Email
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          className="w-full p-3 bg-transparent border border-gray-200 rounded-lg focus:border-accent focus:ring-1 focus:ring-accent text-text"
+          placeholder="john@example.com"
+        />
+      </div>
+      
+      <div className="space-y-2">
+        <label htmlFor="message" className="text-sm font-light text-text">
+          Message
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          rows={4}
+          className="w-full p-3 bg-transparent border border-gray-200 rounded-lg focus:border-accent focus:ring-1 focus:ring-accent text-text resize-none"
+          placeholder="Your message..."
+        />
+      </div>
+
       <button
         type="submit"
-        className="w-full p-2 bg-primary text-white rounded hover:bg-secondary transition-colors"
+        disabled={isLoading}
+        className="w-full p-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors disabled:opacity-50"
       >
-        Send Message
+        {isLoading ? "Sending..." : "Send Message"}
       </button>
-      {result && <p className="text-primary mt-4">{result}</p>}
     </form>
   );
 };
