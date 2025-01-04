@@ -27,16 +27,16 @@ const Index: FC = () => {
             <img
               src="/Menajul_Picture.jpg"
               alt="Menajul Hoque"
-              className="w-32 h-32 rounded-full mx-auto mb-6 object-cover border-2 border-accent/20 transition-transform hover:scale-105"
+              className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-accent/20 transition-transform hover:scale-105"
             />
           </Link>
-          <h1 className="text-3xl font-bold text-primary mb-2">Menajul Hoque</h1>
-          <p className="text-muted text-lg mb-4">Data Engineer | Web Developer | Digital Marketer | Entrepreneur</p>
           <img
             src="/Menajul_Signature.png"
             alt="Signature"
-            className="h-12 mx-auto object-contain opacity-70"
+            className="h-12 mx-auto object-contain opacity-70 mb-4"
           />
+          <h1 className="text-3xl font-bold text-primary mb-2">Menajul Hoque</h1>
+          <p className="text-muted text-lg">Data Engineer | Web Developer | Digital Marketer | Entrepreneur</p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
