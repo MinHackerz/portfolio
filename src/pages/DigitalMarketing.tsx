@@ -99,7 +99,7 @@ const DigitalMarketing: FC = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl font-bold text-primary">
-            Digital Marketing
+            Digital Marketing Specialist
           </h1>
           <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
             Experienced in creating and optimizing digital marketing strategies, 
