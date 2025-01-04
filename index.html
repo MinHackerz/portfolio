@@ -6,12 +6,69 @@
     <title>Menajul Hoque - Portfolio</title>
     <meta name="description" content="Portfolio of Menajul Hoque - Data Engineer | Web Developer | Digital Marketing Specialist" />
     <meta name="author" content="Menajul Hoque" />
-    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://menajul.vercel.app/" />
+    <meta property="og:title" content="Menajul Hoque - Portfolio" />
+    <meta property="og:description" content="Portfolio of Menajul Hoque - Data Engineer | Web Developer | Digital Marketing Specialist" />
+    <meta property="og:image" content="https://menajul.vercel.app/og-image.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://menajul.vercel.app/" />
+    <meta property="twitter:title" content="Menajul Hoque - Portfolio" />
+    <meta property="twitter:description" content="Portfolio of Menajul Hoque - Data Engineer | Web Developer | Digital Marketing Specialist" />
+    <meta property="twitter:image" content="https://menajul.vercel.app/og-image.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://menajul.vercel.app/" />
   </head>
   <body>
     <div id="root"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Dynamic title and meta description update
+      function updateMetadata() {
+        const path = window.location.pathname;
+        let title = "Menajul Hoque - Portfolio";
+        let description = "Portfolio of Menajul Hoque - Data Engineer | Web Developer | Digital Marketing Specialist";
+
+        if (path === '/data-engineer') {
+          title = "Menajul Hoque - Data Engineer Portfolio";
+          description = "Explore Menajul Hoque's Data Engineering projects, skills, and experience.";
+        } else if (path === '/web-developer') {
+          title = "Menajul Hoque - Web Developer Portfolio";
+          description = "Discover Menajul Hoque's Web Development projects, technologies, and expertise.";
+        } else if (path === '/digital-marketing') {
+          title = "Menajul Hoque - Digital Marketing Portfolio";
+          description = "View Menajul Hoque's Digital Marketing strategies, campaigns, and results.";
+        }
+
+        document.title = title;
+        document.querySelector('meta[name="description"]').setAttribute("content", description);
+        document.querySelector('meta[property="og:title"]').setAttribute("content", title);
+        document.querySelector('meta[property="og:description"]').setAttribute("content", description);
+        document.querySelector('meta[property="twitter:title"]').setAttribute("content", title);
+        document.querySelector('meta[property="twitter:description"]').setAttribute("content", description);
+        document.querySelector('link[rel="canonical"]').setAttribute("href", `https://menajul.vercel.app${path}`);
+      }
+
+      // Run on initial load
+      updateMetadata();
+
+      // Update on route change (if using client-side routing)
+      window.addEventListener('popstate', updateMetadata);
+    </script>
   </body>
 </html>
