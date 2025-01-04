@@ -11,7 +11,7 @@ const Index: FC = () => {
   const roles = [
     { title: "Data Engineer", icon: Database, path: "/data-engineer", description: "Building robust data pipelines and analytics solutions" },
     { title: "Web Developer", icon: Globe, path: "/web-developer", description: "Creating modern and responsive web applications" },
-    { title: "Digital Marketing Specialist", icon: Megaphone, path: "/digital-marketing", description: "Driving growth through digital marketing strategies" },
+    { title: "Digital Marketer", icon: Megaphone, path: "/digital-marketing", description: "Driving growth through digital marketing strategies" },
   ];
 
   return (
