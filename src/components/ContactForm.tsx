@@ -5,13 +5,18 @@ const ContactForm = () => {
   const [result, setResult] = useState("");
   const { submit } = useForm({
     access_key: "YOUR_ACCESS_KEY",
+    onSuccess: (successMessage: string) => {
+      setResult(successMessage);
+    },
+    onError: (errorMessage: string) => {
+      setResult(errorMessage);
+    }
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const target = e.target as HTMLFormElement;
-    const result = await submit(target);
-    setResult(result.message);
+    await submit(target);
   };
 
   return (

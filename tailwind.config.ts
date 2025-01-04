@@ -26,6 +26,8 @@ export default {
         secondary: "#F97316",
         background: "#ffffff",
         text: "#1a1a1a",
+        foreground: "rgb(var(--foreground))",
+        border: "rgb(var(--border))",
       },
       animation: {
         "fade-in": "fadeIn 0.5s ease-in-out",

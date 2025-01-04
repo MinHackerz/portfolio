@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SkillBar } from "@/components/SkillBar";
+import SkillBar from "@/components/SkillBar";
 
 const DataEngineer: FC = () => {
   const skills = [
@@ -35,9 +35,8 @@ const DataEngineer: FC = () => {
             {skills.map((skill) => (
               <SkillBar 
                 key={skill.name}
-                name={skill.name}
+                skill={skill.name}
                 level={skill.level}
-                maxLevel={4}
               />
             ))}
           </div>

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SkillBar } from "@/components/SkillBar";
+import SkillBar from "@/components/SkillBar";
 
 const WebDeveloper: FC = () => {
   const skills = [
