@@ -35,6 +35,8 @@ const Index: FC = () => {
             alt="Signature"
             className="h-12 mx-auto object-contain opacity-70 mb-4"
           />
+          <h1 className="text-3xl font-bold text-primary mb-2">Menajul Hoque</h1>
+          <p className="text-muted text-lg">Data Engineer | Web Developer | Digital Marketer | Entrepreneur</p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
