@@ -31,7 +31,7 @@ const Index: FC = () => {
             />
           </Link>
           <img
-            src="/Menajul_Signature.png"
+            src="/Menajul_Signature.svg"
             alt="Signature"
             className="h-12 mx-auto object-contain opacity-70 mb-4"
           />
