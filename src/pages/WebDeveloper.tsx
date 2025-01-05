@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import SkillBar from "@/components/SkillBar";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import PortfolioHeader from "@/components/PortfolioHeader";
 
 const WebDeveloper: FC = () => {
   useEffect(() => {
@@ -58,40 +59,8 @@ const WebDeveloper: FC = () => {
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
-      {/* Header */}
-      <header className="fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-5xl z-50">
-        <div className="mx-4 bg-background/80 backdrop-blur-sm border border-primary/10 rounded-full">
-          <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <a href="/">
-                <img
-                  src="/Menajul_Picture.jpg"
-                  alt="Menajul Hoque"
-                  className="w-10 h-10 rounded-full object-cover border border-accent/20 cursor-pointer"
-                />
-              </a>
-              <img
-                src="/Menajul_Signature.png"
-                alt="Signature"
-                className="h-8 object-contain"
-              />
-            </div>
-            <div className="flex items-center space-x-6">
-              <a href="mailto:menajulhoque99@gmail.com" className="text-muted hover:text-accent transition-colors">
-                <Mail className="w-5 h-5" />
-              </a>
-              <a href="https://www.linkedin.com/in/menajul-hoque/" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="https://github.com/MinHackerz" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors">
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </header>
+      <PortfolioHeader />
 
-      {/* Main Content */}
       <main className="max-w-4xl mx-auto px-4 pt-24 pb-16 space-y-20">
         <motion.section 
           className="text-center space-y-4"
