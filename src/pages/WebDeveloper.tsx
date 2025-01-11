@@ -3,13 +3,27 @@ import { motion } from "framer-motion";
 import SkillBar from "@/components/SkillBar";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, ChevronRight, Eye } from 'lucide-react';
+import { Mail, Linkedin, Github, ChevronRight, Eye, Briefcase } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
-const WebDeveloper: FC = () => {
+const FullStackDeveloper: FC = () => {
   useEffect(() => {
-    document.title = 'Menajul Hoque | Web Developer Portfolio';
+    document.title = 'Menajul Hoque | Full-Stack Developer Portfolio';
   }, []);
+
+  const experience = {
+    title: "Individual Learner",
+    company: "Loneliness & LLMs",
+    period: "2020 - Present",
+    description: "As an end-to-end web developer, I've been focusing on building and improving VidStats, a SaaS platform for YouTube creators. This journey has been a testament to my ability to learn, adapt, and implement full-stack solutions independently.",
+    achievements: [
+      "Designed and developed the entire VidStats platform from concept to deployment",
+      "Implemented complex data analytics features to provide valuable insights for YouTube creators",
+      "Integrated various APIs and services to enhance platform functionality",
+      "Optimized performance and user experience through iterative development and user feedback",
+      "Managed all aspects of the project including frontend, backend, database, and DevOps",
+    ],
+  };
 
   const skills = [
     { skill: "Next.js", level: 3 },
@@ -60,8 +74,8 @@ const WebDeveloper: FC = () => {
   return (
     <>
       <Helmet>
-        <title>Web Developer Portfolio</title>
-        <meta name="description" content="Web Developer Portfolio showcasing my projects and skills" />
+        <title>Full-Stack Developer Portfolio</title>
+        <meta name="description" content="Full-Stack Developer Portfolio showcasing my projects and skills" />
       </Helmet>
       <div className="min-h-screen bg-background animate-fade-in">
         {/* Desktop Header */}
@@ -145,11 +159,11 @@ const WebDeveloper: FC = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl font-bold text-primary">
-              Web Developer
+              Full-Stack Developer
             </h1>
             <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Specializing in modern, responsive web applications using cutting-edge technologies. 
-              Focused on delivering clean, efficient code and exceptional user experiences.
+              Focused on delivering clean, efficient code and exceptional user experiences across the entire stack.
             </p>
           </motion.section>
 
@@ -158,6 +172,33 @@ const WebDeveloper: FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h2 className="text-2xl font-semibold text-primary relative">
+              Experience
+              <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
+            </h2>
+            <Card className="border-primary/10 hover:border-accent transition-colors">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Briefcase className="w-6 h-6 text-accent mr-2" />
+                  <h3 className="text-xl text-primary font-medium">{experience.title}</h3>
+                </div>
+                <p className="text-muted mb-2">{experience.company} | {experience.period}</p>
+                <p className="text-muted mb-4">{experience.description}</p>
+                <ul className="list-disc list-inside space-y-2">
+                  {experience.achievements.map((achievement, index) => (
+                    <li key={index} className="text-muted">{achievement}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          <motion.section 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Skills
@@ -178,7 +219,7 @@ const WebDeveloper: FC = () => {
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Featured Projects
@@ -215,7 +256,7 @@ const WebDeveloper: FC = () => {
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Get in Touch
@@ -233,4 +274,4 @@ const WebDeveloper: FC = () => {
   );
 };
 
-export default WebDeveloper;
+export default FullStackDeveloper;

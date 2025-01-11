@@ -1,10 +1,59 @@
-import { FC, useEffect } from "react";
-import { motion } from "framer-motion";
+import { FC, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SkillBar from "@/components/SkillBar";
 import ContactForm from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, ChevronRight, Eye } from 'lucide-react';
+import { Mail, Linkedin, Github, ChevronRight, Eye, Briefcase, X } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+
+const AchievementModal: FC<{ src: string; alt: string; onClose: () => void }> = ({ src, alt, onClose }) => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    onClick={onClose}
+  >
+    <motion.div
+      initial={{ scale: 0.8 }}
+      animate={{ scale: 1 }}
+      exit={{ scale: 0.8 }}
+      className="relative max-w-4xl w-full mx-4"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <img src={src} alt={alt} className="w-full h-auto rounded-lg shadow-xl" />
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-colors"
+        aria-label="Close modal"
+      >
+        <X size={24} />
+      </button>
+    </motion.div>
+  </motion.div>
+);
+
+const AchievementCard: FC<{ src: string; alt: string }> = ({ src, alt }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="cursor-pointer overflow-hidden rounded-lg shadow-md"
+        onClick={() => setIsOpen(true)}
+      >
+        <img src={src} alt={alt} className="w-full h-auto object-cover" />
+      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <AchievementModal src={src} alt={alt} onClose={() => setIsOpen(false)} />
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
 
 const DigitalMarketing: FC = () => {
   useEffect(() => {
@@ -48,12 +97,25 @@ const DigitalMarketing: FC = () => {
     },
   ];
 
+  const experience = {
+    title: "Digital Marketing Specialist (Freelance)",
+    company: "Fiverr.com",
+    period: "2020 - 2022",
+    description: "Provided comprehensive digital marketing services to diverse clients, leveraging skills in SEO, content marketing, and social media strategy. Improved online presence and engagement for small to medium-sized businesses across various industries.",
+    achievements: [
+      "Increased organic traffic by an average of 40% for client websites through targeted SEO strategies",
+      "Developed and executed content marketing plans that boosted client engagement rates by 25%",
+      "Managed social media campaigns resulting in a 50% increase in follower growth and interaction",
+      "Implemented Google Analytics and Google Ads campaigns, achieving a 30% improvement in conversion rates",
+    ],
+  };
+
   const achievements = [
-    '/Achievement1.png',
-    '/Achievement2.png',
-    '/Achievement3.png',
-    '/Achievement4.png',
-    '/Achievement5.png',
+    { src: '/Achievement1.png', alt: 'Achievement 1' },
+    { src: '/Achievement2.png', alt: 'Achievement 2' },
+    { src: '/Achievement3.png', alt: 'Achievement 3' },
+    { src: '/Achievement4.png', alt: 'Achievement 4' },
+    { src: '/Achievement5.png', alt: 'Achievement 5' },
   ];
 
   return (
@@ -160,6 +222,33 @@ const DigitalMarketing: FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
+              Experience
+              <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
+            </h2>
+            <Card className="border-primary/10 hover:border-accent transition-colors">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <Briefcase className="w-6 h-6 text-accent mr-2" />
+                  <h3 className="text-xl text-primary font-medium">{experience.title}</h3>
+                </div>
+                <p className="text-muted mb-2">{experience.company} | {experience.period}</p>
+                <p className="text-muted mb-4">{experience.description}</p>
+                <ul className="list-disc list-inside space-y-2">
+                  {experience.achievements.map((achievement, index) => (
+                    <li key={index} className="text-muted">{achievement}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          <motion.section 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h2 className="text-2xl font-semibold text-primary relative">
               Skills
               <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
             </h2>
@@ -178,7 +267,7 @@ const DigitalMarketing: FC = () => {
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Featured Projects
@@ -215,7 +304,24 @@ const DigitalMarketing: FC = () => {
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <h2 className="text-2xl font-semibold text-primary relative">
+              Achievements
+              <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {achievements.map((achievement, index) => (
+                <AchievementCard key={index} src={achievement.src} alt={achievement.alt} />
+              ))}
+            </div>
+          </motion.section>
+
+          <motion.section 
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Get in Touch
@@ -234,3 +340,4 @@ const DigitalMarketing: FC = () => {
 };
 
 export default DigitalMarketing;
+

@@ -36,7 +36,7 @@ const Index: FC = () => {
             className="h-12 mx-auto object-contain opacity-70 mb-4"
           />
           <h1 className="text-3xl font-bold text-primary mb-2">Menajul Hoque</h1>
-          <p className="text-muted text-lg">Data Engineer | Web Developer | Digital Marketer | Entrepreneur</p>
+          <p className="text-muted text-lg">Data Engineer | Full-Stack Developer | Digital Marketer | Entrepreneur</p>
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -57,7 +57,7 @@ const Index: FC = () => {
                   </div>
                   <p className="text-muted text-sm flex-grow">{role.description}</p>
                   <div className="mt-4 text-accent text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Explore my {role.title} portfolio→
+                    View {role.title} portfolio→
                   </div>
                 </div>
               </Link>
