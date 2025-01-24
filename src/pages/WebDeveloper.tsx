@@ -1,21 +1,22 @@
-import { FC, useEffect } from "react";
-import { motion } from "framer-motion";
-import SkillBar from "@/components/SkillBar";
-import ContactForm from "@/components/ContactForm";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, ChevronRight, Eye, Briefcase } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import { type FC, useEffect } from "react"
+import { motion } from "framer-motion"
+import SkillBar from "@/components/SkillBar"
+import ContactForm from "@/components/ContactForm"
+import { Card, CardContent } from "@/components/ui/card"
+import { Mail, Linkedin, Github, ChevronRight, Eye, Briefcase, Heart } from "lucide-react"
+import { Helmet } from "react-helmet-async"
 
 const FullStackDeveloper: FC = () => {
   useEffect(() => {
-    document.title = 'Menajul Hoque | Full-Stack Developer Portfolio';
-  }, []);
+    document.title = "Menajul Hoque | Full-Stack Developer Portfolio"
+  }, [])
 
   const experience = {
     title: "Individual Learner",
     company: "Loneliness & LLMs",
     period: "2020 - Present",
-    description: "As an end-to-end web developer, I've been focusing on building and improving VidStats, a SaaS platform for YouTube creators. This journey has been a testament to my ability to learn, adapt, and implement full-stack solutions independently.",
+    description:
+      "As an end-to-end web developer, I've been focusing on building and improving VidStats, a SaaS platform for YouTube creators. This journey has been a testament to my ability to learn, adapt, and implement full-stack solutions independently.",
     achievements: [
       "Designed and developed the entire VidStats platform from concept to deployment",
       "Implemented complex data analytics features to provide valuable insights for YouTube creators",
@@ -23,7 +24,7 @@ const FullStackDeveloper: FC = () => {
       "Optimized performance and user experience through iterative development and user feedback",
       "Managed all aspects of the project including frontend, backend, database, and DevOps",
     ],
-  };
+  }
 
   const skills = [
     { skill: "Next.js", level: 3 },
@@ -33,12 +34,13 @@ const FullStackDeveloper: FC = () => {
     { skill: "CSS", level: 3 },
     { skill: "JavaScript", level: 3 },
     { skill: "Supabase", level: 2 },
-  ];
+  ]
 
   const projects = [
     {
       name: "Quran GPT",
-      description: "An AI-powered platform that uses the Gemini Pro API to provide Islamic query responses with references.",
+      description:
+        "An AI-powered platform that uses the Gemini Pro API to provide Islamic query responses with references.",
       image: "/QuranGPT.png",
       links: [
         { url: "https://quran-gpt.netlify.app/", label: "View Project 1" },
@@ -47,29 +49,32 @@ const FullStackDeveloper: FC = () => {
     },
     {
       name: "IG Tools",
-      description: "A WordPress website featuring over 100 productivity tools for social media, SEO, and web development.",
+      description:
+        "A WordPress website featuring over 100 productivity tools for social media, SEO, and web development.",
       image: "/IGTools.png",
-      links: [
-        { url: "https://igtoolsapk.in", label: "View Project" },
-      ],
+      links: [{ url: "https://igtoolsapk.in", label: "View Project" }],
     },
     {
       name: "VidStats",
-      description: "A SaaS platform that empowers YouTube creators by providing powerful analytics and tools to help them grow their audience and engagement.",
+      description:
+        "A SaaS platform that empowers YouTube creators by providing powerful analytics and tools to help them grow their audience and engagement.",
       image: "/VidStats.png",
-      links: [
-        { url: "https://vidstats.pro", label: "View Project" },
-      ],
+      links: [{ url: "https://vidstats.pro", label: "View Project" }],
     },
     {
       name: "Mock Nest",
-      description: "A mock test providing website that helps candidates prepare themselves with relevant questions for any competitive test.",
+      description:
+        "A mock test providing website that helps candidates prepare themselves with relevant questions for any competitive test.",
       image: "/MockNest.png",
-      links: [
-        { url: "https://mocknest.com", label: "View Project" },
-      ],
+      links: [{ url: "https://mocknest.com", label: "View Project" }],
     },
-  ];
+  ]
+
+  const education = {
+    degree: "Bachelor of Engineering in Power Engineering",
+    university: "Jadavpur University",
+    cgpa: 8.06,
+  }
 
   return (
     <>
@@ -82,34 +87,30 @@ const FullStackDeveloper: FC = () => {
         <header className="fixed top-4 left-4 z-50 hidden md:block">
           <div className="flex flex-col items-center">
             <a href="/" className="mb-2">
-              <img
-                src="/Menajul_Sign.svg"
-                alt="Menajul Hoque"
-                className="w-64 h-32 object-contain"
-              />
+              <img src="/Menajul_Sign.svg" alt="Menajul Hoque" className="w-64 h-32 object-contain" />
             </a>
             <div className="flex flex-col space-y-4 mt-2">
-              <a 
-                href="mailto:menajulhoque99@gmail.com" 
-                className="text-muted hover:text-accent transition-colors" 
+              <a
+                href="mailto:menajulhoque99@gmail.com"
+                className="text-muted hover:text-accent transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/menajul-hoque/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted hover:text-accent transition-colors" 
+              <a
+                href="https://www.linkedin.com/in/menajul-hoque/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted hover:text-accent transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="https://github.com/MinHackerz" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted hover:text-accent transition-colors" 
+              <a
+                href="https://github.com/MinHackerz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted hover:text-accent transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -124,26 +125,34 @@ const FullStackDeveloper: FC = () => {
             <div className="px-4 py-2 flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <a href="/">
-                  <img
-                    src="/Menajul_Picture.jpg"
-                    alt="Menajul Hoque"
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
+                  <img src="/Menajul_Picture.jpg" alt="Menajul Hoque" className="w-10 h-10 rounded-full object-cover" />
                 </a>
-                <img
-                  src="/Menajul_Sign.svg"
-                  alt="Menajul Hoque Signature"
-                  className="h-10 w-10 object-contain"
-                />
+                <img src="/Menajul_Sign.svg" alt="Menajul Hoque Signature" className="h-10 w-10 object-contain" />
               </div>
               <div className="flex items-center space-x-4">
-                <a href="mailto:menajulhoque99@gmail.com" className="text-muted hover:text-accent transition-colors" aria-label="Email">
+                <a
+                  href="mailto:menajulhoque99@gmail.com"
+                  className="text-muted hover:text-accent transition-colors"
+                  aria-label="Email"
+                >
                   <Mail className="w-5 h-5" />
                 </a>
-                <a href="https://www.linkedin.com/in/menajul-hoque/" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" aria-label="LinkedIn">
+                <a
+                  href="https://www.linkedin.com/in/menajul-hoque/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-accent transition-colors"
+                  aria-label="LinkedIn"
+                >
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="https://github.com/MinHackerz" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" aria-label="GitHub">
+                <a
+                  href="https://github.com/MinHackerz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-accent transition-colors"
+                  aria-label="GitHub"
+                >
                   <Github className="w-5 h-5" />
                 </a>
               </div>
@@ -151,23 +160,28 @@ const FullStackDeveloper: FC = () => {
           </div>
         </header>
 
-        <main className="max-w-4xl mx-auto px-4 pt-20 md:pt-48 pb-16 space-y-20">
-          <motion.section 
+        <main className="max-w-4xl mx-auto px-4 pt-20 md:pt-24 pb-16 space-y-20">
+          <motion.section
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl font-bold text-primary">
-              Full-Stack Developer
-            </h1>
+            <div className="hidden md:block mb-4">
+              <img
+                src="/Menajul_Picture.jpg"
+                alt="Menajul Hoque"
+                className="w-32 h-32 rounded-full object-cover mx-auto border-2 border-orange-500 transition-transform duration-300 ease-in-out hover:scale-110"
+              />
+            </div>
+            <h1 className="text-4xl font-bold text-primary">Full-Stack Developer</h1>
             <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-              Specializing in modern, responsive web applications using cutting-edge technologies. 
-              Focused on delivering clean, efficient code and exceptional user experiences across the entire stack.
+              Specializing in modern, responsive web applications using cutting-edge technologies. Focused on delivering
+              clean, efficient code and exceptional user experiences across the entire stack.
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -183,18 +197,41 @@ const FullStackDeveloper: FC = () => {
                   <Briefcase className="w-6 h-6 text-accent mr-2" />
                   <h3 className="text-xl text-primary font-medium">{experience.title}</h3>
                 </div>
-                <p className="text-muted mb-2">{experience.company} | {experience.period}</p>
+                <p className="text-muted mb-2">
+                  {experience.company} | {experience.period}
+                </p>
                 <p className="text-muted mb-4">{experience.description}</p>
                 <ul className="list-disc list-inside space-y-2">
                   {experience.achievements.map((achievement, index) => (
-                    <li key={index} className="text-muted">{achievement}</li>
+                    <li key={index} className="text-muted">
+                      {achievement}
+                    </li>
                   ))}
                 </ul>
               </CardContent>
             </Card>
           </motion.section>
 
-          <motion.section 
+          <motion.section
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h2 className="text-2xl font-semibold text-primary relative">
+              Educational Qualification
+              <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
+            </h2>
+            <Card className="border-primary/10 hover:border-accent transition-colors">
+              <CardContent className="p-6">
+                <h3 className="text-xl text-primary font-medium mb-2">{education.degree}</h3>
+                <p className="text-muted">{education.university}</p>
+                <p className="text-muted">CGPA: {education.cgpa}</p>
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -206,16 +243,12 @@ const FullStackDeveloper: FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               {skills.map((skill) => (
-                <SkillBar 
-                  key={skill.skill}
-                  skill={skill.skill}
-                  level={skill.level}
-                />
+                <SkillBar key={skill.skill} skill={skill.skill} level={skill.level} />
               ))}
             </div>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -229,12 +262,16 @@ const FullStackDeveloper: FC = () => {
               {projects.map((project, index) => (
                 <Card key={project.name} className="border-primary/10 hover:border-accent transition-colors">
                   <CardContent className="p-6">
-                    <img src={project.image} alt={project.name} className="w-full h-40 object-cover rounded-md mb-4" />
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project.name}
+                      className="w-full h-40 object-cover rounded-md mb-4"
+                    />
                     <h3 className="text-xl text-primary font-medium mb-2">{project.name}</h3>
                     <p className="text-muted mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-4">
                       {project.links.map((link) => (
-                        <a 
+                        <a
                           key={link.url}
                           href={link.url}
                           target="_blank"
@@ -252,7 +289,7 @@ const FullStackDeveloper: FC = () => {
             </div>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -269,9 +306,14 @@ const FullStackDeveloper: FC = () => {
             </div>
           </motion.section>
         </main>
+        <footer className="mt-20 py-6 border-t border-gray-200">
+          <div className="text-center text-sm text-gray-500">
+            Designed and Crafted with <Heart className="inline-block w-4 h-4 text-red-500 mx-1" /> by Menajul Hoque
+          </div>
+        </footer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FullStackDeveloper;
+export default FullStackDeveloper

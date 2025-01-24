@@ -1,15 +1,15 @@
-import { FC, useEffect } from "react";
-import { motion } from "framer-motion";
-import SkillBar from "@/components/SkillBar";
-import ContactForm from "@/components/ContactForm";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Linkedin, Github, ChevronRight, Eye } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import { type FC, useEffect } from "react"
+import { motion } from "framer-motion"
+import SkillBar from "@/components/SkillBar"
+import ContactForm from "@/components/ContactForm"
+import { Card, CardContent } from "@/components/ui/card"
+import { Mail, Linkedin, Github, ChevronRight, Eye, Heart } from "lucide-react"
+import { Helmet } from "react-helmet-async"
 
 const DataEngineer: FC = () => {
   useEffect(() => {
-    document.title = 'Menajul Hoque | Data Engineer Portfolio';
-  }, []);
+    document.title = "Menajul Hoque | Data Engineer Portfolio"
+  }, [])
 
   const skills = [
     { skill: "SAP BODS", level: 4 },
@@ -22,7 +22,7 @@ const DataEngineer: FC = () => {
     { skill: "Data Warehousing", level: 3 },
     { skill: "Data Modeling", level: 3 },
     { skill: "Big Data", level: 2 },
-  ];
+  ]
 
   const experiences = [
     {
@@ -46,7 +46,13 @@ const DataEngineer: FC = () => {
         "Optimized low-performing data pipelines, reducing runtime by 35% and improving system efficiency",
       ],
     },
-  ];
+  ]
+
+  const education = {
+    degree: "Bachelor of Engineering in Power Engineering",
+    university: "Jadavpur University",
+    cgpa: 8.06,
+  }
 
   return (
     <>
@@ -59,34 +65,30 @@ const DataEngineer: FC = () => {
         <header className="fixed top-4 left-4 z-50 hidden md:block">
           <div className="flex flex-col items-center">
             <a href="/" className="mb-2">
-              <img
-                src="/Menajul_Sign.svg"
-                alt="Menajul Hoque"
-                className="w-64 h-32 object-contain"
-              />
+              <img src="/Menajul_Sign.svg" alt="Menajul Hoque" className="w-64 h-32 object-contain" />
             </a>
             <div className="flex flex-col space-y-4 mt-2">
-              <a 
-                href="mailto:menajulhoque99@gmail.com" 
-                className="text-muted hover:text-accent transition-colors" 
+              <a
+                href="mailto:menajulhoque99@gmail.com"
+                className="text-muted hover:text-accent transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.linkedin.com/in/menajul-hoque/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted hover:text-accent transition-colors" 
+              <a
+                href="https://www.linkedin.com/in/menajul-hoque/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted hover:text-accent transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="https://github.com/MinHackerz" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-muted hover:text-accent transition-colors" 
+              <a
+                href="https://github.com/MinHackerz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted hover:text-accent transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="w-5 h-5" />
@@ -101,26 +103,34 @@ const DataEngineer: FC = () => {
             <div className="px-4 py-2 flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <a href="/">
-                  <img
-                    src="/Menajul_Picture.jpg"
-                    alt="Menajul Hoque"
-                    className="w-10 h-10 rounded-full object-cover"
-                  />
+                  <img src="/Menajul_Picture.jpg" alt="Menajul Hoque" className="w-10 h-10 rounded-full object-cover" />
                 </a>
-                <img
-                  src="/Menajul_Sign.svg"
-                  alt="Menajul Hoque Signature"
-                  className="h-10 w-10 object-contain"
-                />
+                <img src="/Menajul_Sign.svg" alt="Menajul Hoque Signature" className="h-10 w-10 object-contain" />
               </div>
               <div className="flex items-center space-x-4">
-                <a href="mailto:menajulhoque99@gmail.com" className="text-muted hover:text-accent transition-colors" aria-label="Email">
+                <a
+                  href="mailto:menajulhoque99@gmail.com"
+                  className="text-muted hover:text-accent transition-colors"
+                  aria-label="Email"
+                >
                   <Mail className="w-5 h-5" />
                 </a>
-                <a href="https://www.linkedin.com/in/menajul-hoque/" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" aria-label="LinkedIn">
+                <a
+                  href="https://www.linkedin.com/in/menajul-hoque/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-accent transition-colors"
+                  aria-label="LinkedIn"
+                >
                   <Linkedin className="w-5 h-5" />
                 </a>
-                <a href="https://github.com/MinHackerz" target="_blank" rel="noopener noreferrer" className="text-muted hover:text-accent transition-colors" aria-label="GitHub">
+                <a
+                  href="https://github.com/MinHackerz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted hover:text-accent transition-colors"
+                  aria-label="GitHub"
+                >
                   <Github className="w-5 h-5" />
                 </a>
               </div>
@@ -128,22 +138,27 @@ const DataEngineer: FC = () => {
           </div>
         </header>
 
-        <main className="max-w-4xl mx-auto px-4 pt-20 md:pt-48 pb-16 space-y-20">
-          <motion.section 
+        <main className="max-w-4xl mx-auto px-4 pt-20 md:pt-24 pb-16 space-y-20">
+          <motion.section
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h1 className="text-4xl font-bold text-primary">
-              Data Engineer
-            </h1>
+            <div className="hidden md:block mb-4">
+              <img
+                src="/Menajul_Picture.jpg"
+                alt="Menajul Hoque"
+                className="w-32 h-32 rounded-full object-cover mx-auto border-2 border-orange-500 transition-transform duration-300 ease-in-out hover:scale-110"
+              />
+            </div>
+            <h1 className="text-4xl font-bold text-primary">Data Engineer</h1>
             <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Results-driven Data Engineer specializing in ETL development, data analysis, and scalable data solutions.
             </p>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,7 +175,9 @@ const DataEngineer: FC = () => {
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <h3 className="text-xl text-primary font-medium">{exp.title}</h3>
-                        <p className="text-muted">{exp.company} | {exp.period}</p>
+                        <p className="text-muted">
+                          {exp.company} | {exp.period}
+                        </p>
                       </div>
                     </div>
                     <ul className="space-y-2 text-muted">
@@ -177,11 +194,30 @@ const DataEngineer: FC = () => {
             </div>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h2 className="text-2xl font-semibold text-primary relative">
+              Educational Qualification
+              <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
+            </h2>
+            <Card className="border-primary/10 hover:border-accent transition-colors">
+              <CardContent className="p-6">
+                <h3 className="text-xl text-primary font-medium mb-2">{education.degree}</h3>
+                <p className="text-muted">{education.university}</p>
+                <p className="text-muted">CGPA: {education.cgpa}</p>
+              </CardContent>
+            </Card>
+          </motion.section>
+
+          <motion.section
+            className="space-y-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Skills
@@ -189,20 +225,16 @@ const DataEngineer: FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
               {skills.map((skill) => (
-                <SkillBar 
-                  key={skill.skill}
-                  skill={skill.skill}
-                  level={skill.level}
-                />
+                <SkillBar key={skill.skill} skill={skill.skill} level={skill.level} />
               ))}
             </div>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.35 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Featured Projects
@@ -211,13 +243,18 @@ const DataEngineer: FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Card className="border-primary/10 hover:border-accent transition-colors">
                 <CardContent className="p-6">
-                  <img src="/Youtube_Channel_Statistics.png" alt="YouTube Channel Statistics Analyzer" className="w-full h-40 object-cover rounded-md mb-4" />
+                  <img
+                    src="/Youtube_Channel_Statistics.png"
+                    alt="YouTube Channel Statistics Analyzer"
+                    className="w-full h-40 object-cover rounded-md mb-4"
+                  />
                   <h3 className="text-xl text-primary font-medium mb-2">YouTube Channel Statistics Analyzer</h3>
                   <p className="text-muted mb-4">
-                    An open-source Python project using the YouTube API to extract channel data and generate analytics dashboards.
+                    An open-source Python project using the YouTube API to extract channel data and generate analytics
+                    dashboards.
                   </p>
                   <div className="flex gap-4">
-                    <a 
+                    <a
                       href="https://youtube-stats.streamlit.app/"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -226,7 +263,7 @@ const DataEngineer: FC = () => {
                       <Eye className="w-4 h-4 mr-1" />
                       View Project
                     </a>
-                    <a 
+                    <a
                       href="https://github.com/MinHackerz/youtube-stats"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -243,10 +280,11 @@ const DataEngineer: FC = () => {
                   <img src="/VidStats.png" alt="VidStats" className="w-full h-40 object-cover rounded-md mb-4" />
                   <h3 className="text-xl text-primary font-medium mb-2">VidStats</h3>
                   <p className="text-muted mb-4">
-                    A SaaS platform empowering YouTube creators with powerful analytics and tools to grow their audience and engagement.
+                    A SaaS platform empowering YouTube creators with powerful analytics and tools to grow their audience
+                    and engagement.
                   </p>
                   <div className="flex gap-4">
-                    <a 
+                    <a
                       href="https://vidstats.pro"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -261,11 +299,11 @@ const DataEngineer: FC = () => {
             </div>
           </motion.section>
 
-          <motion.section 
+          <motion.section
             className="space-y-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.45 }}
           >
             <h2 className="text-2xl font-semibold text-primary relative">
               Get in Touch
@@ -278,9 +316,14 @@ const DataEngineer: FC = () => {
             </div>
           </motion.section>
         </main>
+        <footer className="mt-20 py-6 border-t border-gray-200">
+          <div className="text-center text-sm text-gray-500">
+            Designed and Crafted with <Heart className="inline-block w-4 h-4 text-red-500 mx-1" /> by Menajul Hoque
+          </div>
+        </footer>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default DataEngineer;
+export default DataEngineer
