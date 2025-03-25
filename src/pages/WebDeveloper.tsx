@@ -5,6 +5,8 @@ import ContactForm from "@/components/ContactForm"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Linkedin, Github, ChevronRight, Eye, Briefcase, Heart } from "lucide-react"
 import { Helmet } from "react-helmet-async"
+import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 
 const FullStackDeveloper: FC = () => {
   useEffect(() => {
@@ -37,6 +39,20 @@ const FullStackDeveloper: FC = () => {
   ]
 
   const projects = [
+    {
+      name: "YT Stats",
+      description:
+        "A modern landing page that redirects users to advanced YouTube analytics tools, helping creators optimize their channel growth and performance.",
+      image: "/ytstats-pro.webp",
+      links: [{ url: "https://ytstats.pro", label: "View Project" }],
+    },
+    {
+      name: "YouTube Transcript",
+      description:
+        "An AI-powered website that provides free transcripts of YouTube videos reformatted with punctuation using AI. Users can summarize the transcript, generate captions, and translate content into over 125 languages.",
+      image: "/youtubetranscript-demo.gif",
+      links: [{ url: "https://youtubetranscript.com", label: "View Project" }],
+    },
     {
       name: "Quran GPT",
       description:
@@ -77,90 +93,15 @@ const FullStackDeveloper: FC = () => {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>Full-Stack Developer Portfolio</title>
-        <meta name="description" content="Full-Stack Developer Portfolio showcasing my projects and skills" />
-      </Helmet>
-      <div className="min-h-screen bg-background animate-fade-in">
-        {/* Desktop Header */}
-        <header className="fixed top-4 left-4 z-50 hidden md:block">
-          <div className="flex flex-col items-center">
-            <a href="/" className="mb-2">
-              <img src="/Menajul_Sign.svg" alt="Menajul Hoque" className="w-64 h-32 object-contain" />
-            </a>
-            <div className="flex flex-col space-y-4 mt-2">
-              <a
-                href="mailto:menajulhoque99@gmail.com"
-                className="text-muted hover:text-accent transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/menajul-hoque/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-accent transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://github.com/MinHackerz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted hover:text-accent transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </header>
-
-        {/* Mobile Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 md:hidden">
-          <div className="mx-4 my-2 bg-background/80 backdrop-blur-sm border border-primary/10 rounded-full">
-            <div className="px-4 py-2 flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <a href="/">
-                  <img src="/Menajul_Picture.jpg" alt="Menajul Hoque" className="w-10 h-10 rounded-full object-cover" />
-                </a>
-                <img src="/Menajul_Sign.svg" alt="Menajul Hoque Signature" className="h-10 w-10 object-contain" />
-              </div>
-              <div className="flex items-center space-x-4">
-                <a
-                  href="mailto:menajulhoque99@gmail.com"
-                  className="text-muted hover:text-accent transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/menajul-hoque/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted hover:text-accent transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://github.com/MinHackerz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted hover:text-accent transition-colors"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <main className="max-w-4xl mx-auto px-4 pt-20 md:pt-24 pb-16 space-y-20">
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <Helmet>
+          <title>Full-Stack Developer Portfolio</title>
+          <meta name="description" content="Full-Stack Developer Portfolio showcasing my projects and skills" />
+        </Helmet>
+        <div className="max-w-4xl mx-auto px-4 pt-20 md:pt-24 pb-16 space-y-20 relative z-10">
           <motion.section
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 20 }}
@@ -171,10 +112,10 @@ const FullStackDeveloper: FC = () => {
               <img
                 src="/Menajul_Picture.jpg"
                 alt="Menajul Hoque"
-                className="w-32 h-32 rounded-full object-cover mx-auto border-2 border-orange-500 transition-transform duration-300 ease-in-out hover:scale-110"
+                className="w-32 h-32 rounded-full object-cover mx-auto border-2 border-orange-500 transition-transform duration-300 ease-in-out hover:scale-110 shadow-lg"
               />
             </div>
-            <h1 className="text-4xl font-bold text-primary">Full-Stack Developer</h1>
+            <h1 className="text-4xl font-bold text-primary text-gradient">Full-Stack Developer</h1>
             <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
               Specializing in modern, responsive web applications using cutting-edge technologies. Focused on delivering
               clean, efficient code and exceptional user experiences across the entire stack.
@@ -191,7 +132,7 @@ const FullStackDeveloper: FC = () => {
               Experience
               <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
             </h2>
-            <Card className="border-primary/10 hover:border-accent transition-colors">
+            <Card className="bg-glass card-gradient border-gradient">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <Briefcase className="w-6 h-6 text-accent mr-2" />
@@ -222,7 +163,7 @@ const FullStackDeveloper: FC = () => {
               Educational Qualification
               <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
             </h2>
-            <Card className="border-primary/10 hover:border-accent transition-colors">
+            <Card className="bg-glass card-gradient border-gradient">
               <CardContent className="p-6">
                 <h3 className="text-xl text-primary font-medium mb-2">{education.degree}</h3>
                 <p className="text-muted">{education.university}</p>
@@ -241,7 +182,7 @@ const FullStackDeveloper: FC = () => {
               Skills
               <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 bg-glass p-6 rounded-lg border-gradient">
               {skills.map((skill) => (
                 <SkillBar key={skill.skill} skill={skill.skill} level={skill.level} />
               ))}
@@ -260,13 +201,33 @@ const FullStackDeveloper: FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map((project, index) => (
-                <Card key={project.name} className="border-primary/10 hover:border-accent transition-colors">
+                <Card key={project.name} className="bg-glass card-gradient border-gradient">
                   <CardContent className="p-6">
-                    <img
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.name}
-                      className="w-full h-40 object-cover rounded-md mb-4"
-                    />
+                    <div className="relative group overflow-hidden rounded-md mb-4">
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.name}
+                        className="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                        <div className="p-3 w-full">
+                          <div className="flex flex-wrap gap-2">
+                            {project.links.map((link) => (
+                              <a
+                                key={link.url}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-white hover:text-orange-300 transition-colors font-medium flex items-center bg-black/30 px-2 py-1 rounded-full text-sm"
+                              >
+                                <Eye className="w-3 h-3 mr-1" />
+                                {link.label}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <h3 className="text-xl text-primary font-medium mb-2">{project.name}</h3>
                     <p className="text-muted mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-4">
@@ -299,20 +260,17 @@ const FullStackDeveloper: FC = () => {
               Get in Touch
               <span className="block h-1 w-16 bg-accent mt-1 rounded"></span>
             </h2>
-            <div className="border border-gray-300 hover:border-orange-500 transition-colors rounded-lg p-4">
+            <div className="bg-glass border-gradient rounded-lg p-4">
               <CardContent className="p-6">
                 <ContactForm />
               </CardContent>
             </div>
           </motion.section>
-        </main>
-        <footer className="mt-20 py-6 border-t border-gray-200">
-          <div className="text-center text-sm text-gray-500">
-            Designed and Crafted with <Heart className="inline-block w-4 h-4 text-red-500 mx-1" /> by Menajul Hoque
-          </div>
-        </footer>
-      </div>
-    </>
+        </div>
+      </main>
+      
+      <Footer />
+    </div>
   )
 }
 
