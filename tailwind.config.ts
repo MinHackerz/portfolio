@@ -36,6 +36,7 @@ export default {
         "slide-up": "slideUp 0.5s ease-out",
         "slide-down": "slideDown 0.5s ease-out",
         shimmer: "shimmer 2s linear infinite",
+        scan: "scan 3s linear infinite",
       },
       keyframes: {
         fadeIn: {
