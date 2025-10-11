@@ -2,6 +2,7 @@ import { type FC, useEffect } from "react"
 import { ExternalLink } from "lucide-react"
 import Footer from "@/components/Footer"
 import { ThemeToggle } from "@/components/ThemeToggle"
+import EnhancedExperiments from "@/components/EnhancedExperiments"
 
 const Index: FC = () => {
   useEffect(() => {
@@ -9,6 +10,14 @@ const Index: FC = () => {
   }, []);
 
   const projects = [
+    {
+      title: "QuranGPT",
+      year: "2023",
+      description: "AI-powered chatbot web application that answers user questions with references from the Holy Quran. Initially developed on WordPress, then evolved to Next.js for enhanced performance and user experience.",
+      tech: "Next.js, WordPress, React, AI APIs",
+      status: "Live",
+      link: "https://quran-gpt.netlify.app/"
+    },
     {
       title: "VidStats",
       year: "2024",
@@ -24,14 +33,6 @@ const Index: FC = () => {
       tech: "Vite.js, React, Tailwind CSS, Gemini API",
       status: "Live",
       link: "https://youtubetranscript.in"
-    },
-    {
-      title: "QuranGPT",
-      year: "2023",
-      description: "AI-powered chatbot web application that answers user questions with references from the Holy Quran. Initially developed on WordPress, then evolved to Next.js for enhanced performance and user experience.",
-      tech: "Next.js, WordPress, React, AI APIs",
-      status: "Live",
-      link: "https://quran-gpt.netlify.app/"
     },
     {
       title: "IG Tools APK",
@@ -51,9 +52,42 @@ const Index: FC = () => {
       </div>
       
       <div className="max-w-xl mx-auto px-6 pt-8 pb-8">
+        {/* SVG Filter for Electric Border Effect */}
+        <svg className="svg-container" style={{ position: 'absolute', width: 0, height: 0 }}>
+          <defs>
+            <filter id="turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="noise1" seed="1" />
+              <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+                <animate attributeName="dy" values="300; 0" dur="8s" repeatCount="indefinite" calcMode="linear" />
+              </feOffset>
+              <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="noise2" seed="1" />
+              <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+                <animate attributeName="dy" values="0; -300" dur="8s" repeatCount="indefinite" calcMode="linear" />
+              </feOffset>
+              <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="noise1" seed="2" />
+              <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+                <animate attributeName="dx" values="200; 0" dur="8s" repeatCount="indefinite" calcMode="linear" />
+              </feOffset>
+              <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="5" result="noise2" seed="2" />
+              <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+                <animate attributeName="dx" values="0; -200" dur="8s" repeatCount="indefinite" calcMode="linear" />
+              </feOffset>
+              <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+              <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+              <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+              <feDisplacementMap id="displacementMap" in="SourceGraphic" in2="combinedNoise" scale="15" xChannelSelector="R" yChannelSelector="B" />
+            </filter>
+          </defs>
+        </svg>
+
+        {/* Mobile Theme Toggle - Top Right Corner */}
+        <div className="mobile-theme-toggle-corner">
+          <ThemeToggle />
+        </div>
+        
         {/* Header */}
         <header className="mb-12">
-          <div className="flex items-center justify-between mb-10">
+          <div className="flex items-center justify-between mb-8">
             <div className="flex items-center">
               <img
                 src="/Menajul_Picture.jpg"
@@ -65,9 +99,31 @@ const Index: FC = () => {
                 <p className="text-subtle mt-1">kolkata, in.</p>
               </div>
             </div>
-            {/* Mobile theme toggle - inline */}
-            <div className="mobile-theme-toggle">
-              <ThemeToggle />
+            <div className="flex items-center gap-4">
+              {/* Hire Me Button */}
+              <a
+                href="https://www.linkedin.com/in/menajul-hoque/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hire-me-button"
+              >
+                hire me
+              </a>
+            </div>
+          </div>
+
+          {/* Availability & Roles Section */}
+          <div className="availability-section mb-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="availability-indicator">
+                <div className="availability-dot"></div>
+                <span className="availability-text">open for full time remote roles</span>
+              </div>
+            </div>
+            <div className="role-tags">
+              <span className="role-tag">Data Engineer</span>
+              <span className="role-tag">SAP BODS Developer</span>
+              <span className="role-tag">AI Product Manager</span>
             </div>
           </div>
 
@@ -97,57 +153,8 @@ const Index: FC = () => {
           </div>
         </section>
 
-        {/* Projects Section */}
-        <section className="mb-12">
-          <h2 className="mb-8">experiments</h2>
-          <p className="text-subtle pb-4 hover-border" style={{ marginBottom: '24px' }}>
-            Technical projects and experiments exploring data engineering, web development, and digital tools.
-          </p>
-          
-          <div className="space-y-12">
-            {projects.map((project, index) => (
-              <div 
-                key={index}
-                className="project-item group"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-4">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-title-link"
-                    >
-                      <h3 className="font-medium">{project.title}</h3>
-                    </a>
-                    {project.status === 'Live' && (
-                      <span className="live-dot"></span>
-                    )}
-                        </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-muted">{project.year}</span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="external-link-wrapper"
-                    >
-                      <ExternalLink className="external-link w-3 h-3 text-gray-400" />
-                    </a>
-                  </div>
-                </div>
-                
-                <p className="text-subtle leading-relaxed hover-border mb-2">
-                  {project.description}
-                </p>
-                
-                <p className="text-xs text-muted hover-border">
-                  {project.tech}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
+        {/* Enhanced Experiments Section */}
+        <EnhancedExperiments projects={projects} />
 
         {/* Connect Section */}
         <section className="mb-12">
