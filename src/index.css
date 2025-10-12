@@ -1488,7 +1488,7 @@ iframe {
   95% { opacity: 0.85; }
 }
 
-/* Electric Project Card Borders */
+/* Project Card Styling */
 .project-item {
   position: relative;
 }
@@ -1505,7 +1505,7 @@ iframe {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  border: 1px solid var(--neon-green);
+  border: none;
   border-radius: 12px;
   filter: url(#turbulent-displace);
   
@@ -1569,4 +1569,3 @@ iframe {
   0%, 95%, 100% { opacity: 1; }
   98% { opacity: 0.9; }
 }
-

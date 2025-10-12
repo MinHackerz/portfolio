@@ -597,7 +597,7 @@ const EnhancedExperiments: FC<EnhancedExperimentsProps> = ({ projects }) => {
               onMouseLeave={handleProjectLeave}
             >
               {/* Enhanced project card */}
-              <div className="project-card bg-white dark:bg-transparent rounded-lg p-6 border border-gray-200 dark:border-gray-700 transition-all duration-200 hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/20 relative overflow-hidden">
+              <div className="project-card bg-white dark:bg-transparent rounded-lg p-6 transition-all duration-200 hover:bg-gray-50 dark:hover:bg-gray-800/20 relative overflow-hidden">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center border border-gray-200 dark:border-gray-700">
