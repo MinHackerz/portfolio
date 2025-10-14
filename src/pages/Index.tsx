@@ -107,7 +107,7 @@ const Index: FC = () => {
                 rel="noopener noreferrer"
                 className="hire-me-button"
               >
-                hire me
+                let's build together
               </a>
             </div>
           </div>
