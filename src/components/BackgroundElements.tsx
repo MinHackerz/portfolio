@@ -54,16 +54,17 @@ const BackgroundElements: FC = () => {
       color: string;
     }> = [];
 
-    // Initialize minimal particles
-    for (let i = 0; i < 15; i++) {
+    // Initialize minimal particles - reduced count for better performance
+    const particleCount = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 5 : 10;
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         z: Math.random() * 1000,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        vz: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.2,
+        vy: (Math.random() - 0.5) * 0.2,
+        vz: (Math.random() - 0.5) * 0.2,
+        size: Math.random() * 1.5 + 0.5,
         color: `hsl(${200 + Math.random() * 40}, 60%, 70%)`
       });
     }
@@ -100,22 +101,26 @@ const BackgroundElements: FC = () => {
         ctx.fillStyle = particle.color;
         ctx.fill();
 
-        // Draw minimal connections
-        particles.forEach(other => {
-          const otherScale = 1000 / (1000 + other.z);
-          const otherX = other.x * otherScale;
-          const otherY = other.y * otherScale;
-          
-          const distance = Math.sqrt((x - otherX) ** 2 + (y - otherY) ** 2);
-          if (distance < 150 && distance > 0) {
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(otherX, otherY);
-            ctx.strokeStyle = `rgba(100, 150, 255, ${0.05 * (1 - distance / 150)})`;
-            ctx.lineWidth = 0.3;
-            ctx.stroke();
-          }
-        });
+        // Draw minimal connections - reduced frequency for performance
+        // Only check connections every other frame
+        if (particles.indexOf(particle) % 2 === 0) {
+          particles.forEach(other => {
+            if (particle === other) return;
+            const otherScale = 1000 / (1000 + other.z);
+            const otherX = other.x * otherScale;
+            const otherY = other.y * otherScale;
+            
+            const distance = Math.sqrt((x - otherX) ** 2 + (y - otherY) ** 2);
+            if (distance < 120 && distance > 0) {
+              ctx.beginPath();
+              ctx.moveTo(x, y);
+              ctx.lineTo(otherX, otherY);
+              ctx.strokeStyle = `rgba(100, 150, 255, ${0.03 * (1 - distance / 120)})`;
+              ctx.lineWidth = 0.2;
+              ctx.stroke();
+            }
+          });
+        }
       });
 
       requestAnimationFrame(render);
