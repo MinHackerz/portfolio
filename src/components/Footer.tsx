@@ -1,38 +1,107 @@
 import { FC } from "react";
 
-const Footer: FC = () => {
+// Pixel/dot matrix letter definitions (5x5 grid for shorter height)
+const pixelLetters: Record<string, number[][]> = {
+  M: [
+    [1, 0, 0, 0, 1],
+    [1, 1, 0, 1, 1],
+    [1, 0, 1, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+  ],
+  E: [
+    [1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 0],
+    [1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1],
+  ],
+  N: [
+    [1, 0, 0, 0, 1],
+    [1, 1, 0, 0, 1],
+    [1, 0, 1, 0, 1],
+    [1, 0, 0, 1, 1],
+    [1, 0, 0, 0, 1],
+  ],
+  A: [
+    [0, 1, 1, 1, 0],
+    [1, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+  ],
+  J: [
+    [0, 0, 0, 1, 1],
+    [0, 0, 0, 0, 1],
+    [0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [0, 1, 1, 1, 0],
+  ],
+  U: [
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [0, 1, 1, 1, 0],
+  ],
+  L: [
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 0],
+    [1, 1, 1, 1, 1],
+  ],
+};
+
+interface PixelLetterProps {
+  letter: string;
+}
+
+const PixelLetter: FC<PixelLetterProps> = ({ letter }) => {
+  const grid = pixelLetters[letter] || [];
+  const totalRows = grid.length;
+
   return (
-    <footer className="fixed bottom-0 left-0 right-0 h-96 pointer-events-none overflow-hidden z-10">
-      {/* Main "Menajul" text spanning full width and height */}
-      <div className="absolute inset-0 flex items-end justify-center pb-4">
-        <div className="relative w-full text-center">
-          {/* Large faded text spanning extreme left to extreme right and bottom */}
-          <div 
-            className="text-6xl sm:text-7xl md:text-9xl lg:text-[10rem] xl:text-[12rem] 2xl:text-[16rem] font-bold tracking-wider text-gray-400/15 dark:text-gray-500/10"
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              textShadow: '0 0 20px rgba(156, 163, 175, 0.08)',
-              filter: 'blur(0.4px)',
-              background: 'linear-gradient(to bottom, rgba(156, 163, 175, 0.2) 0%, rgba(156, 163, 175, 0.1) 40%, rgba(156, 163, 175, 0.05) 70%, rgba(156, 163, 175, 0.02) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              width: '100vw',
-              marginLeft: 'calc(-50vw + 50%)',
-              marginRight: 'calc(-50vw + 50%)',
-              lineHeight: '0.63',
-              letterSpacing: '0.35em',
-              whiteSpace: 'nowrap',
-              overflow: 'visible',
-              transform: 'scaleY(1.1) scaleX(1.05)',
-            }}
+    <div className="flex flex-col gap-[1px] sm:gap-[2px]">
+      {grid.map((row, rowIndex) => {
+        // Calculate opacity: faded at top (8% opacity), deeper at bottom (35% opacity)
+        const opacity = 0.06 + (rowIndex / (totalRows - 1)) * 0.28;
+
+        return (
+          <div
+            key={rowIndex}
+            className="flex gap-[1px] sm:gap-[2px]"
           >
-            MENAJUL
+            {row.map((cell, colIndex) => (
+              <div
+                key={colIndex}
+                className="aspect-square rounded-[1px] flex-1"
+                style={{
+                  backgroundColor: cell ? `rgba(120, 120, 120, ${opacity})` : 'transparent',
+                }}
+              />
+            ))}
           </div>
-        </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const Footer: FC = () => {
+  const name = "MENAJUL";
+
+  return (
+    <footer className="fixed bottom-0 left-0 right-0 pointer-events-none overflow-hidden z-10 px-2 sm:px-4 md:px-8 pb-1 sm:pb-2">
+      <div className="w-full flex justify-between gap-1 sm:gap-2 md:gap-3">
+        {name.split('').map((letter, index) => (
+          <div key={index} className="flex-1">
+            <PixelLetter letter={letter} />
+          </div>
+        ))}
       </div>
     </footer>
   );
 };
 
-export default Footer; 
+export default Footer;

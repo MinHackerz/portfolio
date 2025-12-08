@@ -20,6 +20,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["DM Sans", "sans-serif"],
+        serif: ["EB Garamond", "serif"],
       },
       colors: {
         primary: "#1A1F2C",

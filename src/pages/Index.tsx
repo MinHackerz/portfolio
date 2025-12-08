@@ -1,12 +1,59 @@
-import { type FC, useEffect } from "react"
-import { ExternalLink } from "lucide-react"
+import { type FC, useEffect, ReactNode } from "react"
+import { Mail, Github, Linkedin } from "lucide-react"
 import Footer from "@/components/Footer"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import EnhancedExperiments from "@/components/EnhancedExperiments"
 
+// Geometric box component with corner cross marks (only 2 opposite corners)
+interface GeometricBoxProps {
+  children: ReactNode;
+  className?: string;
+  variant?: 'primary' | 'secondary'; // primary = top-left + bottom-right, secondary = top-right + bottom-left
+}
+
+const GeometricBox: FC<GeometricBoxProps> = ({ children, className = "", variant = "primary" }) => (
+  <div className={`relative ${className}`}>
+    {/* Main box with border */}
+    <div className="border border-gray-200 dark:border-gray-800 p-6 sm:p-8 relative">
+      {children}
+    </div>
+
+    {/* Corner cross marks - only 2 opposite corners */}
+    {variant === 'primary' ? (
+      <>
+        {/* Top-left corner */}
+        <div className="absolute -top-3 -left-3 w-6 h-6">
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300 dark:bg-gray-700 -translate-y-1/2" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gray-300 dark:bg-gray-700 -translate-x-1/2" />
+        </div>
+
+        {/* Bottom-right corner */}
+        <div className="absolute -bottom-3 -right-3 w-6 h-6">
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300 dark:bg-gray-700 -translate-y-1/2" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gray-300 dark:bg-gray-700 -translate-x-1/2" />
+        </div>
+      </>
+    ) : (
+      <>
+        {/* Top-right corner */}
+        <div className="absolute -top-3 -right-3 w-6 h-6">
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300 dark:bg-gray-700 -translate-y-1/2" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gray-300 dark:bg-gray-700 -translate-x-1/2" />
+        </div>
+
+        {/* Bottom-left corner */}
+        <div className="absolute -bottom-3 -left-3 w-6 h-6">
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gray-300 dark:bg-gray-700 -translate-y-1/2" />
+          <div className="absolute left-1/2 top-0 w-px h-full bg-gray-300 dark:bg-gray-700 -translate-x-1/2" />
+        </div>
+      </>
+    )}
+  </div>
+);
+
 const Index: FC = () => {
   useEffect(() => {
-    document.title = "Menajul Hoque"
+    document.title = "Menajul Hoque - Data Engineer & Applied AI Engineer"
   }, []);
 
   const projects = [
@@ -50,156 +97,108 @@ const Index: FC = () => {
       <div className="desktop-theme-toggle">
         <ThemeToggle />
       </div>
-      
-      <div className="max-w-xl mx-auto px-6 pt-8 pb-8">
-        {/* Simplified SVG Filter for Electric Border Effect - only rendered on hover */}
-        <svg className="svg-container" style={{ position: 'absolute', width: 0, height: 0 }} aria-hidden="true">
-          <defs>
-            <filter id="turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
-              {/* Simplified filter - reduced complexity for better performance */}
-              <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="2" result="noise" />
-              <feDisplacementMap in="SourceGraphic" in2="noise" scale="8" xChannelSelector="R" yChannelSelector="B" />
-            </filter>
-          </defs>
-        </svg>
+
+      <div className="max-w-xl mx-auto px-6 pt-8 pb-12">
 
         {/* Mobile Theme Toggle - Top Right Corner */}
         <div className="mobile-theme-toggle-corner">
           <ThemeToggle />
         </div>
-        
-        {/* Header */}
-        <header className="mb-12">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center">
+
+        {/* Header in geometric box */}
+        <GeometricBox className="mb-10" variant="primary">
+          <div className="flex items-start justify-between mb-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
               <img
                 src="/profile-picture-png.png"
                 alt="Menajul Hoque"
-                className="w-14 h-14 rounded-full object-cover mr-6"
+                className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
               />
               <div>
-                <h1 className="name-style">Menajul Hoque</h1>
-                <p className="text-subtle mt-1">kolkata, in.</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-4 mr-4">
-              {/* Hire Me Button */}
-              <a
-                href="https://www.linkedin.com/in/menajul-hoque/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hire-me-button"
-              >
-                let's build together
-              </a>
-            </div>
-          </div>
-
-          {/* Availability & Roles Section */}
-          <div className="availability-section mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="availability-indicator">
-                <div className="availability-dot"></div>
-                <span className="availability-text">open for full time remote roles</span>
-              </div>
-            </div>
-            <div className="role-tags">
-              <span className="role-tag">Data Engineer</span>
-              <span className="role-tag">SAP BODS Developer</span>
-              <span className="role-tag">AI Product Manager</span>
-            </div>
-          </div>
-
-          <div className="text-gray-700 leading-relaxed space-y-6">
-            <p className="hover-border">
-              I'm a data engineer and full-stack developer passionate about building scalable solutions and meaningful digital experiences. Exploring the intersection of data science, web development, and digital marketing.
-            </p>
-            <p className="hover-border">
-              Currently working as a Data Engineer at Capgemini for the past 3 years, developing robust data pipelines using SAP BODS and cloud-based solutions on HANA Cloud. I maintain and optimize existing legacy ETL systems built on PL/SQL procedures in Oracle SQL Server while modernizing data infrastructure for enterprise clients. My work focuses on bridging traditional data warehousing with modern cloud architectures to deliver scalable, efficient data solutions.
-            </p>
-          </div>
-        </header>
-
-        {/* About Me Section */}
-        <section className="mb-12">
-          <h2 className="mb-8">about me</h2>
-          <div className="text-gray-700 leading-relaxed space-y-6">
-            <p className="hover-border">
-              My journey began with childhood curiosity. In class 2, I remember seeing a picture in my textbook where someone exclaimed, "পল্টু ওই দেখ আকাশে প্লেন উড়ছে!" ("Poltu, look! A plane is flying in the sky!"). I asked my brother how to create a plane, and his straightforward answer was, "To create a plane, you have to become an engineer." From that moment, a dream quietly took root in my mind.
-            </p>
-            <p className="hover-border">
-              Growing up in a remote village in West Bengal, where accessing basic education was challenging, becoming an engineer seemed impossible. Yet somehow, I managed to complete my matriculation in 2015 and got admitted to Al-Ameen Mission, graduating in 2017. It was there I began understanding the path to engineering. I dreamed of mechanical engineering, but fate had different plans—I was admitted to the Power Engineering department at Jadavpur University in 2018.
-            </p>
-            <p className="hover-border">
-              University brought unexpected freedom, and my focus began to drift. I discovered SQL and found myself drawn to data. This curiosity led me to Capgemini, where I've been working as a data engineer for the past three years. During the lockdowns, with only a laptop for company, I channeled my engineering passion into building. I learned WordPress, created multiple websites—one even generated revenue before getting hacked. In 2022, I discovered ChatGPT and transitioned to Next.js, building products like QuranGPT and youtubetranscript.in. Now, alongside my full-time role, I spend weekends developing VidStats, my most ambitious personal project yet.
-            </p>
-          </div>
-        </section>
-
-        {/* Enhanced Experiments Section */}
-        <EnhancedExperiments projects={projects} />
-
-        {/* Connect Section */}
-        <section className="mb-12">
-          <h2 className="mb-8">connect</h2>
-          <div className="text-gray-700 leading-relaxed">
-            <p className="hover-border">
-              contact me on{" "}
-              <a 
-                href="https://www.linkedin.com/in/menajul-hoque/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                LinkedIn
-              </a>
-              ·
-              <a 
-                href="https://github.com/MinHackerz" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                GitHub
-              </a>
-              {" "}— or send me an email at{" "}
-              <a href="mailto:menajulhoque99@gmail.com">
-                menajulhoque99@gmail.com
-              </a>
-            </p>
-          </div>
-        </section>
-
-        {/* Skills/Tech Stack */}
-        <section className="mb-12">
-          <h2 className="mb-8">colophon</h2>
-          <div className="text-gray-700 leading-relaxed">
-            <p className="text-subtle hover-border" style={{ marginBottom: '24px' }}>The technologies and tools behind my work.</p>
-            
-            <div className="skills-table">
-              <div className="table-row">
-                <div className="table-cell category">Data Engineering</div>
-                <div className="table-cell technologies hover-border">SAP BODS, Oracle SQL, Microsoft SQL Server, SSIS, Python</div>
-              </div>
-              <div className="table-row">
-                <div className="table-cell category">Web Development</div>
-                <div className="table-cell technologies hover-border">React, TypeScript, Node.js, Next.js, Tailwind CSS</div>
-              </div>
-              <div className="table-row">
-                <div className="table-cell category">Cloud & DevOps</div>
-                <div className="table-cell technologies hover-border">Hana Cloud</div>
-              </div>
-              <div className="table-row">
-                <div className="table-cell category">Analytics</div>
-                <div className="table-cell technologies hover-border">Power BI, Excel</div>
-              </div>
-              <div className="table-row">
-                <div className="table-cell category">Digital Marketing</div>
-                <div className="table-cell technologies hover-border">WordPress, On-Page SEO, Off-Page SEO, Google Analytics, Google Search Console</div>
+                <h1 className="text-2xl font-medium tracking-tight mb-1">Menajul Hoque</h1>
+                <p className="text-gray-500 dark:text-gray-400">Data Engineer & Applied AI Engineer</p>
+                <div className="flex gap-4 mt-4">
+                  <a href="mailto:menajulhoque99@gmail.com" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                    <Mail className="w-5 h-5" />
+                  </a>
+                  <a href="https://github.com/MinHackerz" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/menajul-hoque/" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a href="https://x.com/MenajulM" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </a>
+                  <a href="https://peerlist.io/menajul" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                    <svg viewBox="-0.5 -0.5 16 16" fill="none" className="w-5 h-5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1">
+                      <path d="M5.234 0.98375h4.532c2.2135625 0 4.073125 1.6644375 4.3175625 3.8644374999999997l0.15256250000000002 1.3725c0.0945 0.8502500000000001 0.0945 1.708375 0 2.558625l-0.15256250000000002 1.3725c-0.2444375 2.2000625 -2.104 3.8644374999999997 -4.3175625 3.8644374999999997H5.234c-2.213625 0 -4.0731875 -1.664375 -4.317625 -3.8644374999999997l-0.1525 -1.3725c-0.09443750000000001 -0.8502500000000001 -0.09443750000000001 -1.708375 0 -2.558625l0.1525 -1.3725c0.2444375 -2.2 2.104 -3.8644374999999997 4.317625 -3.8644374999999997Z" />
+                      <path d="M5.327937499999999 11.120125000000002v-2.896125m0 0V3.8798749999999997h2.8960625c1.199625 0 2.172125 0.9724375000000001 2.172125 2.1720625h0c0 1.199625 -0.9724375000000001 2.1720625 -2.172125 2.1720625H5.327937499999999Z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </section>
-        </div>
-      
+
+          <div className="space-y-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-serif">
+            <p>
+              I'm a data engineer and applied AI engineer building scalable solutions and digital experiences. Currently working at Capgemini, bridging traditional data warehousing with modern cloud architectures.
+            </p>
+            <p>
+              Based in Kolkata, India.
+            </p>
+          </div>
+        </GeometricBox>
+
+        {/* About Me Section in geometric box */}
+        <GeometricBox className="mb-10" variant="secondary">
+          <h2 className="mb-6 text-xl font-normal tracking-tight">about</h2>
+          <div className="space-y-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300 font-serif">
+            <p>
+              My journey began in a remote village in West Bengal. A childhood curiosity about how planes fly led me to engineering. While studying Power Engineering at Jadavpur University, I discovered SQL and found my true calling in data.
+            </p>
+            <p>
+              For the past three years, I've been optimizing ETL systems and building data pipelines. On weekends, I transition from data engineer to product builder, creating web applications like VidStats and QuranGPT.
+            </p>
+          </div>
+        </GeometricBox>
+
+        {/* Enhanced Experiments Section in geometric box */}
+        <GeometricBox className="mb-10" variant="primary">
+          <EnhancedExperiments projects={projects} />
+        </GeometricBox>
+
+        {/* Skills/Tech Stack in geometric box */}
+        <GeometricBox className="mb-20" variant="secondary">
+          <h2 className="mb-6 text-xl font-normal tracking-tight">colophon</h2>
+          <div className="space-y-3 font-mono text-sm text-gray-600 dark:text-gray-400">
+            <div className="grid grid-cols-[140px_1fr] gap-4">
+              <span className="text-gray-400 dark:text-gray-500">AI Engineering</span>
+              <span>RAG, Vector Search, LLM Fine-Tuning, OpenAI API</span>
+            </div>
+            <div className="grid grid-cols-[140px_1fr] gap-4">
+              <span className="text-gray-400 dark:text-gray-500">Data Engineering</span>
+              <span>SAP BODS, Oracle SQL, SSIS, Python</span>
+            </div>
+            <div className="grid grid-cols-[140px_1fr] gap-4">
+              <span className="text-gray-400 dark:text-gray-500">Web Development</span>
+              <span>React, TypeScript, Next.js, Tailwind CSS</span>
+            </div>
+            <div className="grid grid-cols-[140px_1fr] gap-4">
+              <span className="text-gray-400 dark:text-gray-500">Cloud & DevOps</span>
+              <span>Hana Cloud</span>
+            </div>
+            <div className="grid grid-cols-[140px_1fr] gap-4">
+              <span className="text-gray-400 dark:text-gray-500">Stack</span>
+              <span>Built with React, Tailwind, and Vercel</span>
+            </div>
+          </div>
+        </GeometricBox>
+      </div>
+
       <Footer />
     </div>
   )
