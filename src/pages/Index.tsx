@@ -174,7 +174,7 @@ const Index: FC = () => {
         {/* Skills/Tech Stack in geometric box */}
         <WaveReveal delay={450}>
           <GeometricBox className="mb-20" variant="secondary">
-            <h2 className="mb-6 text-xl font-normal tracking-tight">colophon</h2>
+            <h2 className="mb-6 text-xl font-normal tracking-tight">skills</h2>
             <div className="space-y-3 font-mono text-sm text-gray-600 dark:text-gray-400">
               <div className="grid grid-cols-[140px_1fr] gap-4">
                 <span className="text-gray-400 dark:text-gray-500">AI Engineering</span>

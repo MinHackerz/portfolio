@@ -18,7 +18,7 @@ const EnhancedExperiments: FC<EnhancedExperimentsProps> = ({ projects }) => {
 
   return (
     <section className="mb-12">
-      <h2 className="mb-6 text-xl font-normal tracking-tight">experiments</h2>
+      <h2 className="mb-6 text-xl font-normal tracking-tight">projects</h2>
 
       <div className="space-y-8">
         {projects.map((project, index) => (
