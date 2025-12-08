@@ -93,17 +93,7 @@ const Index: FC = () => {
 
   return (
     <div className="min-h-screen transition-colors duration-200">
-      {/* Desktop theme toggle - fixed position */}
-      <div className="desktop-theme-toggle">
-        <ThemeToggle />
-      </div>
-
       <div className="max-w-xl mx-auto px-6 pt-8 pb-12">
-
-        {/* Mobile Theme Toggle - Top Right Corner */}
-        <div className="mobile-theme-toggle-corner">
-          <ThemeToggle />
-        </div>
 
         {/* Header in geometric box */}
         <GeometricBox className="mb-10" variant="primary">
@@ -115,7 +105,10 @@ const Index: FC = () => {
                 className="w-16 h-16 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
               />
               <div>
-                <h1 className="text-2xl font-medium tracking-tight mb-1">Menajul Hoque</h1>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-2xl font-medium tracking-tight">Menajul Hoque</h1>
+                  <ThemeToggle />
+                </div>
                 <p className="text-gray-500 dark:text-gray-400">Data Engineer & Applied AI Engineer</p>
                 <div className="flex gap-4 mt-4">
                   <a href="mailto:menajulhoque99@gmail.com" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
