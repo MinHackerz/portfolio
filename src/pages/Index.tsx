@@ -59,6 +59,14 @@ const Index: FC = () => {
 
   const projects = [
     {
+      title: "Rasid",
+      year: "2025",
+      description: "The most advanced invoicing platform that protects each invoices with a unique QR code to safeguard the interest of the seller and the buyer. Can be used in any country with any currency, smart inventory management, easy to use and invoices can be shared to the customer instantly via WhatsApp, SMS, Email, etc. Each and every invoice is always verifiable and traceable.",
+      tech: "TypeScript, React, Tailwind CSS, Next.js",
+      status: "Development",
+      link: "#"
+    },
+    {
       title: "QuranGPT",
       year: "2023",
       description: "AI-powered chatbot web application that answers user questions with references from the Holy Quran. Initially developed on WordPress, then evolved to Next.js for enhanced performance and user experience.",
@@ -81,14 +89,6 @@ const Index: FC = () => {
       tech: "Vite.js, React, Tailwind CSS, Gemini API",
       status: "Live",
       link: "https://youtubetranscript.in"
-    },
-    {
-      title: "IG Tools APK",
-      year: "2023",
-      description: "Comprehensive Instagram tools platform featuring 100+ productivity tools across YouTube, LinkedIn, Instagram, and other social media platforms. Provides creators with essential utilities for content management, analytics, and growth optimization.",
-      tech: "WordPress, PHP, HTML, CSS, JavaScript, APIs",
-      status: "Live",
-      link: "https://igtoolsapk.in"
     }
   ];
 
