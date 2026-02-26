@@ -54,17 +54,17 @@ const GeometricBox: FC<GeometricBoxProps> = ({ children, className = "", variant
 
 const Index: FC = () => {
   useEffect(() => {
-    document.title = "Menajul Hoque - Data Engineer & Applied AI Engineer"
+    document.title = "Menajul Hoque - Applied AI & Data Engineer"
   }, []);
 
   const projects = [
     {
       title: "Rasid",
-      year: "2025",
+      year: "2026",
       description: "The most advanced invoicing platform that protects each invoices with a unique QR code to safeguard the interest of the seller and the buyer. Can be used in any country with any currency, smart inventory management, easy to use and invoices can be shared to the customer instantly via WhatsApp, SMS, Email, etc. Each and every invoice is always verifiable and traceable.",
       tech: "TypeScript, React, Tailwind CSS, Next.js",
-      status: "Development",
-      link: "#"
+      status: "Live",
+      link: "https://rasid.in"
     },
     {
       title: "QuranGPT",
@@ -111,7 +111,7 @@ const Index: FC = () => {
                     <h1 className="text-2xl font-medium tracking-tight">Menajul Hoque</h1>
                     <ThemeToggle />
                   </div>
-                  <p className="text-gray-500 dark:text-gray-400">Data Engineer & Applied AI Engineer</p>
+                  <p className="text-gray-500 dark:text-gray-400">Data & Applied AI</p>
                   <div className="flex gap-4 mt-4">
                     <a href="mailto:menajulhoque99@gmail.com" className="text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
                       <Mail className="w-5 h-5" />
