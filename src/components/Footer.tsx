@@ -130,7 +130,6 @@ interface PixelLetterProps {
 
 const PixelLetter: FC<PixelLetterProps> = ({ letter, letterIndex, scrollProgress, totalBlocks, name }) => {
   const grid = pixelLetters[letter] || [];
-  const totalRows = grid.length;
 
   const isBlockVisible = (rowIndex: number, colIndex: number): boolean => {
     if (scrollProgress === 0) return false;
@@ -141,31 +140,24 @@ const PixelLetter: FC<PixelLetterProps> = ({ letter, letterIndex, scrollProgress
 
   return (
     <div className="flex flex-col gap-[1px] sm:gap-[2px]">
-      {grid.map((row, rowIndex) => {
-        const baseOpacity = 0.2 + (rowIndex / (totalRows - 1)) * 0.5;
+      {grid.map((row, rowIndex) => (
+        <div key={rowIndex} className="flex gap-[1px] sm:gap-[2px]">
+          {row.map((cell, colIndex) => {
+            const visible = cell === 1 && isBlockVisible(rowIndex, colIndex);
 
-        return (
-          <div key={rowIndex} className="flex gap-[1px] sm:gap-[2px]">
-            {row.map((cell, colIndex) => {
-              const visible = cell === 1 && isBlockVisible(rowIndex, colIndex);
-
-              return (
-                <div
-                  key={colIndex}
-                  className="aspect-square rounded-[0.5px] sm:rounded-[1px] flex-1 transition-all duration-300 ease-out"
-                  style={{
-                    backgroundColor: visible
-                      ? `rgba(161, 161, 170, ${baseOpacity})`
-                      : 'transparent',
-                    transform: visible ? 'scale(1)' : 'scale(0)',
-                    opacity: visible ? 1 : 0,
-                  }}
-                />
-              );
-            })}
-          </div>
-        );
-      })}
+            return (
+              <div
+                key={colIndex}
+                className={`aspect-square rounded-[0.5px] sm:rounded-[1px] flex-1 transition-all duration-300 ease-out ${
+                  visible 
+                    ? `scale-100 opacity-100 pixel-row-${rowIndex}` 
+                    : "scale-0 opacity-0 bg-transparent"
+                }`}
+              />
+            );
+          })}
+        </div>
+      ))}
     </div>
   );
 };

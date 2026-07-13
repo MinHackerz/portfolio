@@ -559,3 +559,20 @@
     line-height: 1.4 !important;
   }
 }
+
+/* Pixel Letter Row background opacities (removes inline styles for strict CSP compliance) */
+.pixel-row-0 { background-color: rgba(161, 161, 170, 0.200); }
+.pixel-row-1 { background-color: rgba(161, 161, 170, 0.283); }
+.pixel-row-2 { background-color: rgba(161, 161, 170, 0.366); }
+.pixel-row-3 { background-color: rgba(161, 161, 170, 0.450); }
+.pixel-row-4 { background-color: rgba(161, 161, 170, 0.533); }
+.pixel-row-5 { background-color: rgba(161, 161, 170, 0.616); }
+.pixel-row-6 { background-color: rgba(161, 161, 170, 0.700); }
+
+.dark .pixel-row-0 { background-color: rgba(161, 161, 170, 0.250); }
+.dark .pixel-row-1 { background-color: rgba(161, 161, 170, 0.333); }
+.dark .pixel-row-2 { background-color: rgba(161, 161, 170, 0.416); }
+.dark .pixel-row-3 { background-color: rgba(161, 161, 170, 0.500); }
+.dark .pixel-row-4 { background-color: rgba(161, 161, 170, 0.583); }
+.dark .pixel-row-5 { background-color: rgba(161, 161, 170, 0.666); }
+.dark .pixel-row-6 { background-color: rgba(161, 161, 170, 0.750); }
