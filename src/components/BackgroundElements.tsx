@@ -76,6 +76,24 @@ const BackgroundElements: FC = () => {
       particles.sort((a, b) => b.z - a.z);
 
       particles.forEach(particle => {
+        // Calculate 3D projection factors first to know where screen positions are
+        const scale = 1000 / (1000 + particle.z);
+        const projectedX = particle.x * scale;
+        const projectedY = particle.y * scale;
+
+        // Interaction with mouse cursor
+        const dx = mousePosition.x - projectedX;
+        const dy = mousePosition.y - projectedY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 150) {
+          const force = (150 - dist) / 150; // 0 to 1
+          const angle = Math.atan2(dy, dx);
+          // Push particle away in 3D space (adjusting local coordinates)
+          particle.x -= Math.cos(angle) * force * 2.5 * (1 / scale);
+          particle.y -= Math.sin(angle) * force * 2.5 * (1 / scale);
+        }
+
         // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
@@ -90,10 +108,10 @@ const BackgroundElements: FC = () => {
         if (particle.z > 1000) particle.z = 0;
 
         // 3D projection
-        const scale = 1000 / (1000 + particle.z);
-        const x = particle.x * scale;
-        const y = particle.y * scale;
-        const size = particle.size * scale;
+        const currentScale = 1000 / (1000 + particle.z);
+        const x = particle.x * currentScale;
+        const y = particle.y * currentScale;
+        const size = particle.size * currentScale;
 
         // Draw particle
         ctx.beginPath();
@@ -144,6 +162,14 @@ const BackgroundElements: FC = () => {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/20 to-indigo-100/30 dark:from-black dark:via-purple-900/10 dark:to-indigo-950/20" />
       </div>
+
+      {/* Interactive Mouse Glow */}
+      <div 
+        className="pointer-events-none absolute inset-0 opacity-100 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.04), transparent 80%)`,
+        }}
+      />
 
       {/* Minimal holographic grid */}
       <div className="absolute inset-0">

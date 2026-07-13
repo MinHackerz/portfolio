@@ -1,0 +1,42 @@
+# robots.txt for menajul.com
+
+# -------------------------------------------------------------
+# AI Search & LLM Scrapers (GEO Authorized)
+# Explicitly welcoming all AI assistants and chatbot crawlers
+# -------------------------------------------------------------
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# General Search Engines
+User-agent: *
+Allow: /
+
+Sitemap: https://menajul.com/sitemap.xml

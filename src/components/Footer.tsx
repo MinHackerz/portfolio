@@ -1,8 +1,6 @@
-"use client";
-
 import { FC, useState, useEffect } from "react";
 
-// Pixel/dot matrix letter definitions (5x5 grid for shorter height)
+// Pixel/dot matrix letter definitions (5x5 grid)
 const pixelLetters: Record<string, number[][]> = {
   M: [
     [1, 0, 0, 0, 1],
@@ -53,9 +51,36 @@ const pixelLetters: Record<string, number[][]> = {
     [1, 0, 0, 0, 0],
     [1, 1, 1, 1, 1],
   ],
+  H: [
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+  ],
+  O: [
+    [0, 1, 1, 1, 0],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1],
+    [0, 1, 1, 1, 0],
+  ],
+  Q: [
+    [0, 1, 1, 1, 0],
+    [1, 0, 0, 0, 1],
+    [1, 0, 1, 0, 1],
+    [1, 0, 0, 1, 0],
+    [0, 1, 1, 0, 1],
+  ],
+  ' ': [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+  ],
 };
 
-// Count total active blocks across all letters
 const countTotalBlocks = (name: string): number => {
   let total = 0;
   for (const letter of name) {
@@ -71,11 +96,8 @@ const countTotalBlocks = (name: string): number => {
   return total;
 };
 
-// Get the global index of a block within all letters
 const getBlockGlobalIndex = (name: string, letterIndex: number, rowIndex: number, colIndex: number): number => {
   let index = 0;
-
-  // Count blocks in previous letters
   for (let l = 0; l < letterIndex; l++) {
     const grid = pixelLetters[name[l]];
     if (grid) {
@@ -86,8 +108,6 @@ const getBlockGlobalIndex = (name: string, letterIndex: number, rowIndex: number
       }
     }
   }
-
-  // Count blocks in current letter up to current position
   const currentGrid = pixelLetters[name[letterIndex]];
   if (currentGrid) {
     for (let r = 0; r <= rowIndex; r++) {
@@ -97,7 +117,6 @@ const getBlockGlobalIndex = (name: string, letterIndex: number, rowIndex: number
       }
     }
   }
-
   return index;
 };
 
@@ -113,13 +132,9 @@ const PixelLetter: FC<PixelLetterProps> = ({ letter, letterIndex, scrollProgress
   const grid = pixelLetters[letter] || [];
   const totalRows = grid.length;
 
-  // Check if a specific block should be visible based on scroll progress
   const isBlockVisible = (rowIndex: number, colIndex: number): boolean => {
-    // At 0 scroll, no blocks should be visible
     if (scrollProgress === 0) return false;
-
     const blockIndex = getBlockGlobalIndex(name, letterIndex, rowIndex, colIndex);
-    // Use (blockIndex + 1) so first block needs some scroll to appear
     const threshold = (blockIndex + 1) / totalBlocks;
     return scrollProgress >= threshold;
   };
@@ -127,24 +142,20 @@ const PixelLetter: FC<PixelLetterProps> = ({ letter, letterIndex, scrollProgress
   return (
     <div className="flex flex-col gap-[1px] sm:gap-[2px]">
       {grid.map((row, rowIndex) => {
-        // Calculate opacity: faded at top (8% opacity), deeper at bottom (35% opacity)
-        const baseOpacity = 0.06 + (rowIndex / (totalRows - 1)) * 0.28;
+        const baseOpacity = 0.2 + (rowIndex / (totalRows - 1)) * 0.5;
 
         return (
-          <div
-            key={rowIndex}
-            className="flex gap-[1px] sm:gap-[2px]"
-          >
+          <div key={rowIndex} className="flex gap-[1px] sm:gap-[2px]">
             {row.map((cell, colIndex) => {
               const visible = cell === 1 && isBlockVisible(rowIndex, colIndex);
 
               return (
                 <div
                   key={colIndex}
-                  className="aspect-square rounded-[1px] flex-1 transition-all duration-300 ease-out"
+                  className="aspect-square rounded-[0.5px] sm:rounded-[1px] flex-1 transition-all duration-300 ease-out"
                   style={{
                     backgroundColor: visible
-                      ? `rgba(120, 120, 120, ${baseOpacity})`
+                      ? `rgba(161, 161, 170, ${baseOpacity})`
                       : 'transparent',
                     transform: visible ? 'scale(1)' : 'scale(0)',
                     opacity: visible ? 1 : 0,
@@ -166,20 +177,18 @@ const Footer: FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Calculate scroll progress (0 to 1)
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
 
       if (scrollHeight > 0) {
         const progress = Math.min(scrollTop / scrollHeight, 1);
         setScrollProgress(progress);
+      } else {
+        setScrollProgress(1);
       }
     };
 
-    // Add scroll listener
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    // Initial check
     handleScroll();
 
     return () => {
@@ -188,8 +197,9 @@ const Footer: FC = () => {
   }, []);
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 pointer-events-none overflow-hidden z-10 px-2 sm:px-4 md:px-8 pb-1 sm:pb-2">
-      <div className="w-full flex justify-between gap-1 sm:gap-2 md:gap-3">
+    <footer className="w-full px-6 md:px-12 lg:px-16 pt-16 pb-8 flex flex-col items-center gap-8 border-t border-zinc-100 dark:border-zinc-900 mt-20 select-none">
+      {/* Full-width Name Grid */}
+      <div className="w-full flex justify-between gap-1 sm:gap-2 md:gap-3 max-w-full">
         {name.split('').map((letter, index) => (
           <div key={index} className="flex-1">
             <PixelLetter
@@ -202,6 +212,11 @@ const Footer: FC = () => {
           </div>
         ))}
       </div>
+      
+      {/* Copyright Info */}
+      <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest">
+        Menajul Hoque &copy; {new Date().getFullYear()}
+      </span>
     </footer>
   );
 };

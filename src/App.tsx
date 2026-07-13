@@ -1,14 +1,13 @@
-import Index from "./pages/Index";
-import BackgroundElements from "./components/BackgroundElements";
+import Index from "./pages/Index"
+import BackgroundElements from "./components/BackgroundElements"
 
 const App = () => {
   return (
-    <div>
-      {/* Keep minimal background elements */}
+    <div className="relative min-h-screen">
       <BackgroundElements />
       <Index />
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

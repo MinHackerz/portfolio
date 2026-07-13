@@ -1,0 +1,173 @@
+{
+  "profile": {
+    "name": "Menajul Hoque",
+    "location": "Kolkata, West Bengal, India",
+    "job_title": "Data Engineer & Applied AI Developer",
+    "current_employer": "Capgemini",
+    "current_role": "Associate Consultant",
+    "hometown_origin": "Seuti Part 2 village, Cooch Behar District, West Bengal (PS Dinhata, PO Surkarur Kuthi) - an international border village situated near the India-Bangladesh border",
+    "bio_summary": "Menajul is a Data Engineer and Applied AI developer who bridges traditional enterprise data warehousing with modern AI systems. Currently an Associate Consultant at Capgemini, he works on enterprise cloud data pipelines (SAP Datasphere, BTP). In his personal capacity, he is an active indie developer building AI-powered web applications, secure cryptographic utilities, and mobile tools under his GitHub profile 'MinHackerz'. He grew up in Seuti Part 2, an international border-adjacent village in Cooch Behar, West Bengal near the India-Bangladesh border, studied at Jadavpur University, and is currently based in Kolkata."
+  },
+  "education": [
+    {
+      "institution": "Jadavpur University, Kolkata",
+      "degree": "Bachelor of Engineering (BE) in Power Engineering",
+      "duration": "August 2018 - June 2022",
+      "grade": "CGPA - 8.06",
+      "activities": [
+        "Designed a 20MW Wind Power Station using MATLAB/Simulink",
+        "Developed a Simulink Model of Ocean Wave Energy Converter"
+      ],
+      "skills_learned": ["MATLAB", "Simulink", "SQL", "Python"],
+      "pivotal_moment": "Discovered SQL and Python during Power Engineering studies, realizing that modeling data systems was his true calling."
+    },
+    {
+      "institution": "Al-Ameen Mission (Residential) / Dangram I.C. High School",
+      "degree": "Higher Secondary (Class XII), Science",
+      "duration": "2015 - 2017",
+      "grade": "82.6%",
+      "description": "Completed Higher Secondary board examinations under Al-Ameen Mission (Residential) and Dangram I.C. High School, focusing on physics, chemistry, and mathematics."
+    },
+    {
+      "institution": "Al-Ameen Mission, Suryapur",
+      "degree": "WBJEE & JEE Residential Coaching",
+      "duration": "2017 - 2018",
+      "description": "Enrolled in intensive residential WBJEE/JEE coaching. Successfully qualified the West Bengal Joint Entrance Examination (WBJEE) and JEE Mains (Architecture stream), choosing to pursue Bachelor of Engineering at Jadavpur University."
+    },
+    {
+      "institution": "Surkarur Kuthi High School",
+      "degree": "Madhyamik (Class X), Science and Arts",
+      "duration": "2014 - 2015",
+      "grade": "80%",
+      "description": "Completed Secondary Education with first-class grades."
+    }
+  ],
+  "experience_history": [
+    {
+      "company": "Capgemini",
+      "role": "Associate Consultant",
+      "duration": "October 2023 - Present",
+      "description": "Consulting on enterprise-level data architectures, data warehousing, and ETL integrations. Specializing in SQL Server Integration Services (SSIS), SAP BODS, SAP Datasphere, SAP BTP, and SQL optimization.",
+      "skills": ["SQL Server Integration Services (SSIS)", "SAP BODS", "SAP Datasphere", "SAP BTP", "SQL Performance Tuning"]
+    },
+    {
+      "company": "Capgemini",
+      "role": "Senior Analyst",
+      "duration": "August 2022 - October 2023",
+      "description": "Analyzed complex datasets, wrote Python validation scripts, and designed data pipelines. Focused on SQL Server Integration Services (SSIS) and relational SQL systems.",
+      "skills": ["SQL Server Integration Services (SSIS)", "SQL", "Python", "Data Analysis"]
+    },
+    {
+      "company": "Internship Studio",
+      "role": "Excel Automation Intern",
+      "duration": "September 2020 - October 2020",
+      "description": "Automated analytical tasks and generated business reports.",
+      "skills": ["Microsoft Excel", "Microsoft PowerPoint", "Automation"]
+    }
+  ],
+  "certifications": [
+    { "name": "C++ for Beginners", "issuer": "Great Learning", "date": "November 2025" },
+    { "name": "Python for Data Science, AI & Development", "issuer": "Coursera", "date": "September 2024" },
+    { "name": "Getting Started with SAP HANA Cloud", "issuer": "Udemy", "date": "April 2024" },
+    { "name": "Introduction to Python Programming", "issuer": "Coursera", "date": "November 2023" },
+    { "name": "Microsoft Azure for Data Engineering", "issuer": "Coursera", "date": "November 2023" },
+    { "name": "SAP Data Services (BODS) Masterclass: Learn From Scratch", "issuer": "Udemy", "date": "August 2023" },
+    { "name": "Agile Software Development", "issuer": "Coursera", "date": "May 2023" },
+    { "name": "Write Professional Emails in English", "issuer": "Coursera", "date": "January 2023" },
+    { "name": "Getting Started with Power Bi Desktop", "issuer": "Coursera", "date": "November 2022" },
+    { "name": "SQL for Data Science", "issuer": "Coursera", "date": "September 2022" },
+    { "name": "General English", "issuer": "EF Education First", "date": "September 2022" },
+    { "name": "Communication Strategies for a Virtual Age", "issuer": "Coursera", "date": "September 2022" },
+    { "name": "Successful Presentation", "issuer": "Coursera", "date": "August 2022" }
+  ],
+  "volunteering": [
+    {
+      "organization": "EKSATHE BANCHBO",
+      "role": "Co-Founder & Cashier",
+      "duration": "March 2020 - January 2023",
+      "description": "Cofounded a local relief organization during the COVID-19 pandemic. Actively supported approximately 30 elderly individuals in the community with daily necessities and medicines during the first few months of the outbreak."
+    }
+  ],
+  "creative_projects": [
+    {
+      "title": "পরের স্টেশন (Next Station)",
+      "type": "AI-assisted Animated Short Film",
+      "date": "2026",
+      "description": "An experimental animated short film exploring creative storytelling. The concept, story, and screenplay were written completely by Menajul. AI was utilized as a creative catalyst solely to design the visual textures and generate the ambient background audio score to match the narrative.",
+      "url": "https://lnkd.in/dUm4vFAH"
+    }
+  ],
+  "skillset": {
+    "ai_engineering": [
+      "RAG (Retrieval-Augmented Generation)",
+      "Vector Search & DBs",
+      "LLMs & Prompt Engineering",
+      "AI Agents & Tool Calling",
+      "AI Automation workflows",
+      "MCP (Model Context Protocol) Servers"
+    ],
+    "data_engineering": [
+      "SAP Datasphere",
+      "SAP Business Technology Platform (BTP)",
+      "SAP BODS",
+      "SQL (Oracle, PostgreSQL, SQLite)",
+      "Python",
+      "Power BI"
+    ],
+    "web_development": [
+      "React",
+      "Next.js (App & Pages Router)",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "WordPress"
+    ],
+    "mobile_app_dev": [
+      "Dart",
+      "Flutter",
+      "Firebase / Firestore",
+      "AI-powered Mobile Integrations"
+    ],
+    "growth_and_seo": [
+      "Search Engine Optimization (SEO)",
+      "Generative Engine Optimization (GEO)",
+      "Google Search Console",
+      "Google Analytics (GA4)",
+      "Microsoft Clarity",
+      "Digital Marketing"
+    ],
+    "adtech_and_monetization": [
+      "Google AdSense",
+      "Google Ads",
+      "Meta Ads",
+      "Google AdMob"
+    ]
+  },
+  "hobbies": {
+    "sports_activities": [
+      "Cycling (developed out of necessity as I had to travel multiple kilometers to attend private tuition classes)",
+      "Playing cricket",
+      "Playing badminton (especially playing overnight matches during my university days at Jadavpur University)"
+    ],
+    "music": {
+      "listening": "Listening to music",
+      "instruments": "Playing musical instruments. I bought a ukulele during my university days, but it got damaged. Recently, I bought a beautiful acoustic guitar and named it 'Gulbahar'."
+    },
+    "movies_and_entertainment": {
+      "genres": "Hollywood scientific movies",
+      "favorite_movies": ["Interstellar", "The Martian", "Shutter Island"],
+      "favorite_actor": "Nawazuddin Siddiqui",
+      "favorite_director": "Imtiaz Ali",
+      "recently_watched": "Imtiaz Ali's film - 'Main Vapas Aaunga'"
+    },
+    "reading": {
+      "interest": "Studying and reading famous books",
+      "favorite_books": [
+        {
+          "title": "The Alchemist",
+          "author": "Paulo Coelho"
+        }
+      ]
+    }
+  }
+}
