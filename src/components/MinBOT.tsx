@@ -122,13 +122,13 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
     setMessages(prev => [...prev, { role: "user", content: userMessage }])
     setIsLoading(true)
 
-    const apiKey = (import.meta.env.VITE_OPENAI_API_KEY || "").trim()
+    const apiKey = (import.meta.env.OPENAI_API_KEY || import.meta.env.VITE_OPENAI_API_KEY || "").trim()
     if (!apiKey) {
       setMessages(prev => [
         ...prev,
         {
           role: "assistant",
-          content: "Chatbot service is offline. VITE_OPENAI_API_KEY is not defined in the environment variables."
+          content: "Chatbot service is offline. OPENAI_API_KEY is not defined in the environment variables."
         }
       ])
       setIsLoading(false)
