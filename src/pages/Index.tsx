@@ -1,16 +1,14 @@
 import { type FC, useEffect, useState } from "react"
-import { Mail, Github, Linkedin, ArrowUpRight, Sparkles, ArrowRight } from "lucide-react"
+import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react"
 import Footer from "@/components/Footer"
 import { ThemeToggle } from "@/components/ThemeToggle"
 import MinBOT from "@/components/MinBOT"
 
 const Index: FC = () => {
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   useEffect(() => {
     document.title = "Menajul Hoque - Applied AI & Data Engineer"
-    setIsTouchDevice(window.matchMedia('(pointer: coarse)').matches);
   }, []);
 
   useEffect(() => {
