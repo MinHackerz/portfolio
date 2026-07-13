@@ -264,7 +264,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
       </div>
 
       {/* Conversation List */}
-      <div ref={chatListRef} className="flex-1 overflow-y-auto py-4 space-y-5 font-sans text-[12px] leading-[1.65] pr-1.5 scrollbar-minimal">
+      <div ref={chatListRef} className="flex-1 overflow-y-auto py-4 space-y-5 font-sans text-[13px] leading-[1.65] pr-1.5 scrollbar-minimal">
         {messages.map((msg, index) => (
           <div 
             key={index} 
@@ -273,14 +273,14 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
             {msg.role === "user" ? (
               <div className="space-y-1 max-w-[85%]">
                 <div className="text-[8px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-right">You</div>
-                <div className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-2xl rounded-tr-none px-3.5 py-2 text-xs shadow-sm">
+                <div className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-2xl rounded-tr-none px-3.5 py-2 text-[13.5px] shadow-sm">
                   {parseMessageContent(msg.content)}
                 </div>
               </div>
             ) : (
               <div className="space-y-1 max-w-[88%]">
                 <div className="text-[8px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">MinBOT</div>
-                <div className="border-l border-zinc-200 dark:border-zinc-800/80 pl-3.5 py-0.5 text-zinc-600 dark:text-zinc-400 text-xs font-sans leading-relaxed select-text">
+                <div className="border-l border-zinc-200 dark:border-zinc-800/80 pl-3.5 py-0.5 text-zinc-800 dark:text-zinc-200 text-[13.5px] font-sans leading-relaxed select-text">
                   {parseMessageContent(msg.content)}
                 </div>
               </div>
@@ -336,7 +336,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
             value={input}
             onChange={(e) => setInput(e.target.value)}
             disabled={isLoading}
-            className="flex-1 text-xs bg-transparent text-zinc-900 dark:text-zinc-100 focus:outline-none disabled:opacity-50 px-1"
+            className="flex-1 text-[13.5px] bg-transparent text-zinc-900 dark:text-zinc-100 focus:outline-none disabled:opacity-50 px-1"
           />
           <button
             type="submit"

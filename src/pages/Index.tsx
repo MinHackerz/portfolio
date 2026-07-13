@@ -13,6 +13,7 @@ const Index: FC = () => {
 
   useEffect(() => {
     if (isChatOpen) {
+      window.scrollTo(0, 0);
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -37,7 +38,7 @@ const Index: FC = () => {
     {
       title: "Rasid",
       year: "2026",
-      description: "The most advanced invoicing platform that protects each invoices with a unique QR code to safeguard the interest of the seller and the buyer. Can be used in any country with any currency, smart inventory management, easy to use and invoices can be shared to the customer instantly via WhatsApp, SMS, Email, etc. Each and every invoice is always verifiable and traceable.",
+      description: "A secure invoicing platform protecting invoices with unique QR codes to safeguard sellers and buyers. It supports global currencies, smart inventory management, and instant sharing.",
       tech: "TypeScript, React, Tailwind CSS, Next.js",
       status: "Live",
       link: "https://rasid.in"
@@ -45,7 +46,7 @@ const Index: FC = () => {
     {
       title: "SEOBoostr",
       year: "2026",
-      description: "An advanced, enterprise-grade SEO audit and monitoring platform featuring 15 modules for comprehensive performance checking and auditing. Supports live web scraping, automated checks for meta schemas, accessibility, page structure, and comprehensive dashboard reporting.",
+      description: "An enterprise-grade SEO audit and monitoring platform with 15 specialized modules. It features live web scraping, automated checks for meta schemas, accessibility, page structure, and detailed dashboard reporting.",
       tech: "Next.js, Prisma, Neon Postgres, Cheerio, Recharts, Tailwind CSS v4",
       status: "In Development",
       link: "https://github.com/MinHackerz/seoboostr"
@@ -53,7 +54,7 @@ const Index: FC = () => {
     {
       title: "Govt Procurement Intelligence",
       year: "2026",
-      description: "A data engineering and analytics pipeline analyzing 8.8M+ procurement records (~14 GB SQLite DBs) from India's Central Public Procurement Portal (CPPP). Tracks key fraud indicators, including single-bid contract rates and suspicious submission windows (≤7 days). Currently running locally with Flask and Datasette for interactive data exploration.",
+      description: "A data pipeline analyzing over 8.8 million procurement records from India's Central Public Procurement Portal. It tracks indicators of fraud, such as single-bid contracts and short submission windows. Runs locally with Flask and Datasette for interactive data search.",
       tech: "Flask, Python, SQLite, SQL Query Design, Datasette",
       status: "GitHub",
       link: "https://github.com/MinHackerz/govt_procurement"
@@ -61,7 +62,7 @@ const Index: FC = () => {
     {
       title: "Tadabbur",
       year: "2025",
-      description: "A premium Quran study workspace built with the Quran Foundation SDK. Features an advanced Quran Reader with translations and audio recitation, bookmarks, reading goals, QuranReflect integrations, and prayer times.",
+      description: "A premium Quran study workspace built with the Quran Foundation SDK. It features a reader with translations and audio, bookmarks, reading goals, QuranReflect integration, and prayer times.",
       tech: "Next.js (App Router), React, TypeScript, Tailwind CSS, Quran Foundation SDK",
       status: "Live",
       link: "https://tadabbur-iota.vercel.app/"
@@ -69,7 +70,7 @@ const Index: FC = () => {
     {
       title: "PDF SignCheck",
       year: "2025",
-      description: "Free, privacy-first web application that cryptographically validates PKCS#7/CMS digital signatures in PDFs against the Mozilla CA trust store. Features zero-knowledge transient processing and includes 9 other unique PDF utility tools (like Dark Mode Converter and Bookmark Generator).",
+      description: "A free, privacy-first web app that validates cryptographic PDF digital signatures against the Mozilla CA trust store. It processes files locally in the browser and offers ten handy PDF tools, including a dark mode converter.",
       tech: "Next.js, React, TypeScript, Tailwind CSS, Web Cryptography",
       status: "Live",
       link: "https://pdfsigncheck.com"
@@ -77,7 +78,7 @@ const Index: FC = () => {
     {
       title: "VidStats",
       year: "2024",
-      description: "The most advanced YouTube analytics platform powered by AI. Delivers comprehensive dashboards based on channel data to optimize content strategy. Features tools including AI script writer, sentiment analysis, posting scheduler, idea generator, competitor analysis, and 15+ free YouTube growth tools.",
+      description: "An AI-powered YouTube analytics platform that optimizes content strategy. It provides clear dashboards and features tools like an AI script writer, sentiment analysis, post scheduler, and competitor research.",
       tech: "React, Next.js, TypeScript, Tailwind CSS, Supabase, Gemini, GPT-4",
       status: "Live",
       link: "https://vidstats.pro"
@@ -85,7 +86,7 @@ const Index: FC = () => {
     {
       title: "Youtube Transcript",
       year: "2024",
-      description: "Advanced transcript generation tool that provides structured YouTube video transcripts with accurate translation support for 125+ languages. Integrates Gemini API for intelligent summarization of generated transcripts.",
+      description: "A transcript tool that generates structured YouTube video text in over 125 languages. It integrates the Gemini API to summarize transcripts instantly.",
       tech: "Vite.js, React, Tailwind CSS, Gemini API",
       status: "Live",
       link: "https://yt-transcript-indol.vercel.app/"
@@ -93,7 +94,7 @@ const Index: FC = () => {
     {
       title: "Govt Procurement Data Analysis Pipeline",
       year: "2024",
-      description: "End-to-end data analytics system tracking governmental spending metrics. Implemented structured ETL patterns using custom Python scripts to load raw CSV schemas, model relational databases, and render visual dashboard reports.",
+      description: "A data analytics system tracking government spending. It uses structured ETL patterns with Python to clean CSV data, model databases, and build visual reports.",
       tech: "Python, Streamlit, PostgreSQL, Pandas",
       status: "Archive",
       link: "https://github.com/MinHackerz/wb-gov-tenders-insights"
@@ -104,7 +105,7 @@ const Index: FC = () => {
     {
       title: "PDF Signature Validator",
       year: "2025",
-      description: "Secure, client-side Android application that parses digital signatures, retrieves public certificates, and validates structural integrity using public key infrastructure (PKI) guidelines natively on the device.",
+      description: "A secure Android app that validates PDF signatures. It parses digital certificates and verifies file integrity using PKI rules directly on the device.",
       tech: "Kotlin, Android Jetpack, Java Cryptography Architecture (JCA)",
       status: "Live",
       link: "https://github.com/MinHackerz/Pdf-SignCheck-Android"
@@ -112,7 +113,7 @@ const Index: FC = () => {
     {
       title: "NotifyVault",
       year: "2025",
-      description: "An encrypted local notification logger for Android. Employs advanced Room database structures to cache system push alerts, protected by a hardware-backed biometric verification layer to ensure total device privacy.",
+      description: "An encrypted notification logger for Android. It uses a local Room database to cache push alerts, secured by biometric authentication for total privacy.",
       tech: "Kotlin, Android Room, BiometricPrompt API, Material 3",
       status: "Live",
       link: "https://github.com/MinHackerz/notifyvault"
@@ -122,16 +123,18 @@ const Index: FC = () => {
   const experiences = [
     {
       company: "Capgemini",
+      companyLink: "https://www.capgemini.com/",
       role: "Associate Consultant",
       duration: "Oct 2023 - Present",
-      description: "Consulting on enterprise-level data architectures, data warehousing, and ETL integrations. Specializing in SQL Server Integration Services (SSIS), SAP BODS, SAP Datasphere, SAP BTP, and SQL performance tuning.",
+      description: "Consulting on enterprise data systems, data warehousing, and ETL integration. Specializing in SAP Datasphere, SAP BTP, SAP BODS, SSIS, and SQL tuning.",
       skills: "SAP Datasphere, SAP BTP, SAP BODS, SQL Optimization, SSIS"
     },
     {
       company: "Capgemini",
+      companyLink: "https://www.capgemini.com/",
       role: "Senior Analyst",
       duration: "Aug 2022 - Oct 2023",
-      description: "Analyzed complex datasets, wrote Python validation scripts, and designed data pipelines. Focused on SQL Server Integration Services (SSIS) and relational SQL systems.",
+      description: "Analyzed complex datasets, wrote Python validation scripts, and designed data pipelines. Focused on SSIS and relational SQL databases.",
       skills: "SQL, Python, SSIS, Data Analytics"
     }
   ];
@@ -139,6 +142,7 @@ const Index: FC = () => {
   const educationList = [
     {
       institution: "Jadavpur University",
+      institutionLink: "https://www.jaduniv.edu.in/",
       degree: "Bachelor of Engineering in Power Engineering",
       duration: "2018 - 2022",
       details: "CGPA: 8.06/10. Focus on data modeling, systems engineering, and machine learning pipelines."
@@ -153,6 +157,14 @@ const Index: FC = () => {
 
   return (
     <div className="min-h-screen transition-colors duration-200 pb-28">
+      {/* Accessibility Skip Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:dark:bg-zinc-950 focus:text-zinc-900 focus:dark:text-zinc-100 focus:border focus:border-zinc-200 focus:dark:border-zinc-800 focus:rounded-xl focus:shadow-lg focus:outline-none font-mono text-xs"
+      >
+        Skip to main content
+      </a>
+
       <div className="w-full px-6 md:px-12 lg:px-16 pt-8 md:pt-12 pb-16 md:pb-24 lg:grid lg:grid-cols-[350px_1fr] lg:gap-24">
         
         {/* Left Column: Sticky Profile, Bio & Skills */}
@@ -223,38 +235,38 @@ const Index: FC = () => {
               skills
             </h2>
             <div className="space-y-0 select-none sidebar-compact-skills-grid">
-              <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">AI Eng</span>
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">AI Eng</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   RAG · Vector Search · LLMs · AI Agents · AI Automation · MCP Server
                 </span>
               </div>
-              <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Data Eng</span>
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Data Eng</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   SAP Datasphere · SAP BTP · SAP BODS · SQL · Python
                 </span>
               </div>
-              <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Web Dev</span>
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Web Dev</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   React · Next.js · Tailwind CSS · WordPress
                 </span>
               </div>
-              <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Mobile Dev</span>
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Mobile Dev</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   Flutter · Dart · Firebase · AI Integration
                 </span>
               </div>
-              <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">SEO & Ads</span>
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">SEO & Ads</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   SEO · GEO · Search Console · AdSense · AdMob · GA4
                 </span>
               </div>
-              <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Tech Stack</span>
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Tech Stack</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   TypeScript · Node.js · React · Tailwind CSS · Next.js
                 </span>
@@ -265,13 +277,13 @@ const Index: FC = () => {
         </div>
 
         {/* Right Column: Split Web & Android Projects or Chatbot */}
-        <div className={isChatOpen ? "lg:sticky lg:top-12 lg:h-[calc(100vh-80px)] overflow-hidden" : "space-y-20"}>
+        <div id="main-content" className={isChatOpen ? "lg:sticky lg:top-12 lg:h-[calc(100vh-80px)] overflow-hidden" : "space-y-20"}>
           {isChatOpen ? (
             <MinBOT isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           ) : (
             <>
               {/* Sub Navigation Bar for Internal Links */}
-              <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[10.5px] font-mono uppercase tracking-widest text-zinc-450 dark:text-zinc-500 border-b border-zinc-100 dark:border-zinc-900/40 pb-4 mb-6 select-none">
+              <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[10.5px] font-mono uppercase tracking-widest text-zinc-450 dark:text-zinc-550 border-b border-zinc-100 dark:border-zinc-900/40 pb-4 mb-6 select-none">
                 <a href="#about" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ about</a>
                 <a href="#experience" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ experience</a>
                 <a href="#projects" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ projects</a>
@@ -283,15 +295,15 @@ const Index: FC = () => {
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   about
                 </h2>
-                <div className="space-y-4 text-[14px] leading-[1.75] text-zinc-500 dark:text-zinc-400 font-sans tracking-tight max-w-xl">
+                <div className="space-y-4 text-[15.5px] leading-[1.7] text-zinc-800 dark:text-zinc-200 font-sans tracking-tight max-w-xl">
                   <p>
-                    I am a Data Engineer and Applied AI developer specializing in bridging enterprise data warehousing with modern AI orchestration. Currently at Capgemini, I build analytics pipelines and cloud solutions using SAP Datasphere and BTP.
+                    I am a Data Engineer and Applied AI developer. I connect enterprise data systems with AI models. At <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">Capgemini</a>, I build data pipelines and cloud solutions using SAP Datasphere and BTP.
                   </p>
                   <p>
-                    Outside of enterprise architecture, I design and deploy AI-powered web tools, secure document utilities, and custom reflection spaces. I focus on developing privacy-first client side encryption apps and SEO analytics systems.
+                    In my free time, I build AI web tools, secure document utilities, and custom web apps. I focus on privacy-first client-side encryption and SEO analytics systems.
                   </p>
                   <p>
-                    Originally from West Bengal, I transitioned from Power Engineering at Jadavpur University to data management and LLM pipelines.
+                    Based in West Bengal, I transitioned from Power Engineering at <a href="https://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">Jadavpur University</a> to data management and LLM pipelines.
                   </p>
                 </div>
               </section>
@@ -311,13 +323,13 @@ const Index: FC = () => {
                       <div className="w-full space-y-2">
                         <div className="flex items-baseline justify-between w-full">
                           <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                            {exp.role} <span className="text-zinc-400 dark:text-zinc-600 font-normal">at</span> {exp.company}
+                            {exp.role} <span className="text-zinc-400 dark:text-zinc-600 font-normal">at</span> <a href={exp.companyLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">{exp.company}</a>
                           </h3>
                           <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest tabular-nums">
                             {exp.duration}
                           </span>
                         </div>
-                        <p className="text-[13.5px] text-zinc-500 dark:text-zinc-400 leading-relaxed font-sans tracking-tight">
+                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans tracking-tight">
                           {exp.description}
                         </p>
                         <div className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-550 uppercase pt-1">
@@ -335,39 +347,39 @@ const Index: FC = () => {
                   skills
                 </h2>
                 <div className="space-y-0 select-none">
-                  <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
+                  <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">AI Eng</span>
-                    <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
+                    <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
                       RAG · Vector Search · LLMs · AI Agents · AI Automation · MCP Server
                     </span>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
+                  <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">Data Eng</span>
-                    <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
+                    <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
                       SAP Datasphere · SAP BTP · SAP BODS · SQL · Python
                     </span>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
+                  <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">Web Dev</span>
-                    <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
+                    <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
                       React · Next.js · Tailwind CSS · WordPress
                     </span>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
+                  <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">Mobile Dev</span>
-                    <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
+                    <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
                       Flutter · Dart · Firebase · AI Integration
                     </span>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
+                  <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">SEO & Ads</span>
-                    <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
+                    <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
                       SEO · GEO · Search Console · AdSense · AdMob · GA4
                     </span>
                   </div>
-                  <div className="grid grid-cols-[100px_1fr] gap-4 py-2.5 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
+                  <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">Tech Stack</span>
-                    <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
+                    <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
                       TypeScript · Node.js · React · Tailwind CSS · Next.js
                     </span>
                   </div>
@@ -401,14 +413,14 @@ const Index: FC = () => {
                               <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
                             </a>
                           </h3>
-                          <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 dark:text-zinc-505 uppercase tracking-widest">
+                          <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 dark:text-zinc-555 uppercase tracking-widest">
                             <span>{project.status}</span>
                             <span>·</span>
                             <span className="tabular-nums">{project.year}</span>
                           </div>
                         </div>
 
-                        <p className="text-[13.5px] text-zinc-505 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 leading-relaxed font-sans tracking-tight transition-colors duration-300">
+                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50 leading-relaxed font-sans tracking-tight transition-colors duration-300">
                           {project.description}
                         </p>
 
@@ -455,7 +467,7 @@ const Index: FC = () => {
                           </div>
                         </div>
 
-                        <p className="text-[13.5px] text-zinc-505 dark:text-zinc-400 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 leading-relaxed font-sans tracking-tight transition-colors duration-300">
+                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50 leading-relaxed font-sans tracking-tight transition-colors duration-300">
                           {project.description}
                         </p>
 
@@ -467,6 +479,7 @@ const Index: FC = () => {
                   ))}
                 </div>
               </section>
+
 
               {/* Education Section */}
               <section id="education" className="space-y-8 scroll-mt-12">
@@ -483,16 +496,20 @@ const Index: FC = () => {
                       <div className="w-full space-y-2">
                         <div className="flex items-baseline justify-between w-full">
                           <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                            {edu.institution}
+                            {edu.institutionLink ? (
+                              <a href={edu.institutionLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">
+                                {edu.institution}
+                              </a>
+                            ) : edu.institution}
                           </h3>
                           <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest tabular-nums">
                             {edu.duration}
                           </span>
                         </div>
-                        <h4 className="text-[13.5px] font-medium text-zinc-700 dark:text-zinc-300 font-sans tracking-tight">
+                        <h4 className="text-[14.5px] font-medium text-zinc-850 dark:text-zinc-150 font-sans tracking-tight">
                           {edu.degree}
                         </h4>
-                        <p className="text-[13.5px] text-zinc-505 dark:text-zinc-400 leading-relaxed font-sans tracking-tight">
+                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans tracking-tight">
                           {edu.details}
                         </p>
                       </div>
@@ -503,7 +520,6 @@ const Index: FC = () => {
             </>
           )}
         </div>
-
       </div>
       {!isChatOpen && <Footer />}
     </div>
