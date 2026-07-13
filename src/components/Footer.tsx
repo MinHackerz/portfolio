@@ -213,10 +213,15 @@ const Footer: FC = () => {
         ))}
       </div>
       
-      {/* Copyright Info */}
-      <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest">
-        Menajul Hoque &copy; {new Date().getFullYear()}
-      </span>
+      {/* Copyright & Freshness Info */}
+      <div className="flex flex-col items-center gap-1.5 text-center">
+        <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest">
+          Menajul Hoque &copy; {new Date().getFullYear()}
+        </span>
+        <span className="text-[8px] font-mono text-zinc-400/60 dark:text-zinc-600 uppercase tracking-widest">
+          Published: Jan 2025 &middot; Last Updated: July 14, 2026
+        </span>
+      </div>
     </footer>
   );
 };
