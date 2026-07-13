@@ -67,12 +67,28 @@ const Index: FC = () => {
       link: "https://rasid.in"
     },
     {
-      title: "QuranGPT",
-      year: "2023",
-      description: "AI-powered chatbot web application that answers user questions with references from the Holy Quran. Initially developed on WordPress, then evolved to Next.js for enhanced performance and user experience.",
-      tech: "Next.js, WordPress, React, AI APIs",
+      title: "PDF SignCheck",
+      year: "2025",
+      description: "Free, privacy-first web application that cryptographically validates PKCS#7/CMS digital signatures in PDFs against the Mozilla CA trust store. Features zero-knowledge transient processing and includes a full suite of document utilities like a Dark Mode Converter and Bookmark Generator.",
+      tech: "Next.js, React, TypeScript, Tailwind CSS, Web Cryptography",
       status: "Live",
-      link: "https://quran-gpt.netlify.app/"
+      link: "https://pdfsigncheck.com"
+    },
+    {
+      title: "PDF SignCheck Android",
+      year: "2025",
+      description: "Native Android application built to bring secure, offline-first cryptographic PDF signature verification and document manipulation tools directly to mobile devices.",
+      tech: "Android, Java/Kotlin, PDFBox, Cryptography",
+      status: "Google Play",
+      link: "https://play.google.com/store/apps/details?id=com.minhackerz.pdfsigncheck_app"
+    },
+    {
+      title: "NotifyVault",
+      year: "2025",
+      description: "A secure, privacy-focused notification capture and history management assistant. Features latch-inspired editorial typography, 16 real-time smart classification categories (OTP, Banking, Spam, etc.), advanced query search builder, and reactive offline persistence.",
+      tech: "Flutter, Drift (SQLite), Riverpod, Firebase",
+      status: "GitHub",
+      link: "https://github.com/MinHackerz/notifyvault"
     },
     {
       title: "VidStats",
@@ -89,6 +105,14 @@ const Index: FC = () => {
       tech: "Vite.js, React, Tailwind CSS, Gemini API",
       status: "Live",
       link: "https://youtubetranscript.in"
+    },
+    {
+      title: "QuranGPT",
+      year: "2023",
+      description: "AI-powered chatbot web application that answers user questions with references from the Holy Quran. Initially developed on WordPress, then evolved to Next.js for enhanced performance and user experience.",
+      tech: "Next.js, WordPress, React, AI APIs",
+      status: "Live",
+      link: "https://quran-gpt.netlify.app/"
     }
   ];
 
@@ -189,12 +213,16 @@ const Index: FC = () => {
                 <span>React, TypeScript, Next.js, Tailwind CSS</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] gap-4">
+                <span className="text-gray-400 dark:text-gray-500">Growth & SEO</span>
+                <span>SEO, GEO (Generative Engine Optimization), Web Analytics</span>
+              </div>
+              <div className="grid grid-cols-[140px_1fr] gap-4">
                 <span className="text-gray-400 dark:text-gray-500">Cloud & DevOps</span>
                 <span>Hana Cloud</span>
               </div>
               <div className="grid grid-cols-[140px_1fr] gap-4">
                 <span className="text-gray-400 dark:text-gray-500">Stack</span>
-                <span>Built with React, Tailwind, and Vercel</span>
+                <span>Built with React, Tailwind, and GitHub Pages</span>
               </div>
             </div>
           </GeometricBox>
