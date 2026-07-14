@@ -122,19 +122,6 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
     setMessages(prev => [...prev, { role: "user", content: userMessage }])
     setIsLoading(true)
 
-    const apiKey = (import.meta.env.OPENAI_API_KEY || import.meta.env.VITE_OPENAI_API_KEY || "").trim()
-    if (!apiKey) {
-      setMessages(prev => [
-        ...prev,
-        {
-          role: "assistant",
-          content: "Chatbot service is offline. OPENAI_API_KEY is not defined in the environment variables."
-        }
-      ])
-      setIsLoading(false)
-      return
-    }
-
     try {
       const systemPrompt = `You are MinBOT, a conversational AI representing Menajul Hoque on his personal portfolio. 
 Your goal is to answer questions about Menajul's career, education, skills, projects, and life based ONLY on the structured context provided below.
@@ -156,11 +143,10 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
         content: msg.content
       }))
 
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           model: "gpt-4o-mini",

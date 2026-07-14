@@ -38,7 +38,7 @@ const Index: FC = () => {
     {
       title: "Rasid",
       year: "2026",
-      description: "A secure invoicing platform protecting invoices with unique QR codes to safeguard sellers and buyers. It supports global currencies, smart inventory management, and instant sharing.",
+      description: "A secure, trust-focused billing and invoicing platform that cryptographically seals invoices with unique QR codes, ensuring zero-knowledge authenticity. Features include automated client payment reminders, multi-channel WhatsApp/Email delivery, smart AI-powered receipt scanning, real-time inventory tracking, multi-currency support, and customizable templates for seamless invoicing.",
       tech: "TypeScript, React, Tailwind CSS, Next.js",
       status: "Live",
       link: "https://rasid.in"
@@ -46,7 +46,7 @@ const Index: FC = () => {
     {
       title: "SEOBoostr",
       year: "2026",
-      description: "An enterprise-grade SEO audit and monitoring platform with 15 specialized modules. It features live web scraping, automated checks for meta schemas, accessibility, page structure, and detailed dashboard reporting.",
+      description: "An enterprise-ready search engine optimization (SEO) audit and website monitoring dashboard featuring 15 dedicated modules. It supports real-time web scraping, automatic meta schema evaluations, performance benchmarks, accessibility analysis, page hierarchy reviews, and interactive data visualization for custom reports on site search visibility and organic ranking performance.",
       tech: "Next.js, Prisma, Neon Postgres, Cheerio, Recharts, Tailwind CSS v4",
       status: "In Development",
       link: "https://github.com/MinHackerz/seoboostr"
@@ -54,15 +54,15 @@ const Index: FC = () => {
     {
       title: "Govt Procurement Intelligence",
       year: "2026",
-      description: "A data pipeline analyzing over 8.8 million procurement records from India's Central Public Procurement Portal. It tracks indicators of fraud, such as single-bid contracts and short submission windows. Runs locally with Flask and Datasette for interactive data search.",
+      description: "An offline-first data analytics pipeline designed to identify indicators of fraud across 8.8 million public procurement transactions from India's Central Public Procurement Portal. The tool models single-bid tendencies, detects unusually short submission windows, and serves interactive querying capabilities locally through Python, Flask, and Datasette interfaces.",
       tech: "Flask, Python, SQLite, SQL Query Design, Datasette",
       status: "GitHub",
-      link: "https://github.com/MinHackerz/govt_procurement"
+      link: ""
     },
     {
       title: "Tadabbur",
       year: "2025",
-      description: "A premium Quran study workspace built with the Quran Foundation SDK. It features a reader with translations and audio, bookmarks, reading goals, QuranReflect integration, and prayer times.",
+      description: "An immersive, distraction-free Quranic study workspace and companion platform utilizing the Quran Foundation SDK. It offers an advanced text reader with multiple translations and high-quality audio recitation, integrated bookmarking, personal reading progress goals, social reflection feeds via QuranReflect, and location-based prayer timing integrations.",
       tech: "Next.js (App Router), React, TypeScript, Tailwind CSS, Quran Foundation SDK",
       status: "Live",
       link: "https://tadabbur-iota.vercel.app/"
@@ -70,7 +70,7 @@ const Index: FC = () => {
     {
       title: "PDF SignCheck",
       year: "2025",
-      description: "A free, privacy-first web app that validates cryptographic PDF digital signatures against the Mozilla CA trust store. It processes files locally in the browser and offers ten handy PDF tools, including a dark mode converter.",
+      description: "A privacy-first web utility for cryptographically validating digital signatures in PDF documents. It extracts PKCS#7/CMS signatures, validates certificate chains against 80+ trusted root CAs from the Mozilla trust store, embeds signature validity badges, and includes a full suite of client-side PDF tools like dark mode conversion and duplicate page removal.",
       tech: "Next.js, React, TypeScript, Tailwind CSS, Web Cryptography",
       status: "Live",
       link: "https://pdfsigncheck.com"
@@ -78,7 +78,7 @@ const Index: FC = () => {
     {
       title: "VidStats",
       year: "2024",
-      description: "An AI-powered YouTube analytics platform that optimizes content strategy. It provides clear dashboards and features tools like an AI script writer, sentiment analysis, post scheduler, and competitor research.",
+      description: "A comprehensive AI-driven analytics dashboard designed for YouTube creators to audit and optimize their publishing strategy. Features include automated video transcript summaries, sentiment analysis of user comments, competitor performance benchmarking, an AI-powered scriptwriting coprocessor, and an integrated post scheduler for maximizing organic viewer engagement.",
       tech: "React, Next.js, TypeScript, Tailwind CSS, Supabase, Gemini, GPT-4",
       status: "Live",
       link: "https://vidstats.pro"
@@ -86,18 +86,10 @@ const Index: FC = () => {
     {
       title: "Youtube Transcript",
       year: "2024",
-      description: "A transcript tool that generates structured YouTube video text in over 125 languages. It integrates the Gemini API to summarize transcripts instantly.",
+      description: "A high-speed transcript generation and summarization utility that processes YouTube videos in over 125 languages. Integrating the Google Gemini API, it extracts clean, time-stamped text layouts from videos, translates transcripts on-the-fly, and generates structured executive summaries, key takeaways, and action items in seconds.",
       tech: "Vite.js, React, Tailwind CSS, Gemini API",
       status: "Live",
       link: "https://yt-transcript-indol.vercel.app/"
-    },
-    {
-      title: "Govt Procurement Data Analysis Pipeline",
-      year: "2024",
-      description: "A data analytics system tracking government spending. It uses structured ETL patterns with Python to clean CSV data, model databases, and build visual reports.",
-      tech: "Python, Streamlit, PostgreSQL, Pandas",
-      status: "Archive",
-      link: "https://github.com/MinHackerz/wb-gov-tenders-insights"
     }
   ];
 
@@ -105,15 +97,15 @@ const Index: FC = () => {
     {
       title: "PDF Signature Validator",
       year: "2025",
-      description: "A secure Android app that validates PDF signatures. It parses digital certificates and verifies file integrity using PKI rules directly on the device.",
+      description: "A secure, client-side Android application that cryptographically validates digital signatures on PDF certificates and documents. Operating entirely on-device, the app parses X.509 digital certificates, verifies document hash integrity using PKI rules, and displays detailed signing authority paths and issuer information to verify file authenticity offline.",
       tech: "Kotlin, Android Jetpack, Java Cryptography Architecture (JCA)",
       status: "Live",
-      link: "https://github.com/MinHackerz/Pdf-SignCheck-Android"
+      link: "https://play.google.com/store/apps/details?id=com.minhackerz.pdfsigncheck_app"
     },
     {
       title: "NotifyVault",
       year: "2025",
-      description: "An encrypted notification logger for Android. It uses a local Room database to cache push alerts, secured by biometric authentication for total privacy.",
+      description: "A biometric-protected, encrypted notification logger for Android devices. The app intercepts and caches incoming push notifications in a local, AES-encrypted SQLite Room database, ensuring complete user privacy. Users can categorize, search, and review historical alerts even after they are dismissed from the system tray.",
       tech: "Kotlin, Android Room, BiometricPrompt API, Material 3",
       status: "Live",
       link: "https://github.com/MinHackerz/notifyvault"
@@ -402,16 +394,20 @@ const Index: FC = () => {
 
                       <div className="w-full space-y-2.5">
                         <div className="flex items-baseline justify-between w-full">
-                          <h3 className="text-lg font-medium font-sans tracking-tight">
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
-                            >
-                              {project.title}
-                              <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
-                            </a>
+                          <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
+                            {project.link ? (
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
+                              >
+                                {project.title}
+                                <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
+                              </a>
+                            ) : (
+                              <span className="inline-flex items-center gap-1.5">{project.title}</span>
+                            )}
                           </h3>
                           <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 dark:text-zinc-555 uppercase tracking-widest">
                             <span>{project.status}</span>
@@ -449,16 +445,20 @@ const Index: FC = () => {
 
                       <div className="w-full space-y-2.5">
                         <div className="flex items-baseline justify-between w-full">
-                          <h3 className="text-lg font-medium font-sans tracking-tight">
-                            <a
-                              href={project.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
-                            >
-                              {project.title}
-                              <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
-                            </a>
+                          <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
+                            {project.link ? (
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1.5 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
+                              >
+                                {project.title}
+                                <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
+                              </a>
+                            ) : (
+                              <span className="inline-flex items-center gap-1.5">{project.title}</span>
+                            )}
                           </h3>
                           <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest">
                             <span>{project.status}</span>
