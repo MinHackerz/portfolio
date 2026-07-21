@@ -1,11 +1,23 @@
-import { type FC, useEffect, useState } from "react"
-import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react"
+import { type FC, useEffect, useState, useMemo } from "react"
+import { Mail, Github, Linkedin, ArrowUpRight, Sparkles } from "lucide-react"
 import Footer from "@/components/Footer"
-import { ThemeToggle } from "@/components/ThemeToggle"
 import MinBOT from "@/components/MinBOT"
+import MagneticIcon from "@/components/MagneticIcon"
+import ScrollIndicator from "@/components/ScrollIndicator"
+import { useActiveSection, useScrollReveal } from "@/hooks/useScrollReveal"
 
 const Index: FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const sectionIds = useMemo(() => ["about", "experience", "projects", "education"], []);
+  const activeSection = useActiveSection(sectionIds);
+
+  // Scroll reveal refs for each major section
+  const { ref: aboutRef, isVisible: aboutVisible } = useScrollReveal<HTMLElement>();
+  const { ref: expRef, isVisible: expVisible } = useScrollReveal<HTMLElement>();
+  const { ref: projRef, isVisible: projVisible } = useScrollReveal<HTMLElement>();
+  const { ref: androidRef, isVisible: androidVisible } = useScrollReveal<HTMLElement>();
+  const { ref: eduRef, isVisible: eduVisible } = useScrollReveal<HTMLElement>();
+  const { ref: sidebarRef, isVisible: sidebarVisible } = useScrollReveal<HTMLDivElement>();
 
   useEffect(() => {
     document.title = "Menajul Hoque - Applied AI & Data Engineer"
@@ -78,7 +90,7 @@ const Index: FC = () => {
     {
       title: "VidStats",
       year: "2024",
-      description: "A comprehensive AI-driven analytics dashboard designed for YouTube creators to audit and optimize their publishing strategy. Features include automated video transcript summaries, sentiment analysis of user comments, competitor performance benchmarking, an AI-powered scriptwriting coprocessor, and an integrated post scheduler for maximizing organic viewer engagement.",
+      description: "A comprehensive AI-driven analytics dashboard trusted by over 800 YouTube creators to audit and optimize their publishing strategy. Features include automated video transcript summaries, sentiment analysis of user comments, competitor performance benchmarking, an AI-powered scriptwriting coprocessor, and an integrated post scheduler for maximizing organic viewer engagement.",
       tech: "React, Next.js, TypeScript, Tailwind CSS, Supabase, Gemini, GPT-4",
       status: "Live",
       link: "https://vidstats.pro"
@@ -105,8 +117,8 @@ const Index: FC = () => {
     {
       title: "NotifyVault",
       year: "2025",
-      description: "A biometric-protected, encrypted notification logger for Android devices. The app intercepts and caches incoming push notifications in a local, AES-encrypted SQLite Room database, ensuring complete user privacy. Users can categorize, search, and review historical alerts even after they are dismissed from the system tray.",
-      tech: "Kotlin, Android Room, BiometricPrompt API, Material 3",
+      description: "A privacy-focused, encrypted notification logger for Android devices. The app intercepts and caches incoming push notifications in a local, AES-encrypted SQLite Room database, ensuring complete user privacy. Users can categorize, search, and review historical alerts even after they are dismissed from the system tray.",
+      tech: "Kotlin, Android Room, SQLite AES Encryption, Material 3",
       status: "Live",
       link: "https://github.com/MinHackerz/notifyvault"
     }
@@ -148,7 +160,7 @@ const Index: FC = () => {
   ];
 
   return (
-    <div className="min-h-screen transition-colors duration-200 pb-28">
+    <div className="min-h-screen transition-colors duration-200 pb-4">
       {/* Accessibility Skip Link */}
       <a
         href="#main-content"
@@ -157,64 +169,99 @@ const Index: FC = () => {
         Skip to main content
       </a>
 
-      <div className="w-full px-6 md:px-12 lg:px-16 pt-8 md:pt-12 pb-16 md:pb-24 lg:grid lg:grid-cols-[350px_1fr] lg:gap-24">
+      <div className="w-full px-6 md:px-12 lg:px-16 pt-6 lg:pt-6 pb-6 md:pb-8 lg:grid lg:grid-cols-[350px_1fr] lg:gap-24">
         
-        {/* Left Column: Sticky Profile, Bio & Skills */}
-        <div className={`space-y-6 lg:sticky lg:top-12 lg:h-[calc(100vh-80px)] lg:flex lg:flex-col lg:justify-start lg:gap-y-8 border-b border-zinc-100 dark:border-zinc-900/40 pb-6 mb-6 lg:border-b-0 lg:pb-0 lg:mb-0 lg:pr-12 lg:border-r lg:border-zinc-200/60 lg:dark:border-zinc-900/80 sidebar-compact-container ${isChatOpen ? "hidden lg:flex" : ""}`}>
+        {/* Left Column: Fixed Profile, Bio & Skills (Stays 100% fixed to viewport on desktop) */}
+        <div data-sidebar ref={sidebarRef} className={`relative space-y-4 lg:fixed lg:top-6 lg:w-[320px] xl:w-[350px] lg:h-[calc(100vh-48px)] lg:flex lg:flex-col lg:justify-between lg:py-2 border-b border-zinc-100 dark:border-zinc-900/40 pb-6 mb-6 lg:border-b-0 lg:pb-0 lg:mb-0 lg:pr-8 xl:pr-12 sidebar-compact-container ${isChatOpen ? "hidden lg:flex" : ""}`}>
           
-          {/* Header & MinBOT Card */}
-          <div className="space-y-5 sidebar-compact-header">
+          {/* Full-Height Vertical Divider Line (Extends 100% from top to bottom edge-to-edge) */}
+          <div className="hidden lg:block absolute -top-16 -bottom-16 right-0 w-[1px] bg-zinc-200 dark:bg-zinc-800 pointer-events-none z-10" />
+
+          {/* Boundless Vertical Divider Aurora Glow — Pure Sky Blue Atmosphere */}
+          <div className="hidden lg:block absolute -top-16 -bottom-16 right-0 w-[calc(100vw-350px)] translate-x-full pointer-events-none select-none z-0">
+            {/* Core Sky Blue Radiation Layer */}
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-400/22 via-sky-400/8 via-sky-400/1.5 to-transparent dark:from-sky-400/28 dark:via-sky-400/10 dark:via-sky-400/1.5 to-transparent animate-smoke-radiation-core blur-2xl" />
+            {/* Outer Ambient Sky Blue Radiation Layer */}
+            <div className="absolute inset-0 bg-gradient-to-r from-sky-400/14 via-cyan-400/5 via-sky-300/[0.005] to-transparent dark:from-sky-400/18 dark:via-cyan-400/7 dark:via-sky-300/[0.005] to-transparent animate-smoke-radiation-outer blur-3xl" />
+          </div>
+
+          {/* Semi-circular scroll indicator on the divider */}
+          <ScrollIndicator />
+          
+          {/* Header & MinBOT Card — Centered on mobile, left-aligned on desktop */}
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4 sidebar-compact-header w-full">
             <img
               src={`${import.meta.env.BASE_URL}profile-picture-png.png`}
               alt="Menajul Hoque"
-              className="w-14 h-14 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 border border-zinc-200 dark:border-zinc-800 sidebar-compact-image"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 border border-zinc-200 dark:border-zinc-800 sidebar-compact-image shadow-sm mx-auto lg:mx-0"
             />
-            <div className="space-y-1">
-              <div className="flex items-center justify-start gap-2">
-                <h1 className="text-xl sm:text-2xl font-normal font-serif italic tracking-tight whitespace-nowrap sidebar-compact-name">Menajul Hoque</h1>
-                <ThemeToggle />
-              </div>
+            <div className="space-y-1 text-center lg:text-left">
+              <h1 className="text-xl sm:text-2xl font-normal font-serif italic tracking-tight whitespace-nowrap sidebar-compact-name">Menajul Hoque</h1>
               <p className="text-[10.5px] text-zinc-500 dark:text-zinc-400 font-mono tracking-widest uppercase">Data & Applied AI</p>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex gap-4">
-              <a href="mailto:menajulhoque99@gmail.com" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all hover:-translate-y-0.5 duration-200">
-                <Mail className="w-4 h-4" />
-              </a>
-              <a href="https://github.com/MinHackerz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all hover:-translate-y-0.5 duration-200">
-                <Github className="w-4 h-4" />
-              </a>
-              <a href="https://www.linkedin.com/in/menajul-hoque/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all hover:-translate-y-0.5 duration-200">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="https://x.com/MenajulM" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all hover:-translate-y-0.5 duration-200">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a href="https://peerlist.io/menajul" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all hover:-translate-y-0.5 duration-200">
-                <svg viewBox="-0.5 -0.5 16 16" fill="none" className="w-4 h-4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1">
-                  <path d="M5.234 0.98375h4.532c2.2135625 0 4.073125 1.6644375 4.3175625 3.8644374999999997l0.15256250000000002 1.3725c0.0945 0.8502500000000001 0.0945 1.708375 0 2.558625l-0.15256250000000002 1.3725c-0.2444375 2.2000625 -2.104 3.8644374999999997 -4.3175625 3.8644374999999997H5.234c-2.213625 0 -4.0731875 -1.664375 -4.317625 -3.8644374999999997l-0.1525 -1.3725c-0.09443750000000001 -0.8502500000000001 -0.09443750000000001 -1.708375 0 -2.558625l0.1525 -1.3725c0.2444375 -2.2 2.104 -3.8644374999999997 4.317625 -3.8644374999999997Z" />
-                  <path d="M5.327937499999999 11.120125000000002v-2.896125m0 0V3.8798749999999997h2.8960625c1.199625 0 2.172125 0.9724375000000001 2.172125 2.1720625h0c0 1.199625 -0.9724375000000001 2.1720625 -2.172125 2.1720625H5.327937499999999Z" />
-                </svg>
-              </a>
+            {/* Social Icons — Centered on mobile, left-aligned on desktop */}
+            <div className="flex gap-4 justify-center lg:justify-start w-full">
+              <MagneticIcon>
+                <a href="mailto:menajulhoque99@gmail.com" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200">
+                  <Mail className="w-4 h-4" />
+                </a>
+              </MagneticIcon>
+              <MagneticIcon>
+                <a href="https://github.com/MinHackerz" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200">
+                  <Github className="w-4 h-4" />
+                </a>
+              </MagneticIcon>
+              <MagneticIcon>
+                <a href="https://www.linkedin.com/in/menajul-hoque/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200">
+                  <Linkedin className="w-4 h-4" />
+                </a>
+              </MagneticIcon>
+              <MagneticIcon>
+                <a href="https://x.com/MenajulM" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </a>
+              </MagneticIcon>
+              <MagneticIcon>
+                <a href="https://peerlist.io/menajul" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200">
+                  <svg viewBox="-0.5 -0.5 16 16" fill="none" className="w-4 h-4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1">
+                    <path d="M5.234 0.98375h4.532c2.2135625 0 4.073125 1.6644375 4.3175625 3.8644374999999997l0.15256250000000002 1.3725c0.0945 0.8502500000000001 0.0945 1.708375 0 2.558625l-0.15256250000000002 1.3725c-0.2444375 2.2000625 -2.104 3.8644374999999997 -4.3175625 3.8644374999999997H5.234c-2.213625 0 -4.0731875 -1.664375 -4.317625 -3.8644374999999997l-0.1525 -1.3725c-0.09443750000000001 -0.8502500000000001 -0.09443750000000001 -1.708375 0 -2.558625l0.1525 -1.3725c0.2444375 -2.2 2.104 -3.8644374999999997 4.317625 -3.8644374999999997Z" />
+                    <path d="M5.327937499999999 11.120125000000002v-2.896125m0 0V3.8798749999999997h2.8960625c1.199625 0 2.172125 0.9724375000000001 2.172125 2.1720625h0c0 1.199625 -0.9724375000000001 2.1720625 -2.172125 2.1720625H5.327937499999999Z" />
+                  </svg>
+                </a>
+              </MagneticIcon>
             </div>
             
-            {/* MinBOT Sidebar Compact Command Button */}
-            <div className="pt-2">
+            {/* MinBOT Sidebar Command Button — Premium Glassmorphic AI Copilot Badge */}
+            <div className="pt-1.5 w-full">
               <button
                 onClick={() => setIsChatOpen(true)}
-                className="w-full flex items-center justify-between px-3 py-2 border border-zinc-200/80 dark:border-zinc-900 rounded-xl bg-zinc-50/20 dark:bg-zinc-950/10 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:border-zinc-350 dark:hover:border-zinc-800 transition-all duration-300 group text-left shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+                className="relative w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-gradient-to-r from-zinc-100/70 via-zinc-50/90 to-zinc-100/70 dark:from-zinc-900/60 dark:via-zinc-900/40 dark:to-zinc-900/60 hover:border-emerald-500/40 dark:hover:border-emerald-500/40 hover:shadow-md hover:shadow-emerald-500/5 transition-all duration-300 group text-left cursor-pointer overflow-hidden"
               >
+                {/* Subtle shimmer sheen on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+
                 <div className="flex items-center gap-2.5">
-                  <span className="relative flex h-1.5 w-1.5 flex-shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-medium">Ask MinBOT</span>
+                  {/* Live AI Pulse Indicator */}
+                  <div className="relative flex items-center justify-center">
+                    <span className="relative flex h-2 w-2 flex-shrink-0">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300" />
+                    <span className="text-[10.5px] font-mono uppercase tracking-widest text-zinc-700 dark:text-zinc-300 font-semibold group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+                      Ask MinBOT
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 px-2 py-0.5 border border-zinc-200 dark:border-zinc-800 rounded bg-white dark:bg-zinc-950 text-[8px] font-mono text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 group-hover:border-zinc-300 dark:group-hover:border-zinc-700 transition-all">
+
+                {/* Tactile Keycap Badge */}
+                <div className="flex items-center gap-1 px-2 py-0.5 border border-zinc-200/90 dark:border-zinc-800 rounded-md bg-white/80 dark:bg-zinc-950/80 text-[8.5px] font-mono text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 group-hover:border-zinc-300 dark:group-hover:border-zinc-700 shadow-xs transition-all">
                   <span>⌘K</span>
                 </div>
               </button>
@@ -269,21 +316,21 @@ const Index: FC = () => {
         </div>
 
         {/* Right Column: Split Web & Android Projects or Chatbot */}
-        <div id="main-content" className={isChatOpen ? "lg:sticky lg:top-12 lg:h-[calc(100vh-80px)] overflow-hidden" : "space-y-20"}>
+        <div id="main-content" className={`lg:col-start-2 ${isChatOpen ? "lg:sticky lg:top-12 lg:h-[calc(100vh-80px)] overflow-hidden" : "space-y-20"}`}>
           {isChatOpen ? (
             <MinBOT isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           ) : (
             <>
-              {/* Sub Navigation Bar for Internal Links */}
-              <nav className="flex flex-wrap gap-x-6 gap-y-2 text-[10.5px] font-mono uppercase tracking-widest text-zinc-450 dark:text-zinc-550 border-b border-zinc-100 dark:border-zinc-900/40 pb-4 mb-6 select-none">
-                <a href="#about" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ about</a>
-                <a href="#experience" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ experience</a>
-                <a href="#projects" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ projects</a>
-                <a href="#education" className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors">/ education</a>
+              {/* Sub Navigation Bar for Internal Links — Single line on mobile, left-aligned on desktop */}
+              <nav className="flex flex-nowrap items-center justify-between sm:justify-start gap-1.5 sm:gap-6 text-[8.5px] xs:text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-wider sm:tracking-widest text-zinc-450 dark:text-zinc-550 border-b border-zinc-100 dark:border-zinc-900/40 pb-3 mb-6 select-none overflow-x-auto scrollbar-none w-full">
+                <a href="#about" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "about" ? "active" : ""}`}>/ about</a>
+                <a href="#experience" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "experience" ? "active" : ""}`}>/ experience</a>
+                <a href="#projects" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "projects" ? "active" : ""}`}>/ projects</a>
+                <a href="#education" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "education" ? "active" : ""}`}>/ education</a>
               </nav>
 
               {/* About Section */}
-              <section id="about" className="space-y-6 scroll-mt-12">
+              <section ref={aboutRef} id="about" className={`scroll-reveal ${aboutVisible ? "revealed" : ""} space-y-6 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   about
                 </h2>
@@ -301,7 +348,7 @@ const Index: FC = () => {
               </section>
 
               {/* Experience Section */}
-              <section id="experience" className="space-y-8 scroll-mt-12">
+              <section ref={expRef} id="experience" className={`scroll-reveal ${expVisible ? "revealed" : ""} space-y-8 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   experience
                 </h2>
@@ -379,7 +426,7 @@ const Index: FC = () => {
               </div>
 
               {/* Web Projects */}
-              <section id="projects" className="space-y-8 scroll-mt-12">
+              <section ref={projRef} id="projects" className={`scroll-reveal ${projVisible ? "revealed" : ""} space-y-8 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   web applications
                 </h2>
@@ -430,7 +477,7 @@ const Index: FC = () => {
               </section>
 
               {/* Android Applications */}
-              <section className="space-y-8">
+              <section ref={androidRef} className={`scroll-reveal ${androidVisible ? "revealed" : ""} space-y-8`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   android applications
                 </h2>
@@ -482,7 +529,7 @@ const Index: FC = () => {
 
 
               {/* Education Section */}
-              <section id="education" className="space-y-8 scroll-mt-12">
+              <section ref={eduRef} id="education" className={`scroll-reveal ${eduVisible ? "revealed" : ""} space-y-8 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   education
                 </h2>
@@ -517,11 +564,12 @@ const Index: FC = () => {
                   ))}
                 </div>
               </section>
+              {/* Footer inside right column so sidebar grid spans full page height */}
+              {!isChatOpen && <Footer />}
             </>
           )}
         </div>
       </div>
-      {!isChatOpen && <Footer />}
     </div>
   )
 }

@@ -250,7 +250,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
       </div>
 
       {/* Conversation List */}
-      <div ref={chatListRef} className="flex-1 overflow-y-auto py-4 space-y-5 font-sans text-[13px] leading-[1.65] pr-1.5 scrollbar-minimal">
+      <div ref={chatListRef} data-chat-scroll className="flex-1 overflow-y-auto py-4 space-y-5 font-sans text-[13px] leading-[1.65] pr-1.5 scrollbar-minimal">
         {messages.map((msg, index) => (
           <div 
             key={index} 
