@@ -12,18 +12,11 @@ interface MinBOTProps {
   onClose: () => void
 }
 
-const FALLBACK_QUESTIONS = [
+const CORE_SUGGESTED_QUESTIONS = [
   "What did you study at Jadavpur University?",
   "Tell me about Next Station short film",
-  "Tell me about EKSATHE BANCHBO",
   "What was your WBJEE prep at Al-Ameen Mission?",
-  "List your professional certifications",
-  "What projects have you done at Capgemini?",
-  "Tell me about your invoicing platform Rasid",
-  "What is SEOBoostr in-development status?",
-  "How does PDF SignCheck validate certificates?",
-  "Explain the Govt Procurement data pipeline",
-  "What programming languages do you know?"
+  "List your professional certifications"
 ];
 
 const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
@@ -35,12 +28,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
   ])
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [suggestedPrompts, setSuggestedPrompts] = useState<string[]>([
-    "What did you study at Jadavpur University?",
-    "Tell me about Next Station short film",
-    "What was your WBJEE prep at Al-Ameen Mission?",
-    "List your professional certifications"
-  ])
+  const [suggestedPrompts, setSuggestedPrompts] = useState<string[]>(CORE_SUGGESTED_QUESTIONS)
   const chatListRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -56,12 +44,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
         content: "Hi! I am MinBOT, Menajul's AI assistant. Ask me anything about my qualifications, Jadavpur University studies, Al-Ameen Mission schooling, Capgemini projects, volunteering, or certifications!"
       }
     ]);
-    setSuggestedPrompts([
-      "What did you study at Jadavpur University?",
-      "Tell me about Next Station short film",
-      "What was your WBJEE prep at Al-Ameen Mission?",
-      "List your professional certifications"
-    ]);
+    setSuggestedPrompts(CORE_SUGGESTED_QUESTIONS);
   };
 
   const parseMessageContent = (text: string) => {
@@ -110,8 +93,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
   }
 
   const getRandomFallbacks = (): string[] => {
-    const shuffled = [...FALLBACK_QUESTIONS].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 3);
+    return CORE_SUGGESTED_QUESTIONS;
   }
 
   const handleSend = async (customMessage?: string) => {
