@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" fill="none">
+  <rect width="600" height="330" rx="12" fill="#09090B"/>
+  <rect width="600" height="330" rx="12" stroke="#27272A" stroke-width="1.5"/>
+  <!-- Left Side: Transcript Lines -->
+  <rect x="40" y="40" width="250" height="250" rx="10" fill="#18181B" stroke="#27272A" stroke-width="1"/>
+  <text x="60" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#F4F4F5">TRANSCRIPT</text>
+  <text x="60" y="105" font-family="monospace" font-size="10" fill="#A1A1AA">00:15  Extracting key takeaways...</text>
+  <text x="60" y="135" font-family="monospace" font-size="10" fill="#F4F4F5" font-weight="600">00:45  Gemini AI processes text</text>
+  <text x="60" y="165" font-family="monospace" font-size="10" fill="#A1A1AA">01:20  125+ Languages translated</text>
+  <text x="60" y="195" font-family="monospace" font-size="10" fill="#A1A1AA">02:10  Executive summary ready</text>
+  <!-- Right Side: AI Summary -->
+  <rect x="310" y="40" width="250" height="250" rx="10" fill="#172554" stroke="#1E40AF" stroke-width="1"/>
+  <text x="330" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#93C5FD">GEMINI AI SUMMARY</text>
+  <text x="330" y="105" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#DBEAFE">• Executive Insights</text>
+  <text x="330" y="130" font-family="system-ui, sans-serif" font-size="10" fill="#60A5FA">Automated transcript extraction &amp; translation for video content.</text>
+  <rect x="330" y="160" width="90" height="20" rx="4" fill="#2563EB"/>
+  <text x="375" y="174" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle">125+ Languages</text>
+</svg>

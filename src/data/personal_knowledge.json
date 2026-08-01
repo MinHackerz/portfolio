@@ -11,52 +11,64 @@
   },
   "education": [
     {
-      "institution": "Jadavpur University, Kolkata",
-      "degree": "Bachelor of Engineering (BE) in Power Engineering",
-      "duration": "August 2018 - June 2022",
-      "grade": "CGPA - 8.06",
-      "activities": [
-        "Designed a 20MW Wind Power Station using MATLAB/Simulink",
-        "Developed a Simulink Model of Ocean Wave Energy Converter"
+      "institution": "Jadavpur University",
+      "degree": "Bachelor of Engineering in Power Engineering",
+      "duration": "2018 - 2022",
+      "grade": "8.06/10 CGPA",
+      "highlights": [
+        "Final Year Degree Project: Modelling of a 20MW Wind Power Station using MATLAB and Simulink",
+        "Sustainable Energy Project: Developed a Simulink Model of an Ocean Wave Energy Converter",
+        "Discovered SQL and Python during Power Engineering studies, realizing that modeling data systems was his true calling."
       ],
-      "skills_learned": ["MATLAB", "Simulink", "SQL", "Python"],
-      "pivotal_moment": "Discovered SQL and Python during Power Engineering studies, realizing that modeling data systems was his true calling."
+      "skills_learned": ["MATLAB", "Simulink", "SQL", "Python", "Power Systems"]
     },
     {
-      "institution": "Al-Ameen Mission (Residential) / Dangram I.C. High School",
+      "institution": "Dangram I.C. High School",
       "degree": "Higher Secondary (Class XII), Science",
       "duration": "2015 - 2017",
-      "grade": "82.6%",
-      "description": "Completed Higher Secondary board examinations under Al-Ameen Mission (Residential) and Dangram I.C. High School, focusing on physics, chemistry, and mathematics."
+      "board": "WBCHSE",
+      "description": "Completed Higher Secondary board examinations under WBCHSE and Al-Ameen Mission, focusing on physics, chemistry, and mathematics."
     },
     {
-      "institution": "Al-Ameen Mission, Suryapur",
-      "degree": "WBJEE & JEE Residential Coaching",
-      "duration": "2017 - 2018",
-      "description": "Enrolled in intensive residential WBJEE/JEE coaching. Successfully qualified the West Bengal Joint Entrance Examination (WBJEE) and JEE Mains (Architecture stream), choosing to pursue Bachelor of Engineering at Jadavpur University."
-    },
-    {
-      "institution": "Surkarur Kuthi High School",
-      "degree": "Madhyamik (Class X), Science and Arts",
-      "duration": "2014 - 2015",
+      "institution": "Sukarur Kuthi High School",
+      "degree": "Secondary Education (Class X / Matriculation), General Subjects",
+      "duration": "2009 - 2015",
+      "board": "WBBSE",
       "grade": "80%",
-      "description": "Completed Secondary Education with first-class grades."
+      "description": "Completed Secondary Education (Matriculation) under West Bengal Board of Secondary Education (WBBSE) with 80% marks."
     }
   ],
   "experience_history": [
     {
       "company": "Capgemini",
       "role": "Associate Consultant",
+      "location": "Kolkata, India",
       "duration": "October 2023 - Present",
-      "description": "Consulting on enterprise-level data architectures, data warehousing, and ETL integrations. Specializing in SQL Server Integration Services (SSIS), SAP BODS, SAP Datasphere, SAP BTP, and SQL optimization.",
-      "skills": ["SQL Server Integration Services (SSIS)", "SAP BODS", "SAP Datasphere", "SAP BTP", "SQL Performance Tuning"]
+      "description": "Consulting on enterprise-level data architectures, cloud data warehousing, and ETL data integrations.",
+      "responsibilities": [
+        "Designed and implemented high-performance ETL data pipelines using SAP Business Objects Data Services (BODS) for enterprise data integration and data transformation workflows",
+        "Developed robust ETL workflows with comprehensive error handling, data validation, and real-time monitoring capabilities for mission-critical business processes",
+        "Managed data configuration issues resolution through direct collaboration with end users, business stakeholders, and reporting teams",
+        "Monitored and maintained SLA compliance for data processing jobs, ensuring timely delivery of critical business data and reports",
+        "Optimized Oracle SQL queries and database operations while maintaining data integrity and data quality standards",
+        "Worked on complex data configuration issues and fixed the issues with 100% SLA compliance",
+        "Participated in datafixes for ETL impact analysis",
+        "Collected required details to support audit requirements"
+      ],
+      "skills": ["SAP Datasphere", "SAP Business Data Cloud", "BigQuery", "SAP BODS", "SAP BTP", "Oracle SQL Optimization", "SSIS", "SLA Compliance", "Audit Support"]
     },
     {
       "company": "Capgemini",
       "role": "Senior Analyst",
+      "location": "Kolkata, India",
       "duration": "August 2022 - October 2023",
-      "description": "Analyzed complex datasets, wrote Python validation scripts, and designed data pipelines. Focused on SQL Server Integration Services (SSIS) and relational SQL systems.",
-      "skills": ["SQL Server Integration Services (SSIS)", "SQL", "Python", "Data Analysis"]
+      "description": "Engineered scalable data processing systems and corporate BI dashboards.",
+      "responsibilities": [
+        "Engineered scalable data processing systems using SQL Server Integration Services (SSIS) and Microsoft SQL Server, handling millions of daily records",
+        "Built advanced Power BI dashboards and reporting templates, enabling real-time business insights and KPI tracking",
+        "Created comprehensive data validation and data quality assurance procedures using Oracle SQL and Excel, ensuring 99.9% data accuracy"
+      ],
+      "skills": ["SQL Server Integration Services (SSIS)", "Microsoft SQL Server", "Oracle SQL", "Power BI", "Data Validation", "Data Quality Assurance"]
     },
     {
       "company": "Internship Studio",
@@ -84,18 +96,22 @@
   "volunteering": [
     {
       "organization": "EKSATHE BANCHBO",
-      "role": "Co-Founder & Cashier",
+      "role": "North Bengal Community Lead",
       "duration": "March 2020 - January 2023",
-      "description": "Cofounded a local relief organization during the COVID-19 pandemic. Actively supported approximately 30 elderly individuals in the community with daily necessities and medicines during the first few months of the outbreak."
+      "description": "Eksathe Banchbo was a relief community initiative started by seniors at Jadavpur University. Menajul led and drove the initiative locally across North Bengal during the COVID-19 pandemic, delivering food, essential supplies, and medicines to isolated elderly citizens and families."
     }
   ],
+  "indie_hacking_journey": {
+    "core_values": ["Relentless Grit", "Resilience & Adaptability", "Continuous Tech Evolution", "Problem-First Engineering"],
+    "story": "Started exploring multiple avenues to generate income online by building websites. Began on Blogger, Hostinger, and built 20+ WordPress sites. His platform jobseeker24.com earned ~$300 before being hacked. Undeterred by setbacks, he pivoted to Next.js/Node.js, building live products like vidstats.pro (800+ active users), and expanded into Android app engineering with PDF Signature Validator and NotifyVault to solve genuine daily user problems."
+  },
   "creative_projects": [
     {
       "title": "পরের স্টেশন (Next Station)",
       "type": "AI-assisted Animated Short Film",
       "date": "2026",
-      "description": "An experimental animated short film exploring creative storytelling. The concept, story, and screenplay were written completely by Menajul. AI was utilized as a creative catalyst solely to design the visual textures and generate the ambient background audio score to match the narrative.",
-      "url": "https://lnkd.in/dUm4vFAH"
+      "description": "An experimental animated short film exploring creative storytelling. The concept, story, and screenplay were written completely by Menajul. AI was utilized as a creative catalyst solely to design visual textures and generate the ambient background audio score to match the narrative.",
+      "url": "https://www.youtube.com/watch?v=Pp9398NzMP4"
     }
   ],
   "skillset": {
@@ -109,6 +125,8 @@
     ],
     "data_engineering": [
       "SAP Datasphere",
+      "SAP Business Data Cloud",
+      "BigQuery",
       "SAP Business Technology Platform (BTP)",
       "SAP BODS",
       "SQL (Oracle, PostgreSQL, SQLite)",
@@ -146,16 +164,16 @@
   },
   "hobbies": {
     "sports_activities": [
-      "Cycling (developed out of necessity as I had to travel multiple kilometers to attend private tuition classes)",
+      "Cycling (developed out of necessity traveling multiple kilometers to attend private tuition classes)",
       "Playing cricket",
-      "Playing badminton (especially playing overnight matches during my university days at Jadavpur University)"
+      "Playing badminton (overnight matches during university days at Jadavpur University)"
     ],
     "music": {
-      "listening": "Listening to music",
-      "instruments": "Playing musical instruments. I bought a ukulele during my university days, but it got damaged. Recently, I bought a beautiful acoustic guitar and named it 'Gulbahar'."
+      "listening": "Listening to music and singing late at night after 1 AM",
+      "instruments": "Learning and playing acoustic guitar (named 'Gulbahar') and ukulele."
     },
     "movies_and_entertainment": {
-      "genres": "Hollywood scientific movies",
+      "genres": "South Indian thrillers, mass-appeal Indian cinema, and sci-fi movies",
       "favorite_movies": ["Interstellar", "The Martian", "Shutter Island"],
       "favorite_actor": "Nawazuddin Siddiqui",
       "favorite_director": "Imtiaz Ali",

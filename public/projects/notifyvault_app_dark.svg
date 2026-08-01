@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" fill="none">
+  <rect width="600" height="330" rx="12" fill="#09090B"/>
+  <rect width="600" height="330" rx="12" stroke="#27272A" stroke-width="1.5"/>
+  <rect x="210" y="20" width="180" height="290" rx="20" fill="#18181B" stroke="#3F3F46" stroke-width="2"/>
+  <circle cx="300" cy="35" r="3" fill="#71717A"/>
+  <rect x="226" y="55" width="148" height="30" rx="6" fill="#27272A"/>
+  <text x="300" y="74" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#F4F4F5" text-anchor="middle">🔒 NotifyVault (AES-256)</text>
+  <rect x="226" y="95" width="148" height="42" rx="6" fill="#09090B" stroke="#27272A" stroke-width="1"/>
+  <text x="236" y="112" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#F4F4F5">Important Alert</text>
+  <text x="236" y="126" font-family="system-ui, sans-serif" font-size="8" fill="#A1A1AA">Cached in local SQLite Room</text>
+  <rect x="226" y="145" width="148" height="42" rx="6" fill="#09090B" stroke="#27272A" stroke-width="1"/>
+  <text x="236" y="162" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#F4F4F5">Secure Message</text>
+  <text x="236" y="176" font-family="system-ui, sans-serif" font-size="8" fill="#A1A1AA">AES encrypted key</text>
+  <rect x="226" y="195" width="148" height="42" rx="6" fill="#09090B" stroke="#27272A" stroke-width="1"/>
+  <text x="236" y="212" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#F4F4F5">Transaction Alert</text>
+  <text x="236" y="226" font-family="system-ui, sans-serif" font-size="8" fill="#A1A1AA">Dismissed tray logger</text>
+</svg>

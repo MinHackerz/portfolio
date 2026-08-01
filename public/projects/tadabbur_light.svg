@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" fill="none">
+  <rect width="600" height="330" rx="12" fill="#FAF9F6"/>
+  <rect width="600" height="330" rx="12" stroke="#E7E5E4" stroke-width="1.5"/>
+  <text x="300" y="95" font-family="system-ui, serif" font-size="42" font-weight="500" fill="#B45309" text-anchor="middle">تدبر</text>
+  <text x="300" y="125" font-family="system-ui, sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#44403C" text-anchor="middle">TADABBUR</text>
+  <text x="300" y="150" font-family="system-ui, sans-serif" font-size="12" fill="#78716C" text-anchor="middle">Distraction-Free Quran Study Companion</text>
+  <!-- Audio Wave Player -->
+  <rect x="120" y="200" width="360" height="65" rx="16" fill="#FFFFFF" stroke="#E7E5E4" stroke-width="1"/>
+  <circle cx="160" cy="232.5" r="18" fill="#B45309"/>
+  <polygon points="156,225 168,232.5 156,240" fill="#FFFFFF"/>
+  <line x1="200" y1="232.5" x2="400" y2="232.5" stroke="#E7E5E4" stroke-width="4" stroke-linecap="round"/>
+  <line x1="200" y1="232.5" x2="290" y2="232.5" stroke="#B45309" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="290" cy="232.5" r="6" fill="#B45309"/>
+  <text x="445" y="236" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#78716C">Surah Al-Fatihah</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" fill="none">
+  <rect width="600" height="330" rx="12" fill="#09090B"/>
+  <rect width="600" height="330" rx="12" stroke="#27272A" stroke-width="1.5"/>
+  <!-- Phone Frame Outline -->
+  <rect x="210" y="20" width="180" height="290" rx="20" fill="#18181B" stroke="#3F3F46" stroke-width="2"/>
+  <circle cx="300" cy="35" r="3" fill="#71717A"/>
+  <!-- Status Badge -->
+  <rect x="230" y="60" width="140" height="50" rx="10" fill="#064E3B" stroke="#059669" stroke-width="1"/>
+  <text x="300" y="82" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#34D399" text-anchor="middle">Signature Valid ✓</text>
+  <text x="300" y="98" font-family="system-ui, sans-serif" font-size="9" fill="#10B981" text-anchor="middle">On-Device Verification</text>
+  <!-- Certificate Info -->
+  <rect x="230" y="125" width="140" height="135" rx="8" fill="#27272A"/>
+  <text x="242" y="148" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#F4F4F5">X.509 Certificate</text>
+  <text x="242" y="166" font-family="system-ui, sans-serif" font-size="8" fill="#A1A1AA">Issuer: Root CA</text>
+  <text x="242" y="181" font-family="system-ui, sans-serif" font-size="8" fill="#A1A1AA">PKI Chain: Valid</text>
+  <text x="242" y="196" font-family="system-ui, sans-serif" font-size="8" fill="#A1A1AA">Hash: SHA-256 Intact</text>
+  <rect x="242" y="215" width="116" height="24" rx="6" fill="#059669"/>
+  <text x="300" y="231" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#FFFFFF" text-anchor="middle">ANDROID JETPACK</text>
+</svg>

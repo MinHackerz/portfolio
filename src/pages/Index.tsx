@@ -1,9 +1,10 @@
 import { type FC, useEffect, useState, useMemo } from "react"
-import { Mail, Github, Linkedin, ArrowUpRight, Sparkles } from "lucide-react"
+import { Mail, Github, Linkedin, ArrowUpRight, Sparkles, QrCode, Search, Database, BookOpen, ShieldCheck, BarChart2, Video, Smartphone, Lock, Building2, MapPin, HeartHandshake, Clapperboard, Music2, Rocket } from "lucide-react"
 import Footer from "@/components/Footer"
 import MinBOT from "@/components/MinBOT"
 import MagneticIcon from "@/components/MagneticIcon"
 import ScrollIndicator from "@/components/ScrollIndicator"
+import { ProjectThumbnail } from "@/components/ProjectThumbnail"
 import { useActiveSection, useScrollReveal } from "@/hooks/useScrollReveal"
 
 const Index: FC = () => {
@@ -53,15 +54,23 @@ const Index: FC = () => {
       description: "A secure, trust-focused billing and invoicing platform that cryptographically seals invoices with unique QR codes, ensuring zero-knowledge authenticity. Features include automated client payment reminders, multi-channel WhatsApp/Email delivery, smart AI-powered receipt scanning, real-time inventory tracking, multi-currency support, and customizable templates for seamless invoicing.",
       tech: "TypeScript, React, Tailwind CSS, Next.js",
       status: "Live",
-      link: "https://rasid.in"
+      link: "https://rasid.in",
+      favicon: "favicons/rasid.png",
+      icon: QrCode,
+      imageLight: "projects/rasid_light.svg",
+      imageDark: "projects/rasid_dark.svg"
     },
     {
-      title: "SEOBoostr",
+      title: "SEOptimised",
       year: "2026",
       description: "An enterprise-ready search engine optimization (SEO) audit and website monitoring dashboard featuring 15 dedicated modules. It supports real-time web scraping, automatic meta schema evaluations, performance benchmarks, accessibility analysis, page hierarchy reviews, and interactive data visualization for custom reports on site search visibility and organic ranking performance.",
       tech: "Next.js, Prisma, Neon Postgres, Cheerio, Recharts, Tailwind CSS v4",
-      status: "In Development",
-      link: "https://github.com/MinHackerz/seoboostr"
+      status: "Live",
+      link: "https://seoptimised.vercel.app",
+      favicon: "favicons/seoptimised.png",
+      icon: Search,
+      imageLight: "projects/seoptimised_light.svg",
+      imageDark: "projects/seoptimised_dark.svg"
     },
     {
       title: "Govt Procurement Intelligence",
@@ -69,7 +78,11 @@ const Index: FC = () => {
       description: "An offline-first data analytics pipeline designed to identify indicators of fraud across 8.8 million public procurement transactions from India's Central Public Procurement Portal. The tool models single-bid tendencies, detects unusually short submission windows, and serves interactive querying capabilities locally through Python, Flask, and Datasette interfaces.",
       tech: "Flask, Python, SQLite, SQL Query Design, Datasette",
       status: "GitHub",
-      link: ""
+      link: "",
+      favicon: "favicons/procurement.png",
+      icon: Database,
+      imageLight: "projects/procurement_light.svg",
+      imageDark: "projects/procurement_dark.svg"
     },
     {
       title: "Tadabbur",
@@ -77,7 +90,11 @@ const Index: FC = () => {
       description: "An immersive, distraction-free Quranic study workspace and companion platform utilizing the Quran Foundation SDK. It offers an advanced text reader with multiple translations and high-quality audio recitation, integrated bookmarking, personal reading progress goals, social reflection feeds via QuranReflect, and location-based prayer timing integrations.",
       tech: "Next.js (App Router), React, TypeScript, Tailwind CSS, Quran Foundation SDK",
       status: "Live",
-      link: "https://tadabbur-iota.vercel.app/"
+      link: "https://tadabbur-iota.vercel.app/",
+      favicon: "favicons/tadabbur.png",
+      icon: BookOpen,
+      imageLight: "projects/tadabbur_light.svg",
+      imageDark: "projects/tadabbur_dark.svg"
     },
     {
       title: "PDF SignCheck",
@@ -85,7 +102,11 @@ const Index: FC = () => {
       description: "A privacy-first web utility for cryptographically validating digital signatures in PDF documents. It extracts PKCS#7/CMS signatures, validates certificate chains against 80+ trusted root CAs from the Mozilla trust store, embeds signature validity badges, and includes a full suite of client-side PDF tools like dark mode conversion and duplicate page removal.",
       tech: "Next.js, React, TypeScript, Tailwind CSS, Web Cryptography",
       status: "Live",
-      link: "https://pdfsigncheck.com"
+      link: "https://pdfsigncheck.com",
+      favicon: "favicons/pdfsigncheck.png",
+      icon: ShieldCheck,
+      imageLight: "projects/pdfsigncheck_light.svg",
+      imageDark: "projects/pdfsigncheck_dark.svg"
     },
     {
       title: "VidStats",
@@ -93,15 +114,11 @@ const Index: FC = () => {
       description: "A comprehensive AI-driven analytics dashboard trusted by over 800 YouTube creators to audit and optimize their publishing strategy. Features include automated video transcript summaries, sentiment analysis of user comments, competitor performance benchmarking, an AI-powered scriptwriting coprocessor, and an integrated post scheduler for maximizing organic viewer engagement.",
       tech: "React, Next.js, TypeScript, Tailwind CSS, Supabase, Gemini, GPT-4",
       status: "Live",
-      link: "https://vidstats.pro"
-    },
-    {
-      title: "Youtube Transcript",
-      year: "2024",
-      description: "A high-speed transcript generation and summarization utility that processes YouTube videos in over 125 languages. Integrating the Google Gemini API, it extracts clean, time-stamped text layouts from videos, translates transcripts on-the-fly, and generates structured executive summaries, key takeaways, and action items in seconds.",
-      tech: "Vite.js, React, Tailwind CSS, Gemini API",
-      status: "Live",
-      link: "https://yt-transcript-indol.vercel.app/"
+      link: "https://vidstats.pro",
+      favicon: "favicons/vidstats.png",
+      icon: BarChart2,
+      imageLight: "projects/vidstats_light.svg",
+      imageDark: "projects/vidstats_dark.svg"
     }
   ];
 
@@ -112,7 +129,11 @@ const Index: FC = () => {
       description: "A secure, client-side Android application that cryptographically validates digital signatures on PDF certificates and documents. Operating entirely on-device, the app parses X.509 digital certificates, verifies document hash integrity using PKI rules, and displays detailed signing authority paths and issuer information to verify file authenticity offline.",
       tech: "Kotlin, Android Jetpack, Java Cryptography Architecture (JCA)",
       status: "Live",
-      link: "https://play.google.com/store/apps/details?id=com.minhackerz.pdfsigncheck_app"
+      link: "https://play.google.com/store/apps/details?id=com.minhackerz.pdfsigncheck_app",
+      favicon: "favicons/pdf_validator_app.png",
+      icon: Smartphone,
+      imageLight: "projects/pdf_validator_app_light.svg",
+      imageDark: "projects/pdf_validator_app_dark.svg"
     },
     {
       title: "NotifyVault",
@@ -120,7 +141,11 @@ const Index: FC = () => {
       description: "A privacy-focused, encrypted notification logger for Android devices. The app intercepts and caches incoming push notifications in a local, AES-encrypted SQLite Room database, ensuring complete user privacy. Users can categorize, search, and review historical alerts even after they are dismissed from the system tray.",
       tech: "Kotlin, Android Room, SQLite AES Encryption, Material 3",
       status: "Live",
-      link: "https://github.com/MinHackerz/notifyvault"
+      link: "https://play.google.com/store/apps/details?id=com.notifyvault.app",
+      favicon: "favicons/notifyvault_app.png",
+      icon: Lock,
+      imageLight: "projects/notifyvault_app_light.svg",
+      imageDark: "projects/notifyvault_app_dark.svg"
     }
   ];
 
@@ -130,16 +155,30 @@ const Index: FC = () => {
       companyLink: "https://www.capgemini.com/",
       role: "Associate Consultant",
       duration: "Oct 2023 - Present",
-      description: "Consulting on enterprise data systems, data warehousing, and ETL integration. Specializing in SAP Datasphere, SAP BTP, SAP BODS, SSIS, and SQL tuning.",
-      skills: "SAP Datasphere, SAP BTP, SAP BODS, SQL Optimization, SSIS"
+      isCurrent: true,
+      location: "Kolkata, India",
+      type: "Full-time",
+      highlights: [
+        "Architected high-performance ETL pipelines using SAP BODS & SAP Datasphere for enterprise data integration, maintaining 100% SLA compliance across mission-critical jobs.",
+        "Optimized complex Oracle SQL queries & database operations, fixing configuration issues and compiling required audit documentation.",
+        "Engineered robust ETL workflows featuring automated error handling, real-time job monitoring, and stakeholder data delivery."
+      ],
+      skills: "SAP Datasphere, SAP BODS, Oracle SQL Optimization, SAP BTP, BigQuery, SSIS, SLA Compliance, Audit Support"
     },
     {
       company: "Capgemini",
       companyLink: "https://www.capgemini.com/",
       role: "Senior Analyst",
       duration: "Aug 2022 - Oct 2023",
-      description: "Analyzed complex datasets, wrote Python validation scripts, and designed data pipelines. Focused on SSIS and relational SQL databases.",
-      skills: "SQL, Python, SSIS, Data Analytics"
+      isCurrent: false,
+      location: "Kolkata, India",
+      type: "Full-time",
+      highlights: [
+        "Engineered scalable data processing systems using SSIS & Microsoft SQL Server, processing millions of daily records.",
+        "Built interactive Power BI dashboards & real-time analytics templates for KPI tracking and executive decision-making.",
+        "Established comprehensive data quality assurance procedures using Oracle SQL and Excel, ensuring 99.9% data accuracy."
+      ],
+      skills: "SSIS, Microsoft SQL Server, Oracle SQL, Power BI, Excel Automation, Data Quality Assurance"
     }
   ];
 
@@ -149,13 +188,22 @@ const Index: FC = () => {
       institutionLink: "https://www.jaduniv.edu.in/",
       degree: "Bachelor of Engineering in Power Engineering",
       duration: "2018 - 2022",
-      details: "CGPA: 8.06/10. Focus on data modeling, systems engineering, and machine learning pipelines."
+      logo: "jadavpur-university-logo.png",
+      details: "CGPA: 8.06/10. Focused on sustainable energy systems, including modeling a 20MW Wind Power Station using MATLAB/Simulink and ocean wave energy generation systems."
     },
     {
       institution: "Dangram I.C. High School",
       degree: "Higher Secondary (Class XII), Science",
       duration: "2015 - 2017",
-      details: "Completed Higher Secondary board examinations focusing on physics, chemistry, and mathematics."
+      logo: "wbchse-logo.png",
+      details: "Completed Higher Secondary board examinations under WBCHSE focusing on physics, chemistry, and mathematics."
+    },
+    {
+      institution: "Sukarur Kuthi High School",
+      degree: "Secondary Education (Class X / Matriculation), General Subjects",
+      duration: "2009 - 2015",
+      logo: "wbbse-logo.png",
+      details: "Completed Secondary Education (Matriculation) under WBBSE with 80% marks in General Subjects."
     }
   ];
 
@@ -281,9 +329,9 @@ const Index: FC = () => {
                 </span>
               </div>
               <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Data Eng</span>
+                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-555 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Data Eng</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
-                  SAP Datasphere · SAP BTP · SAP BODS · SQL · Python
+                  SAP Datasphere · SAP Business Data Cloud · BigQuery · SAP BTP · SAP BODS · SQL · Python
                 </span>
               </div>
               <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill sidebar-compact-skills-row">
@@ -334,45 +382,146 @@ const Index: FC = () => {
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   about
                 </h2>
-                <div className="space-y-4 text-[15.5px] leading-[1.7] text-zinc-800 dark:text-zinc-200 font-sans tracking-tight max-w-xl">
+
+                {/* Main Bio Paragraphs */}
+                <div className="space-y-4 text-[15px] sm:text-[15.5px] leading-[1.75] text-zinc-700 dark:text-zinc-200 font-sans tracking-tight">
                   <p>
-                    I am a Data Engineer and Applied AI developer. I connect enterprise data systems with AI models. At <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">Capgemini</a>, I build data pipelines and cloud solutions using SAP Datasphere and BTP.
+                    I am a <strong className="font-semibold text-zinc-900 dark:text-zinc-100">Data Engineer & Applied AI Developer</strong> based in Kolkata, bridging enterprise data warehousing with modern AI models and autonomous agent workflows. At <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 font-medium transition-colors">Capgemini</a>, I architect cloud data pipelines using SAP Datasphere, SAP BTP, and BigQuery.
                   </p>
                   <p>
-                    In my free time, I build AI web tools, secure document utilities, and custom web apps. I focus on privacy-first client-side encryption and SEO analytics systems.
+                    Originally from <strong className="font-semibold text-zinc-900 dark:text-zinc-100">Seuti Part 2</strong>—an international border village in Cooch Behar near the India-Bangladesh border—I moved to Kolkata to pursue Power Engineering at <a href="https://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 font-medium transition-colors">Jadavpur University</a>. While modeling 20MW wind power stations and ocean wave energy converters in MATLAB and Simulink, I discovered SQL and Python, pivoting my engineering career toward cloud data architecture and intelligent software.
                   </p>
-                  <p>
-                    Based in West Bengal, I transitioned from Power Engineering at <a href="https://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">Jadavpur University</a> to data management and LLM pipelines.
-                  </p>
+                </div>
+
+                {/* Highlight Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                  <div className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 space-y-1.5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300">
+                    <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 font-semibold">
+                      <MapPin className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
+                      <span>Border Town Roots</span>
+                    </div>
+                    <p className="text-[13px] text-zinc-650 dark:text-zinc-350 leading-relaxed">
+                      Grew up in Seuti Part 2 near the India-Bangladesh border. Developed strong resilience and a habit of cycling miles daily for private tuition.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 space-y-1.5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300">
+                    <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-emerald-600 dark:text-emerald-400 font-semibold">
+                      <HeartHandshake className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                      <span>Community Relief</span>
+                    </div>
+                    <p className="text-[13px] text-zinc-650 dark:text-zinc-350 leading-relaxed">
+                      Drove COVID-19 relief operations across North Bengal through <em className="not-italic font-medium text-zinc-800 dark:text-zinc-200">Eksathe Banchbo</em> (built by JU seniors), delivering food & medicines to isolated families.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 space-y-1.5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300">
+                    <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-purple-600 dark:text-purple-400 font-semibold">
+                      <Rocket className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
+                      <span>Relentless Builder Grit</span>
+                    </div>
+                    <p className="text-[13px] text-zinc-650 dark:text-zinc-350 leading-relaxed">
+                      Built 20+ sites starting on Blogger & WordPress (jobseeker24.com earned ~$300 before getting hacked). Pivoted into Next.js & Android development—building <em className="not-italic text-zinc-800 dark:text-zinc-200 font-medium">vidstats.pro</em> (800+ users), PDF Signature Validator, and NotifyVault.
+                    </p>
+                  </div>
+
+                  <div className="p-4 rounded-xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 space-y-1.5 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300">
+                    <div className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-amber-600 dark:text-amber-400 font-semibold">
+                      <Music2 className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
+                      <span>Beyond Code</span>
+                    </div>
+                    <p className="text-[13px] text-zinc-650 dark:text-zinc-350 leading-relaxed">
+                      Learning acoustic guitar (named <em className="not-italic font-medium text-zinc-800 dark:text-zinc-200">Gulbahar</em>) & ukulele with late-night singing after 1 AM. Loves South Indian thrillers, mass cinema, sci-fi, & <em className="not-italic text-zinc-800 dark:text-zinc-200">The Alchemist</em>.
+                    </p>
+                  </div>
                 </div>
               </section>
 
               {/* Experience Section */}
-              <section ref={expRef} id="experience" className={`scroll-reveal ${expVisible ? "revealed" : ""} space-y-8 scroll-mt-12`}>
+              <section ref={expRef} id="experience" className={`scroll-reveal ${expVisible ? "revealed" : ""} space-y-10 sm:space-y-12 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   experience
                 </h2>
-                <div className="group/list space-y-8">
+                <div className="group/list space-y-10 sm:space-y-12">
                   {experiences.map((exp, index) => (
                     <div
                       key={index}
-                      className="group relative flex flex-col py-2 pl-6 border-l border-zinc-100/50 dark:border-zinc-900/50 transition-all duration-300 md:group-hover/list:opacity-45 hover:!opacity-100"
+                      className="group relative flex flex-col py-4 sm:py-5 pl-6 sm:pl-8 border-l border-zinc-200/80 dark:border-zinc-800/80 transition-all duration-300 md:group-hover/list:opacity-50 hover:!opacity-100 space-y-4"
                     >
-                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-zinc-400 dark:bg-zinc-650 transition-transform duration-300 ease-out z-10" />
-                      <div className="w-full space-y-2">
-                        <div className="flex items-baseline justify-between w-full">
-                          <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                            {exp.role} <span className="text-zinc-400 dark:text-zinc-600 font-normal">at</span> <a href={exp.companyLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">{exp.company}</a>
-                          </h3>
-                          <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest tabular-nums">
-                            {exp.duration}
-                          </span>
+                      {/* Dynamic absolute vertical indicator line */}
+                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-zinc-400 dark:bg-zinc-500 transition-transform duration-300 ease-out z-10" />
+
+                      <div className="w-full space-y-3">
+                        {/* Header Row: Role, Company Logo/Badge, Live Pill & Duration */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full">
+                          <div className="flex items-center gap-3.5">
+                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
+                              <img
+                                src={`${import.meta.env.BASE_URL}capgemini-icon.png`}
+                                alt="Capgemini Logo"
+                                className="w-full h-full object-contain p-0.5"
+                              />
+                            </div>
+                            <div>
+                              <h3 className="text-lg sm:text-xl font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
+                                {exp.role} <span className="text-zinc-400 dark:text-zinc-600 font-normal">at</span>{" "}
+                                <a
+                                  href={exp.companyLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors font-semibold"
+                                >
+                                  {exp.company}
+                                  <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity text-zinc-400 dark:text-zinc-500" />
+                                </a>
+                              </h3>
+                              <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-450 dark:text-zinc-500 pt-0.5">
+                                <span>{exp.location}</span>
+                                <span>•</span>
+                                <span>{exp.type}</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-widest shrink-0 self-start sm:self-auto">
+                            {exp.isCurrent ? (
+                              <span className="flex items-center gap-1.5 px-3 py-1 rounded-full border font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20">
+                                <span className="relative flex h-1.5 w-1.5">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                                </span>
+                                PRESENT
+                              </span>
+                            ) : (
+                              <span className="px-3 py-1 rounded-full border font-semibold bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border-zinc-500/20">
+                                COMPLETED
+                              </span>
+                            )}
+                            <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                            <span className="text-zinc-400 dark:text-zinc-500 tabular-nums">{exp.duration}</span>
+                          </div>
                         </div>
-                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans tracking-tight">
-                          {exp.description}
-                        </p>
-                        <div className="text-[11px] font-mono tracking-widest text-zinc-400 dark:text-zinc-550 uppercase pt-1">
-                          {exp.skills.replace(/, /g, "  ·  ")}
+
+                        {/* Highlights Bullet List */}
+                        <ul className="space-y-2 pt-1">
+                          {exp.highlights.map((item, hIdx) => (
+                            <li key={hIdx} className="flex items-start gap-2.5 text-[14px] sm:text-[14.5px] text-zinc-700 dark:text-zinc-200 leading-[1.7] font-sans tracking-tight">
+                              <span className="text-sky-500 dark:text-sky-400 font-bold select-none pt-0.5 shrink-0">•</span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Tech Stack Badges */}
+                        <div className="flex flex-wrap gap-2 pt-1.5">
+                          {exp.skills.split(", ").map((skill, sIdx) => (
+                            <span
+                              key={sIdx}
+                              className="text-[10.5px] sm:text-[11px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-200/60 dark:bg-zinc-800/80 px-3 py-1 rounded-md border border-zinc-300/60 dark:border-zinc-700/60 group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors"
+                            >
+                              {skill}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -395,7 +544,7 @@ const Index: FC = () => {
                   <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
                     <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors">Data Eng</span>
                     <span className="text-[13px] font-sans text-zinc-505 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors">
-                      SAP Datasphere · SAP BTP · SAP BODS · SQL · Python
+                      SAP Datasphere · SAP Business Data Cloud · BigQuery · SAP BTP · SAP BODS · SQL · Python
                     </span>
                   </div>
                   <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded transition-all duration-200 group/skill">
@@ -426,137 +575,230 @@ const Index: FC = () => {
               </div>
 
               {/* Web Projects */}
-              <section ref={projRef} id="projects" className={`scroll-reveal ${projVisible ? "revealed" : ""} space-y-8 scroll-mt-12`}>
+              <section ref={projRef} id="projects" className={`scroll-reveal ${projVisible ? "revealed" : ""} space-y-6 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   web applications
                 </h2>
-                <div className="group/list space-y-8">
-                  {webProjects.map((project, index) => (
-                    <div
-                      key={index}
-                      className="group relative flex flex-col py-2 pl-6 border-l border-zinc-100/50 dark:border-zinc-900/50 transition-all duration-300 md:group-hover/list:opacity-45 hover:!opacity-100"
-                    >
-                      {/* Dynamic absolute vertical indicator line */}
-                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-zinc-400 dark:bg-zinc-650 transition-transform duration-300 ease-out z-10" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                  {webProjects.map((project, index) => {
+                    const ProjectIcon = project.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 hover:border-zinc-300 dark:hover:border-zinc-700/80 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/60 transition-all duration-300 shadow-xs hover:shadow-md hover:shadow-zinc-200/30 dark:hover:shadow-black/30 space-y-4 overflow-hidden"
+                      >
+                        {/* Minimalist UI Mockup Thumbnail with Pixel-Perfect Alignment */}
+                        {project.link ? (
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full">
+                            <ProjectThumbnail title={project.title} />
+                          </a>
+                        ) : (
+                          <ProjectThumbnail title={project.title} />
+                        )}
 
-                      <div className="w-full space-y-2.5">
-                        <div className="flex items-baseline justify-between w-full">
-                          <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                            {project.link ? (
-                              <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
-                              >
-                                {project.title}
-                                <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
-                              </a>
-                            ) : (
-                              <span className="inline-flex items-center gap-1.5">{project.title}</span>
-                            )}
-                          </h3>
-                          <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 dark:text-zinc-555 uppercase tracking-widest">
-                            <span>{project.status}</span>
-                            <span>·</span>
-                            <span className="tabular-nums">{project.year}</span>
+                        {/* Card Header with Icon, Title, Status & Year */}
+                        <div className="flex items-start justify-between gap-3 pt-1">
+                          <div className="flex items-center gap-3.5">
+                            <div className="w-9 h-9 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1.5 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
+                              <img
+                                src={`${import.meta.env.BASE_URL}${project.favicon}`}
+                                alt={project.title}
+                                className="w-full h-full object-contain rounded-md"
+                              />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
+                                {project.link ? (
+                                  <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
+                                  >
+                                    {project.title}
+                                    <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
+                                  </a>
+                                ) : (
+                                  <span>{project.title}</span>
+                                )}
+                              </h3>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest shrink-0">
+                            <span className={`px-2.5 py-0.5 rounded-full border font-semibold ${
+                              project.status === "Live"
+                                ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
+                                : project.status === "In Development"
+                                ? "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
+                                : "bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border-zinc-500/20"
+                            }`}>
+                              {project.status}
+                            </span>
+                            <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                            <span className="text-zinc-400 dark:text-zinc-500 tabular-nums">{project.year}</span>
                           </div>
                         </div>
 
-                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50 leading-relaxed font-sans tracking-tight transition-colors duration-300">
+                        {/* Description */}
+                        <p className="text-[13.5px] sm:text-[14px] text-zinc-650 dark:text-zinc-300 leading-relaxed font-sans tracking-tight">
                           {project.description}
                         </p>
 
-                        <div className="text-[11px] font-mono tracking-widest text-zinc-450 dark:text-zinc-500 uppercase pt-1">
-                          {project.tech.replace(/, /g, "  ·  ")}
+                        {/* Tech Stack Badges */}
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {project.tech.split(", ").map((item, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className="text-[10px] sm:text-[10.5px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-200/60 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-md border border-zinc-300/60 dark:border-zinc-700/60 group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors"
+                            >
+                              {item}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
               {/* Android Applications */}
-              <section ref={androidRef} className={`scroll-reveal ${androidVisible ? "revealed" : ""} space-y-8`}>
+              <section ref={androidRef} className={`scroll-reveal ${androidVisible ? "revealed" : ""} space-y-6`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   android applications
                 </h2>
-                <div className="group/list space-y-8">
-                  {androidProjects.map((project, index) => (
-                    <div
-                      key={index}
-                      className="group relative flex flex-col py-2 pl-6 border-l border-zinc-100/50 dark:border-zinc-900/50 transition-all duration-300 md:group-hover/list:opacity-45 hover:!opacity-100"
-                    >
-                      {/* Dynamic absolute vertical indicator line */}
-                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-zinc-400 dark:bg-zinc-650 transition-transform duration-300 ease-out z-10" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                  {androidProjects.map((project, index) => {
+                    const ProjectIcon = project.icon;
+                    return (
+                      <div
+                        key={index}
+                        className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 hover:border-zinc-300 dark:hover:border-zinc-700/80 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/60 transition-all duration-300 shadow-xs hover:shadow-md hover:shadow-zinc-200/30 dark:hover:shadow-black/30 space-y-4 overflow-hidden"
+                      >
+                        {/* Minimalist UI Mockup Thumbnail with Pixel-Perfect Alignment */}
+                        {project.link ? (
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full">
+                            <ProjectThumbnail title={project.title} />
+                          </a>
+                        ) : (
+                          <ProjectThumbnail title={project.title} />
+                        )}
 
-                      <div className="w-full space-y-2.5">
-                        <div className="flex items-baseline justify-between w-full">
-                          <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                            {project.link ? (
-                              <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
-                              >
-                                {project.title}
-                                <ArrowUpRight className="w-3.5 h-3.5 opacity-25 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-650 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
-                              </a>
-                            ) : (
-                              <span className="inline-flex items-center gap-1.5">{project.title}</span>
-                            )}
-                          </h3>
-                          <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest">
-                            <span>{project.status}</span>
-                            <span>·</span>
-                            <span className="tabular-nums">{project.year}</span>
+                        {/* Card Header with Icon, Title, Status & Year */}
+                        <div className="flex items-start justify-between gap-3 pt-1">
+                          <div className="flex items-center gap-3.5">
+                            <div className="w-9 h-9 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1.5 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
+                              <img
+                                src={`${import.meta.env.BASE_URL}${project.favicon}`}
+                                alt={project.title}
+                                className="w-full h-full object-contain rounded-md"
+                              />
+                            </div>
+                            <div>
+                              <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
+                                {project.link ? (
+                                  <a
+                                    href={project.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1.5 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors"
+                                  >
+                                    {project.title}
+                                    <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 -translate-x-0.5 translate-y-0.5 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100" />
+                                  </a>
+                                ) : (
+                                  <span>{project.title}</span>
+                                )}
+                              </h3>
+                            </div>
+                          </div>
+
+                          <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest shrink-0">
+                            <span className="px-2.5 py-0.5 rounded-full border font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20">
+                              {project.status}
+                            </span>
+                            <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                            <span className="text-zinc-400 dark:text-zinc-500 tabular-nums">{project.year}</span>
                           </div>
                         </div>
 
-                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 group-hover:text-zinc-950 dark:group-hover:text-zinc-50 leading-relaxed font-sans tracking-tight transition-colors duration-300">
+                        {/* Description */}
+                        <p className="text-[13.5px] sm:text-[14px] text-zinc-650 dark:text-zinc-300 leading-relaxed font-sans tracking-tight">
                           {project.description}
                         </p>
 
-                        <div className="text-[11px] font-mono tracking-widest text-zinc-450 dark:text-zinc-500 uppercase pt-1">
-                          {project.tech.replace(/, /g, "  ·  ")}
+                        {/* Tech Stack Badges */}
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {project.tech.split(", ").map((item, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className="text-[10px] sm:text-[10.5px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-200/60 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-md border border-zinc-300/60 dark:border-zinc-700/60 group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors"
+                            >
+                              {item}
+                            </span>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
 
               {/* Education Section */}
-              <section ref={eduRef} id="education" className={`scroll-reveal ${eduVisible ? "revealed" : ""} space-y-8 scroll-mt-12`}>
+              <section ref={eduRef} id="education" className={`scroll-reveal ${eduVisible ? "revealed" : ""} space-y-10 sm:space-y-12 scroll-mt-12`}>
                 <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   education
                 </h2>
-                <div className="group/list space-y-8">
+                <div className="group/list space-y-10 sm:space-y-12">
                   {educationList.map((edu, index) => (
                     <div
                       key={index}
-                      className="group relative flex flex-col py-2 pl-6 border-l border-zinc-100/50 dark:border-zinc-900/50 transition-all duration-300 md:group-hover/list:opacity-45 hover:!opacity-100"
+                      className="group relative flex flex-col py-4 sm:py-5 pl-6 sm:pl-8 border-l border-zinc-200/80 dark:border-zinc-800/80 transition-all duration-300 md:group-hover/list:opacity-50 hover:!opacity-100 space-y-3.5"
                     >
-                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-zinc-400 dark:bg-zinc-650 transition-transform duration-300 ease-out z-10" />
-                      <div className="w-full space-y-2">
-                        <div className="flex items-baseline justify-between w-full">
-                          <h3 className="text-lg font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                            {edu.institutionLink ? (
-                              <a href={edu.institutionLink} target="_blank" rel="noopener noreferrer" className="hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors">
-                                {edu.institution}
-                              </a>
-                            ) : edu.institution}
-                          </h3>
-                          <span className="text-[10px] font-mono text-zinc-400 dark:text-zinc-550 uppercase tracking-widest tabular-nums">
+                      {/* Dynamic absolute vertical indicator line */}
+                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-zinc-400 dark:bg-zinc-500 transition-transform duration-300 ease-out z-10" />
+
+                      <div className="w-full space-y-2.5">
+                        {/* Header Row: Institution Logo, Name & Duration */}
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full">
+                          <div className="flex items-center gap-3.5">
+                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
+                              <img
+                                src={`${import.meta.env.BASE_URL}${edu.logo}`}
+                                alt={edu.institution}
+                                className="w-full h-full object-contain p-0.5"
+                              />
+                            </div>
+                            <div>
+                              <h3 className="text-lg sm:text-xl font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
+                                {edu.institutionLink ? (
+                                  <a
+                                    href={edu.institutionLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors font-semibold"
+                                  >
+                                    {edu.institution}
+                                    <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity text-zinc-400 dark:text-zinc-500" />
+                                  </a>
+                                ) : (
+                                  <span>{edu.institution}</span>
+                                )}
+                              </h3>
+                              <h4 className="text-[14px] sm:text-[14.5px] font-medium text-zinc-700 dark:text-zinc-300 font-sans tracking-tight pt-0.5">
+                                {edu.degree}
+                              </h4>
+                            </div>
+                          </div>
+
+                          <span className="text-[10.5px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest tabular-nums shrink-0 self-start sm:self-auto">
                             {edu.duration}
                           </span>
                         </div>
-                        <h4 className="text-[14.5px] font-medium text-zinc-850 dark:text-zinc-150 font-sans tracking-tight">
-                          {edu.degree}
-                        </h4>
-                        <p className="text-[14.5px] text-zinc-800 dark:text-zinc-200 leading-relaxed font-sans tracking-tight">
+
+                        {/* Details */}
+                        <p className="text-[14px] sm:text-[14.5px] text-zinc-700 dark:text-zinc-200 leading-[1.7] font-sans tracking-tight">
                           {edu.details}
                         </p>
                       </div>
