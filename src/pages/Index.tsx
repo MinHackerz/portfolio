@@ -5,6 +5,7 @@ import MinBOT from "@/components/MinBOT"
 import MagneticIcon from "@/components/MagneticIcon"
 import ScrollIndicator from "@/components/ScrollIndicator"
 import { ProjectThumbnail } from "@/components/ProjectThumbnail"
+import { SpotlightCard } from "@/components/SpotlightCard"
 import { useActiveSection, useScrollReveal } from "@/hooks/useScrollReveal"
 
 const Index: FC = () => {
@@ -581,13 +582,9 @@ const Index: FC = () => {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                   {webProjects.map((project, index) => {
-                    const ProjectIcon = project.icon;
                     return (
-                      <div
-                        key={index}
-                        className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 hover:border-zinc-300 dark:hover:border-zinc-700/80 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/60 transition-all duration-300 shadow-xs hover:shadow-md hover:shadow-zinc-200/30 dark:hover:shadow-black/30 space-y-4 overflow-hidden"
-                      >
-                        {/* Minimalist UI Mockup Thumbnail with Pixel-Perfect Alignment */}
+                      <SpotlightCard key={index}>
+                        {/* Minimalist UI Mockup Thumbnail */}
                         {project.link ? (
                           <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full">
                             <ProjectThumbnail title={project.title} />
@@ -599,7 +596,7 @@ const Index: FC = () => {
                         {/* Card Header with Icon, Title, Status & Year */}
                         <div className="flex items-start justify-between gap-3 pt-1">
                           <div className="flex items-center gap-3.5">
-                            <div className="w-9 h-9 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1.5 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
+                            <div className="w-9 h-9 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1.5 group-hover:border-zinc-300 dark:group-hover:border-zinc-700 transition-colors shrink-0 overflow-hidden">
                               <img
                                 src={`${import.meta.env.BASE_URL}${project.favicon}`}
                                 alt={project.title}
@@ -630,7 +627,7 @@ const Index: FC = () => {
                               project.status === "Live"
                                 ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
                                 : project.status === "In Development"
-                                ? "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
+                                ? "bg-amber500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
                                 : "bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border-zinc-500/20"
                             }`}>
                               {project.status}
@@ -650,13 +647,13 @@ const Index: FC = () => {
                           {project.tech.split(", ").map((item, tIdx) => (
                             <span
                               key={tIdx}
-                              className="text-[10px] sm:text-[10.5px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-200/60 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-md border border-zinc-300/60 dark:border-zinc-700/60 group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors"
+                              className="text-[10px] sm:text-[10.5px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-200/50 dark:bg-zinc-800/60 px-2.5 py-0.5 rounded-md border border-zinc-300/50 dark:border-zinc-700/50 group-hover:border-zinc-400/60 dark:group-hover:border-zinc-600/60 group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors"
                             >
                               {item}
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </SpotlightCard>
                     );
                   })}
                 </div>
@@ -669,13 +666,9 @@ const Index: FC = () => {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                   {androidProjects.map((project, index) => {
-                    const ProjectIcon = project.icon;
                     return (
-                      <div
-                        key={index}
-                        className="group relative flex flex-col justify-between p-5 sm:p-6 rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 hover:border-zinc-300 dark:hover:border-zinc-700/80 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/60 transition-all duration-300 shadow-xs hover:shadow-md hover:shadow-zinc-200/30 dark:hover:shadow-black/30 space-y-4 overflow-hidden"
-                      >
-                        {/* Minimalist UI Mockup Thumbnail with Pixel-Perfect Alignment */}
+                      <SpotlightCard key={index}>
+                        {/* Minimalist UI Mockup Thumbnail */}
                         {project.link ? (
                           <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full">
                             <ProjectThumbnail title={project.title} />
@@ -687,7 +680,7 @@ const Index: FC = () => {
                         {/* Card Header with Icon, Title, Status & Year */}
                         <div className="flex items-start justify-between gap-3 pt-1">
                           <div className="flex items-center gap-3.5">
-                            <div className="w-9 h-9 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1.5 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
+                            <div className="w-9 h-9 rounded-xl border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1.5 group-hover:border-zinc-300 dark:group-hover:border-zinc-700 transition-colors shrink-0 overflow-hidden">
                               <img
                                 src={`${import.meta.env.BASE_URL}${project.favicon}`}
                                 alt={project.title}
@@ -732,13 +725,13 @@ const Index: FC = () => {
                           {project.tech.split(", ").map((item, tIdx) => (
                             <span
                               key={tIdx}
-                              className="text-[10px] sm:text-[10.5px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-200/60 dark:bg-zinc-800/80 px-2.5 py-0.5 rounded-md border border-zinc-300/60 dark:border-zinc-700/60 group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors"
+                              className="text-[10px] sm:text-[10.5px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-300 bg-zinc-200/50 dark:bg-zinc-800/60 px-2.5 py-0.5 rounded-md border border-zinc-300/50 dark:border-zinc-700/50 group-hover:border-zinc-400/60 dark:group-hover:border-zinc-600/60 group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800 transition-colors"
                             >
                               {item}
                             </span>
                           ))}
                         </div>
-                      </div>
+                      </SpotlightCard>
                     );
                   })}
                 </div>
