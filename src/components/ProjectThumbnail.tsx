@@ -66,15 +66,15 @@ export const ProjectThumbnail: FC<ProjectThumbnailProps> = ({ title }) => {
         </div>
       )}
 
-      {/* 2. SEOptimised */}
-      {title === "SEOptimised" && (
+      {/* 2. Site Audit Score */}
+      {(title === "Site Audit Score" || title === "SEOptimised") && (
         <div className="relative z-10 h-full flex flex-col justify-between">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-              <div className="w-5 h-5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shadow-xs">
+              <div className="w-5 h-5 rounded-none bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-800 dark:text-zinc-200 shadow-xs">
                 <Search className="w-3 h-3" />
               </div>
-              <span className="text-[11px] font-mono font-semibold text-zinc-800 dark:text-zinc-200">seoptimised.vercel.app</span>
+              <span className="text-[11px] font-mono font-semibold text-zinc-800 dark:text-zinc-200">siteauditscore.com</span>
             </div>
             <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-cyan-500/10 dark:bg-cyan-500/20 border border-cyan-500/30 text-cyan-700 dark:text-cyan-400 text-[9px] font-mono font-semibold">
               <TrendingUp className="w-2.5 h-2.5" />

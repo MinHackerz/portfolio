@@ -241,7 +241,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
             {msg.role === "user" ? (
               <div className="space-y-1 max-w-[85%]">
                 <div className="text-[8px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-right">You</div>
-                <div className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-2xl rounded-tr-none px-3.5 py-2 text-[13.5px] shadow-sm">
+                <div className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-none px-3.5 py-2 text-[13.5px] shadow-sm">
                   {parseMessageContent(msg.content)}
                 </div>
               </div>
@@ -262,7 +262,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
             <div className="relative flex items-center justify-center">
               <Sparkles className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 animate-spin [animation-duration:3s]" />
             </div>
-            <div className="flex items-center gap-1 bg-zinc-100/50 dark:bg-zinc-900/40 rounded-full px-2.5 py-1 border border-zinc-200/20 dark:border-zinc-800/20">
+            <div className="flex items-center gap-1 bg-zinc-100/50 dark:bg-zinc-900/40 rounded-none px-2.5 py-1 border border-zinc-200/20 dark:border-zinc-800/20">
               <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce [animation-delay:-0.3s]" />
               <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce [animation-delay:-0.15s]" />
               <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce" />
@@ -284,7 +284,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
               key={pIdx}
               onClick={() => handleSend(prompt)}
               disabled={isLoading}
-              className="text-[9px] font-mono px-3 py-1 border border-zinc-200/80 dark:border-zinc-900 rounded-full bg-zinc-50/20 dark:bg-zinc-950/10 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-350 dark:hover:border-zinc-800 active:bg-zinc-50 dark:active:bg-zinc-900/50 active:text-zinc-900 dark:active:text-zinc-100 active:border-zinc-350 dark:active:border-zinc-800 active:scale-95 transition-all duration-300 disabled:opacity-50"
+              className="text-[9px] font-mono px-3 py-1 border border-zinc-200/80 dark:border-zinc-900 rounded-none bg-zinc-50/20 dark:bg-zinc-950/10 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-350 dark:hover:border-zinc-800 active:bg-zinc-50 dark:active:bg-zinc-900/50 active:text-zinc-900 dark:active:text-zinc-100 active:border-zinc-350 dark:active:border-zinc-800 active:scale-95 transition-all duration-300 disabled:opacity-50"
             >
               {prompt}
             </button>
@@ -296,7 +296,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
       <div className="py-4 bg-transparent border-t border-zinc-100 dark:border-zinc-900">
         <form 
           onSubmit={(e) => { e.preventDefault(); handleSend(); }}
-          className="flex gap-2 bg-zinc-50/20 dark:bg-zinc-950/10 border border-zinc-200/80 dark:border-zinc-900 rounded-full px-3 py-1.5 focus-within:bg-zinc-50/30 dark:focus-within:bg-zinc-900/20 focus-within:border-zinc-350 dark:focus-within:border-zinc-800 transition-all duration-300"
+          className="flex gap-2 bg-zinc-50/20 dark:bg-zinc-950/10 border border-zinc-200/80 dark:border-zinc-900 rounded-none px-3 py-1.5 focus-within:bg-zinc-50/30 dark:focus-within:bg-zinc-900/20 focus-within:border-zinc-350 dark:focus-within:border-zinc-800 transition-all duration-300"
         >
           <input
             type="text"
@@ -309,7 +309,7 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
           <button
             type="submit"
             disabled={isLoading || !input.trim()}
-            className="p-1 rounded-full bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black hover:bg-zinc-700 dark:hover:bg-zinc-200 active:bg-zinc-700 dark:active:bg-zinc-200 transition-colors disabled:opacity-50 flex items-center justify-center self-center active:scale-95"
+            className="p-1 rounded-none bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black hover:bg-zinc-700 dark:hover:bg-zinc-200 active:bg-zinc-700 dark:active:bg-zinc-200 transition-colors disabled:opacity-50 flex items-center justify-center self-center active:scale-95"
           >
             <Send className="w-3.5 h-3.5" />
           </button>

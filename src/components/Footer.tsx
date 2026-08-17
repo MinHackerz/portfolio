@@ -30,7 +30,7 @@ const Footer: FC = () => {
             Menajul Hoque &copy; {new Date().getFullYear()}
           </div>
           <div className="text-[9px] font-mono text-zinc-400/70 dark:text-zinc-600 uppercase tracking-widest">
-            Published Jan 2025 &middot; Updated July 2026
+            Published Jan 2025 &middot; Updated August 2026
           </div>
         </div>
 

@@ -105,6 +105,79 @@
     "core_values": ["Relentless Grit", "Resilience & Adaptability", "Continuous Tech Evolution", "Problem-First Engineering"],
     "story": "Started exploring multiple avenues to generate income online by building websites. Began on Blogger, Hostinger, and built 20+ WordPress sites. His platform jobseeker24.com earned ~$300 before being hacked. Undeterred by setbacks, he pivoted to Next.js/Node.js, building live products like vidstats.pro (800+ active users), and expanded into Android app engineering with PDF Signature Validator and NotifyVault to solve genuine daily user problems."
   },
+  "projects": [
+    {
+      "title": "Rasid",
+      "year": "2026",
+      "status": "Live",
+      "url": "https://rasid.in",
+      "tagline": "Secure zero-knowledge QR billing and invoicing platform",
+      "description": "Cryptographically seals invoices with unique QR codes for authenticity, automated WhatsApp/Email delivery, smart AI receipt OCR scanning, and inventory tracking.",
+      "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Web Cryptography"]
+    },
+    {
+      "title": "Site Audit Score",
+      "year": "2026",
+      "status": "Live",
+      "url": "https://siteauditscore.com",
+      "tagline": "Enterprise SEO audit & site monitoring platform with 15 modules",
+      "description": "Real-time web scraping, schema validation, performance benchmarks, and custom rank tracking reports.",
+      "tech": ["Next.js", "Prisma", "Neon Postgres", "Cheerio", "Recharts", "Tailwind CSS v4"]
+    },
+    {
+      "title": "Govt Procurement Intelligence",
+      "year": "2026",
+      "status": "GitHub",
+      "tagline": "Offline-first fraud analytics across 8.8 million public procurement transactions",
+      "description": "Detects single-bid tendencies and short submission windows using Python, Flask, and Datasette.",
+      "tech": ["Python", "Flask", "SQLite", "Datasette"]
+    },
+    {
+      "title": "Tadabbur",
+      "year": "2025",
+      "status": "Live",
+      "url": "https://tadabbur-iota.vercel.app/",
+      "tagline": "Immersive Quranic study workspace & reflection companion",
+      "description": "Utilizes Quran Foundation SDK with audio recitations, bookmarking, and prayer times.",
+      "tech": ["Next.js", "React", "TypeScript", "Quran Foundation SDK"]
+    },
+    {
+      "title": "PDF SignCheck",
+      "year": "2025",
+      "status": "Live",
+      "url": "https://pdfsigncheck.com",
+      "tagline": "Privacy-first client-side PKI digital signature validator",
+      "description": "Validates PKCS#7/CMS signatures against 80+ Mozilla root CAs with client-side PDF tools.",
+      "tech": ["Next.js", "React", "Web Cryptography API", "Tailwind CSS"]
+    },
+    {
+      "title": "VidStats",
+      "year": "2024",
+      "status": "Live",
+      "url": "https://vidstats.pro",
+      "tagline": "AI-driven analytics dashboard trusted by 800+ YouTube creators",
+      "description": "Video transcripts, sentiment analysis, AI scriptwriting coprocessor, and scheduling.",
+      "tech": ["Next.js", "Supabase", "Gemini", "GPT-4"]
+    },
+    {
+      "title": "PDF Signature Validator (Android)",
+      "year": "2025",
+      "status": "Live",
+      "url": "https://play.google.com/store/apps/details?id=com.minhackerz.pdfsigncheck_app",
+      "tagline": "On-device PKI digital signature validation Android app",
+      "description": "Parses X.509 certificates and validates hash integrity 100% offline.",
+      "tech": ["Kotlin", "Android Jetpack", "Java Cryptography Architecture (JCA)"]
+    },
+    {
+      "title": "NotifyVault (Android)",
+      "year": "2025",
+      "status": "Live",
+      "url": "https://play.google.com/store/apps/details?id=com.notifyvault.app",
+      "tagline": "Privacy-focused AES-encrypted push notification logger",
+      "description": "Caches notifications in local AES-encrypted SQLite Room database.",
+      "tech": ["Kotlin", "Android Room", "SQLite AES Encryption", "Material 3"]
+    }
+  ],
   "creative_projects": [
     {
       "title": "পরের স্টেশন (Next Station)",

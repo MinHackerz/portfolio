@@ -14,8 +14,8 @@ export const SpotlightCard = ({
   className = "",
   spotlightColorLight = "rgba(0, 0, 0, 0.03)",
   spotlightColorDark = "rgba(255, 255, 255, 0.04)",
-  borderColorLight = "rgba(113, 113, 122, 0.25)",
-  borderColorDark = "rgba(255, 255, 255, 0.15)"
+  borderColorLight = "rgba(255, 79, 0, 0.22)",
+  borderColorDark = "rgba(255, 79, 0, 0.35)"
 }: SpotlightCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +32,7 @@ export const SpotlightCard = ({
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      className={`group relative rounded-2xl border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/60 transition-colors duration-300 shadow-none overflow-hidden ${className}`}
+      className={`group relative rounded-none border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-50/40 dark:bg-zinc-900/30 hover:bg-zinc-100/50 dark:hover:bg-zinc-900/60 transition-colors duration-300 shadow-none overflow-hidden ${className}`}
     >
       {/* 1. Cursor Spotlight Radial Background Layer (Light Mode - Dark Spotlight) */}
       <div
@@ -52,7 +52,7 @@ export const SpotlightCard = ({
 
       {/* 3. Cursor Spotlight Border Glow (Light Mode) */}
       <div
-        className="dark:hidden absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
+        className="dark:hidden absolute -inset-[1px] rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
         style={{
           background: `radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${borderColorLight}, transparent 50%)`,
           maskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -64,7 +64,7 @@ export const SpotlightCard = ({
 
       {/* 4. Cursor Spotlight Border Glow (Dark Mode) */}
       <div
-        className="hidden dark:block absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
+        className="hidden dark:block absolute -inset-[1px] rounded-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10"
         style={{
           background: `radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${borderColorDark}, transparent 50%)`,
           maskImage: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
