@@ -39,6 +39,13 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/app-ads.txt",
+      "destination": "/ads.txt",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!api/).*)",
