@@ -19,8 +19,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Lato", "DM Sans", "sans-serif"],
-        serif: ["EB Garamond", "serif"],
+        sans: ["'Space Grotesk'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        serif: ["'DotGothic16'", "'Silkscreen'", "monospace"],
+        mono: ["'Space Mono'", "'Geist Mono'", "monospace"],
+        dot: ["'DotGothic16'", "'Silkscreen'", "monospace"],
       },
       colors: {
         primary: "#1A1F2C",

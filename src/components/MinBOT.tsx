@@ -23,7 +23,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hi! I am MinBOT, Menajul's AI assistant. Ask me anything about my qualifications, Jadavpur University studies, Al-Ameen Mission schooling, Capgemini projects, volunteering, or certifications!"
+      content: "Hi! I am MinBOT, Menajul's AI assistant. Ask me anything about my projects, technical architecture, AI engineering, skills, or certifications!"
     }
   ])
   const [input, setInput] = useState("")
@@ -41,7 +41,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
     setMessages([
       {
         role: "assistant",
-        content: "Hi! I am MinBOT, Menajul's AI assistant. Ask me anything about my qualifications, Jadavpur University studies, Al-Ameen Mission schooling, Capgemini projects, volunteering, or certifications!"
+        content: "Hi! I am MinBOT, Menajul's AI assistant. Ask me anything about my projects, technical architecture, AI engineering, skills, or certifications!"
       }
     ]);
     setSuggestedPrompts(CORE_SUGGESTED_QUESTIONS);
@@ -109,7 +109,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
 Your goal is to answer questions about Menajul's career, education, skills, projects, and life based ONLY on the structured context provided below.
 
 Rules:
-1. **FIRST-PERSON STYLE**: Speak strictly in the first-person representing Menajul (e.g. "I studied at Jadavpur...", "My CGPA was...", "At Capgemini, I work on..."). NEVER refer to Menajul in the third-person as "Menajul" or "he" in your responses.
+1. **FIRST-PERSON STYLE**: Speak strictly in the first-person representing Menajul (e.g. "I studied at Jadavpur...", "My projects include...", "I architect cloud data pipelines and AI agents..."). NEVER refer to Menajul in the third-person as "Menajul" or "he" in your responses.
 2. For questions unrelated to Menajul, politely explain that you are dedicated to answering details about Menajul's profile.
 3. Be structured and concise.
 4. **CRITICAL**: Always use clean markdown line breaks (each list item on a separate line) for any list of items (e.g., certifications, education history, projects). NEVER merge multiple numbered list items into a single line.

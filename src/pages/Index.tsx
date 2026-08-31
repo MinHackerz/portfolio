@@ -31,15 +31,13 @@ import { useActiveSection, useScrollReveal } from "@/hooks/useScrollReveal"
 const Index: FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const sectionIds = useMemo(() => ["about", "experience", "projects", "architecture", "education"], []);
+  const sectionIds = useMemo(() => ["about", "projects", "architecture"], []);
   const activeSection = useActiveSection(sectionIds);
 
   // Scroll reveal refs for each major section
   const { ref: aboutRef, isVisible: aboutVisible } = useScrollReveal<HTMLElement>();
-  const { ref: expRef, isVisible: expVisible } = useScrollReveal<HTMLElement>();
   const { ref: projRef, isVisible: projVisible } = useScrollReveal<HTMLElement>();
   const { ref: archRef, isVisible: archVisible } = useScrollReveal<HTMLElement>();
-  const { ref: eduRef, isVisible: eduVisible } = useScrollReveal<HTMLElement>();
   const { ref: sidebarRef } = useScrollReveal<HTMLDivElement>();
 
   useEffect(() => {
@@ -85,6 +83,7 @@ const Index: FC = () => {
       icon: QrCode,
       metrics: "Zero-Knowledge QR · WhatsApp Delivery · AI OCR",
       snapshot: "projects/rasid_snap.png",
+      snapshotDark: "projects/rasid_snap_dark.svg",
       imageLight: "projects/rasid_light.svg",
       imageDark: "projects/rasid_dark.svg"
     },
@@ -125,21 +124,22 @@ const Index: FC = () => {
     },
     {
       id: "04",
-      title: "Tadabbur",
-      tag: "ISLAMIC EDTECH & COMPANION",
-      category: "web",
-      categories: ["web"],
+      title: "QuranGPT",
+      tag: "AI QURANIC KNOWLEDGE BASE",
+      category: "ai-data",
+      categories: ["web", "ai-data"],
       year: "2025",
-      description: "An immersive, distraction-free Quranic study workspace and companion platform utilizing the Quran Foundation SDK. It offers an advanced text reader with multiple translations and high-quality audio recitation, integrated bookmarking, personal reading progress goals, social reflection feeds via QuranReflect, and location-based prayer timing integrations.",
-      tech: "Next.js (App Router), React, TypeScript, Tailwind CSS, Quran Foundation SDK",
+      description: "An AI-powered Islamic knowledge engine and semantic search platform designed to provide contextual answers grounded in the Holy Quran. It utilizes advanced language models to offer insightful and accurate responses, supported by relevant verses and interpretations from the Quran.",
+      tech: "Next.js, React, TypeScript, Tailwind CSS, OpenAI GPT, Quran Foundation API",
       status: "Live",
-      link: "https://tadabbur-iota.vercel.app/",
-      favicon: "favicons/tadabbur.png",
+      link: "https://quran-gpt.netlify.app/",
+      favicon: "favicons/qurangpt.png",
       icon: BookOpen,
-      metrics: "Quran Foundation SDK · Reflection Feed · Audio Reader",
-      snapshot: "projects/tadabbur_snap.png",
-      imageLight: "projects/tadabbur_light.svg",
-      imageDark: "projects/tadabbur_dark.svg"
+      metrics: "Semantic Verse Search · Citation Grounding · Multilingual",
+      snapshot: "projects/qurangpt_snap.png",
+      snapshotDark: "projects/qurangpt_dark.svg",
+      imageLight: "projects/qurangpt_light.svg",
+      imageDark: "projects/qurangpt_dark.svg"
     },
     {
       id: "05",
@@ -225,6 +225,14 @@ const Index: FC = () => {
     ];
   }, []);
 
+  const categories = useMemo(() => [
+    { id: "all", label: "All Ships", count: allProjects.length },
+    { id: "web", label: "Web & SaaS", count: webProjects.length },
+    { id: "android", label: "Android & Mobile", count: androidProjects.length },
+    { id: "ai-data", label: "AI & Data", count: allProjects.filter(p => p.categories.includes("ai-data")).length },
+    { id: "security", label: "Security & Trust", count: allProjects.filter(p => p.categories.includes("security") || p.categories.includes("fintech")).length },
+  ], [allProjects, webProjects.length, androidProjects.length]);
+
   const filteredProjects = useMemo(() => {
     if (selectedCategory === "all") return allProjects;
     if (selectedCategory === "web") return allProjects.filter(p => p.type === "web");
@@ -234,38 +242,54 @@ const Index: FC = () => {
     return allProjects;
   }, [allProjects, selectedCategory]);
 
-  const experiences = [
-    {
-      company: "Capgemini",
-      companyLink: "https://www.capgemini.com/",
-      role: "Associate Consultant",
-      duration: "Oct 2023 - Present",
-      isCurrent: true,
-      location: "Kolkata, India",
-      type: "Full-time",
-      highlights: [
-        "Architected high-performance ETL pipelines using SAP BODS & SAP Datasphere for enterprise data integration, maintaining 100% SLA compliance across mission-critical jobs.",
-        "Optimized complex Oracle SQL queries & database operations, fixing configuration issues and compiling required audit documentation.",
-        "Engineered robust ETL workflows featuring automated error handling, real-time job monitoring, and stakeholder data delivery."
-      ],
-      skills: "SAP Datasphere, SAP BODS, Oracle SQL Optimization, SAP BTP, BigQuery, SSIS, SLA Compliance, Audit Support"
-    },
-    {
-      company: "Capgemini",
-      companyLink: "https://www.capgemini.com/",
-      role: "Senior Analyst",
-      duration: "Aug 2022 - Oct 2023",
-      isCurrent: false,
-      location: "Kolkata, India",
-      type: "Full-time",
-      highlights: [
-        "Engineered scalable data processing systems using SSIS & Microsoft SQL Server, processing millions of daily records.",
-        "Built interactive Power BI dashboards & real-time analytics templates for KPI tracking and executive decision-making.",
-        "Established comprehensive data quality assurance procedures using Oracle SQL and Excel, ensuring 99.9% data accuracy."
-      ],
-      skills: "SSIS, Microsoft SQL Server, Oracle SQL, Power BI, Excel Automation, Data Quality Assurance"
+  const renderProjectBanner = (project: typeof allProjects[0]) => {
+    if ('snapshot' in project && project.snapshot) {
+      if ('snapshotDark' in project && project.snapshotDark) {
+        return (
+          <>
+            <img
+              src={`${import.meta.env.BASE_URL}${project.snapshot}`}
+              alt={`${project.title} Real Homepage Snapshot`}
+              className="dark:hidden w-full h-full object-cover object-top select-none pointer-events-none group-hover:brightness-[1.02] transition-all"
+              loading="lazy"
+            />
+            <img
+              src={`${import.meta.env.BASE_URL}${project.snapshotDark}`}
+              alt={`${project.title} Real Homepage Snapshot`}
+              className="hidden dark:block w-full h-full object-cover object-top select-none pointer-events-none group-hover:brightness-[1.02] transition-all"
+              loading="lazy"
+            />
+          </>
+        );
+      }
+      return (
+        <img
+          src={`${import.meta.env.BASE_URL}${project.snapshot}`}
+          alt={`${project.title} Real Homepage Snapshot`}
+          className="w-full h-full object-cover object-top select-none pointer-events-none group-hover:brightness-[1.02] transition-all"
+          loading="lazy"
+        />
+      );
     }
-  ];
+    return (
+      <>
+        <img
+          src={`${import.meta.env.BASE_URL}${project.imageLight}`}
+          alt={`${project.title} Screenshot`}
+          className="dark:hidden w-full h-full object-cover select-none pointer-events-none"
+          loading="lazy"
+        />
+        <img
+          src={`${import.meta.env.BASE_URL}${project.imageDark}`}
+          alt={`${project.title} Screenshot`}
+          className="hidden dark:block w-full h-full object-cover select-none pointer-events-none"
+          loading="lazy"
+        />
+      </>
+    );
+  };
+
+
 
   const architectureSpecs = [
     {
@@ -302,30 +326,7 @@ const Index: FC = () => {
     }
   ];
 
-  const educationList = [
-    {
-      institution: "Jadavpur University",
-      institutionLink: "https://www.jaduniv.edu.in/",
-      degree: "Bachelor of Engineering in Power Engineering",
-      duration: "2018 - 2022",
-      logo: "jadavpur-university-logo.png",
-      details: "CGPA: 8.06/10. Focused on sustainable energy systems, including modeling a 20MW Wind Power Station using MATLAB/Simulink and ocean wave energy generation systems."
-    },
-    {
-      institution: "Dangram I.C. High School",
-      degree: "Higher Secondary (Class XII), Science",
-      duration: "2015 - 2017",
-      logo: "wbchse-logo.png",
-      details: "Completed Higher Secondary board examinations under WBCHSE focusing on physics, chemistry, and mathematics."
-    },
-    {
-      institution: "Sukarur Kuthi High School",
-      degree: "Secondary Education (Class X / Matriculation), General Subjects",
-      duration: "2009 - 2015",
-      logo: "wbbse-logo.png",
-      details: "Completed Secondary Education (Matriculation) under WBBSE with 80% marks in General Subjects."
-    }
-  ];
+
 
   return (
     <div className="min-h-screen transition-colors duration-200 pb-4">
@@ -337,16 +338,16 @@ const Index: FC = () => {
         Skip to main content
       </a>
 
-      <div className="w-full px-6 md:px-12 lg:px-16 pt-6 lg:pt-6 pb-6 md:pb-8 lg:grid lg:grid-cols-[350px_1fr] lg:gap-24">
+      <div className="w-full px-6 md:px-12 lg:px-16 xl:px-20 pt-6 pb-6 md:pb-8 lg:grid lg:grid-cols-[320px_1fr] xl:grid-cols-[350px_1fr] lg:gap-14 xl:gap-16">
         
-        {/* Left Column: Fixed Profile, Bio & Skills (Stays 100% fixed to viewport on desktop) */}
-        <div data-sidebar ref={sidebarRef} className={`relative space-y-4 lg:fixed lg:top-6 lg:w-[320px] xl:w-[350px] lg:h-[calc(100vh-48px)] lg:flex lg:flex-col lg:justify-between lg:py-2 border-b border-zinc-100 dark:border-zinc-900/40 pb-6 mb-6 lg:border-b-0 lg:pb-0 lg:mb-0 lg:pr-8 xl:pr-12 sidebar-compact-container ${isChatOpen ? "hidden lg:flex" : ""}`}>
+        {/* Left Column: Fixed Profile, Bio & Skills */}
+        <div data-sidebar ref={sidebarRef} className={`relative lg:sticky lg:top-6 lg:self-start lg:w-[320px] xl:w-[350px] lg:flex lg:flex-col lg:gap-6 xl:gap-7 border-b border-zinc-100 dark:border-zinc-900/40 pb-6 mb-6 lg:border-b-0 lg:pb-0 lg:mb-0 lg:pr-8 xl:pr-10 sidebar-compact-container ${isChatOpen ? "hidden lg:flex" : ""}`}>
           
           {/* Full-Height Vertical Divider Line */}
-          <div className="hidden lg:block absolute -top-16 -bottom-16 right-0 w-[1px] bg-zinc-200 dark:bg-zinc-800 pointer-events-none z-10" />
+          <div className="hidden lg:block absolute -top-6 -bottom-6 right-0 w-[1px] bg-zinc-200 dark:bg-zinc-800 pointer-events-none z-10" />
 
           {/* Boundless Vertical Divider Aurora Glow */}
-          <div className="hidden lg:block absolute -top-16 -bottom-16 right-0 w-[calc(100vw-350px)] translate-x-full pointer-events-none select-none z-0">
+          <div className="hidden lg:block absolute -top-6 -bottom-6 right-0 w-[calc(100vw-350px)] translate-x-full pointer-events-none select-none z-0">
             <div className="absolute inset-0 bg-gradient-to-r from-sky-400/22 via-sky-400/8 via-sky-400/1.5 to-transparent dark:from-sky-400/28 dark:via-sky-400/10 dark:via-sky-400/1.5 to-transparent animate-smoke-radiation-core blur-2xl" />
             <div className="absolute inset-0 bg-gradient-to-r from-sky-400/14 via-cyan-400/5 via-sky-300/[0.005] to-transparent dark:from-sky-400/18 dark:via-cyan-400/7 dark:via-sky-300/[0.005] to-transparent animate-smoke-radiation-outer blur-3xl" />
           </div>
@@ -355,24 +356,24 @@ const Index: FC = () => {
           <ScrollIndicator />
           
           {/* Header & MinBOT Card */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left space-y-4 sidebar-compact-header w-full">
+          <div className="flex flex-col items-center text-center space-y-4 sidebar-compact-header w-full">
             <img
               src={`${import.meta.env.BASE_URL}profile-picture-png.png`}
               alt="Menajul Hoque"
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 border border-zinc-200 dark:border-zinc-800 sidebar-compact-image shadow-sm mx-auto lg:mx-0"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300 border border-zinc-200 dark:border-zinc-800 sidebar-compact-image shadow-sm mx-auto"
             />
 
-            <div className="space-y-1 text-center lg:text-left">
-              <h1 className="text-xl sm:text-2xl font-normal font-serif italic tracking-tight whitespace-nowrap sidebar-compact-name">Menajul Hoque</h1>
-              <div className="flex items-center justify-center lg:justify-start gap-1.5 pt-0.5">
-                <p className="text-[10.5px] text-zinc-500 dark:text-zinc-400 font-mono tracking-widest uppercase">Data & Applied AI</p>
-                <span className="text-zinc-300 dark:text-zinc-700">•</span>
-                <span className="text-[10px] font-mono text-orange-600 dark:text-orange-400 font-semibold">BUILDER</span>
+            <div className="space-y-1 text-center w-full flex flex-col items-center">
+              <h1 className="text-xl sm:text-2xl font-normal font-dot tracking-wide whitespace-nowrap sidebar-compact-name text-center">Menajul Hoque</h1>
+              <div className="flex items-center justify-center gap-1.5 pt-0.5">
+                <span className="text-[11px] font-mono tracking-widest font-bold text-[#E65A1E] dark:text-[#FF7832] text-center">
+                  build . ship . rise
+                </span>
               </div>
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-4 justify-center lg:justify-start w-full">
+            <div className="flex gap-4 justify-center items-center w-full">
               <MagneticIcon>
                 <a href="mailto:menajulhoque99@gmail.com" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all duration-200" title="Email Menajul">
                   <Mail className="w-4 h-4" />
@@ -438,7 +439,7 @@ const Index: FC = () => {
 
           {/* Skills Grid */}
           <div className="space-y-4 pt-1 hidden lg:block sidebar-compact-skills">
-            <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
+            <h2 className="text-xl sm:text-2xl font-normal font-dot tracking-wide text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-2">
               skills
             </h2>
             <div className="space-y-0 select-none sidebar-compact-skills-grid">
@@ -466,16 +467,10 @@ const Index: FC = () => {
                   Kotlin · Android Jetpack · JCA PKI · SQLite AES Encryption
                 </span>
               </div>
-              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 border-b border-zinc-100 dark:border-zinc-900/40 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded-none transition-all duration-200 group/skill sidebar-compact-skills-row">
+              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded-none transition-all duration-200 group/skill sidebar-compact-skills-row">
                 <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">SEO & Growth</span>
                 <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
                   Technical SEO · Schema JSON-LD · Search Console · AdSense · GA4
-                </span>
-              </div>
-              <div className="grid grid-cols-[80px_1fr] gap-4 py-2.5 hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10 px-2 -mx-2 rounded-none transition-all duration-200 group/skill sidebar-compact-skills-row">
-                <span className="text-[10.5px] font-mono uppercase tracking-wider text-zinc-400 dark:text-zinc-550 font-semibold group-hover/skill:text-zinc-900 dark:group-hover/skill:text-zinc-200 transition-colors sidebar-compact-skills-label">Telemetry</span>
-                <span className="text-[13px] font-sans text-zinc-500 dark:text-zinc-450 leading-normal group-hover/skill:text-zinc-800 dark:group-hover/skill:text-zinc-300 transition-colors sidebar-compact-skills-text">
-                  Stripe OAuth · Webhooks · Baileys Automation · CI/CD
                 </span>
               </div>
             </div>
@@ -484,7 +479,7 @@ const Index: FC = () => {
         </div>
 
         {/* Right Column: Split Web & Android Projects or Chatbot */}
-        <div id="main-content" className={`lg:col-start-2 ${isChatOpen ? "lg:sticky lg:top-12 lg:h-[calc(100vh-80px)] overflow-hidden" : "space-y-20"}`}>
+        <div id="main-content" className={`lg:col-start-2 min-w-0 max-w-4xl ${isChatOpen ? "lg:sticky lg:top-6 lg:h-[calc(100vh-48px)] overflow-hidden" : "space-y-16 lg:space-y-20"}`}>
           {isChatOpen ? (
             <MinBOT isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
           ) : (
@@ -492,16 +487,14 @@ const Index: FC = () => {
               {/* Sub Navigation Bar for Internal Links */}
               <nav className="flex flex-nowrap items-center justify-between sm:justify-start gap-1.5 sm:gap-6 text-[8.5px] xs:text-[9.5px] sm:text-[10.5px] font-mono uppercase tracking-wider sm:tracking-widest text-zinc-450 dark:text-zinc-550 border-b border-zinc-100 dark:border-zinc-900/40 pb-3 mb-6 select-none overflow-x-auto scrollbar-none w-full">
                 <a href="#about" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "about" ? "active" : ""}`}>/ about</a>
-                <a href="#experience" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "experience" ? "active" : ""}`}>/ experience</a>
                 <a href="#projects" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "projects" ? "active" : ""}`}>/ projects</a>
                 <a href="#architecture" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "architecture" ? "active" : ""}`}>/ architecture</a>
-                <a href="#education" className={`nav-link whitespace-nowrap hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors ${activeSection === "education" ? "active" : ""}`}>/ education</a>
               </nav>
 
               {/* About Section */}
               <section ref={aboutRef} id="about" className={`scroll-reveal ${aboutVisible ? "revealed" : ""} space-y-6 scroll-mt-12`}>
                 <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2">
-                  <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <h2 className="text-xl sm:text-2xl font-normal font-dot tracking-wide text-zinc-900 dark:text-zinc-100">
                     about
                   </h2>
                   <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
@@ -514,7 +507,7 @@ const Index: FC = () => {
                 {/* Main Bio Paragraphs */}
                 <div className="space-y-4 text-[15px] sm:text-[15.5px] leading-[1.75] text-zinc-700 dark:text-zinc-200 font-sans tracking-tight">
                   <p>
-                    I am a <strong className="font-semibold text-zinc-900 dark:text-zinc-100">Data Engineer & Applied AI Developer</strong> based in Kolkata, bridging enterprise data warehousing with modern AI models and autonomous agent workflows. At <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 font-medium transition-colors">Capgemini</a>, I architect cloud data pipelines using SAP Datasphere, SAP BTP, and BigQuery.
+                    I am a <strong className="font-semibold text-zinc-900 dark:text-zinc-100">Data Engineer & Applied AI Developer</strong> based in Kolkata, bridging enterprise data warehousing with modern AI models and autonomous agent workflows. I architect high-performance cloud data pipelines, distributed ETL systems, and autonomous AI agents using SAP Datasphere, BigQuery, and modern LLM frameworks.
                   </p>
                   <p>
                     Originally from <strong className="font-semibold text-zinc-900 dark:text-zinc-100">Seuti Part 2</strong>—an international border village in Cooch Behar near the India-Bangladesh border—I moved to Kolkata to pursue Power Engineering at <a href="https://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer" className="text-zinc-900 dark:text-zinc-100 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 font-medium transition-colors">Jadavpur University</a>. While modeling 20MW wind power stations and ocean wave energy converters in MATLAB and Simulink, I discovered SQL and Python, pivoting my engineering career toward cloud data architecture and intelligent software.
@@ -565,130 +558,36 @@ const Index: FC = () => {
                 </div>
               </section>
 
-              {/* Experience Section */}
-              <section ref={expRef} id="experience" className={`scroll-reveal ${expVisible ? "revealed" : ""} space-y-10 sm:space-y-12 scroll-mt-12`}>
-                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2">
-                  <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100">
-                    experience
-                  </h2>
-                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
-                    <span>CAPGEMINI</span>
-                    <span>•</span>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold">100% SLA</span>
-                  </div>
-                </div>
 
-                <div className="group/list space-y-10 sm:space-y-12">
-                  {experiences.map((exp, index) => (
-                    <div
-                      key={index}
-                      className="group relative flex flex-col py-4 sm:py-5 pl-6 sm:pl-8 border-l border-zinc-200/80 dark:border-zinc-800/80 transition-all duration-300 md:group-hover/list:opacity-50 hover:!opacity-100 space-y-4"
-                    >
-                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-orange-500 dark:bg-orange-400 transition-transform duration-300 ease-out z-10" />
-
-                      <div className="w-full space-y-3">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full">
-                          <div className="flex items-center gap-3.5">
-                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-none border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
-                              <img
-                                src={`${import.meta.env.BASE_URL}capgemini-icon.png`}
-                                alt="Capgemini Logo"
-                                className="w-full h-full object-contain p-0.5"
-                              />
-                            </div>
-                            <div>
-                              <h3 className="text-lg sm:text-xl font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                                {exp.role} <span className="text-zinc-400 dark:text-zinc-600 font-normal">at</span>{" "}
-                                <a
-                                  href={exp.companyLink}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors font-semibold"
-                                >
-                                  {exp.company}
-                                  <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity text-zinc-400 dark:text-zinc-500" />
-                                </a>
-                              </h3>
-                              <div className="flex items-center gap-2 text-[11px] font-mono text-zinc-450 dark:text-zinc-500 pt-0.5">
-                                <span>{exp.location}</span>
-                                <span>•</span>
-                                <span>{exp.type}</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="flex items-center gap-2 text-[10.5px] font-mono uppercase tracking-widest shrink-0 self-start sm:self-auto">
-                            {exp.isCurrent ? (
-                              <span className="flex items-center gap-1.5 px-3 py-1 rounded-none border font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20">
-                                <span className="relative flex h-1.5 w-1.5">
-                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
-                                </span>
-                                PRESENT
-                              </span>
-                            ) : (
-                              <span className="px-3 py-1 rounded-none border font-semibold bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border-zinc-500/20">
-                                COMPLETED
-                              </span>
-                            )}
-                            <span className="text-zinc-300 dark:text-zinc-700">•</span>
-                            <span className="text-zinc-400 dark:text-zinc-500 tabular-nums">{exp.duration}</span>
-                          </div>
-                        </div>
-
-                        <ul className="space-y-2 pt-1">
-                          {exp.highlights.map((item, hIdx) => (
-                            <li key={hIdx} className="flex items-start gap-2.5 text-[14px] sm:text-[14.5px] text-zinc-700 dark:text-zinc-200 leading-[1.7] font-sans tracking-tight">
-                              <span className="text-orange-500 dark:text-orange-400 font-bold select-none pt-0.5 shrink-0">•</span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="flex flex-wrap gap-2 pt-1.5">
-                          {exp.skills.split(", ").map((skill, sIdx) => (
-                            <span
-                              key={sIdx}
-                              className="text-[10.5px] sm:text-[11px] font-mono tracking-wider font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-200/60 dark:bg-zinc-800/80 px-3 py-1 rounded-none border border-zinc-300/60 dark:border-zinc-700/60 group-hover:border-zinc-400 dark:group-hover:border-zinc-500 transition-colors"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
 
               {/* Projects Section with Sharp Edged Boxes and Top Screenshots */}
-              <section ref={projRef} id="projects" className={`scroll-reveal ${projVisible ? "revealed" : ""} space-y-6 scroll-mt-12`}>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-100 dark:border-zinc-900 pb-3">
-                  <div className="flex items-center gap-2.5">
-                    <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100">
+              <section ref={projRef} id="projects" className={`scroll-reveal ${projVisible ? "revealed" : ""} space-y-4 scroll-mt-12`}>
+                {/* 1. Section Header Row */}
+                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2.5">
+                  <div className="flex items-center gap-3">
+                    <h2 className="text-xl sm:text-2xl font-normal font-dot tracking-wide whitespace-nowrap text-zinc-900 dark:text-zinc-100">
                       production projects
                     </h2>
-                    <span className="px-2 py-0.5 rounded-none bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] font-mono font-bold border border-orange-500/20">
+                    <span className="px-2.5 py-0.5 whitespace-nowrap shrink-0 rounded-none bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10.5px] font-mono font-bold border border-orange-500/25">
                       {allProjects.length} SHIPS
                     </span>
                   </div>
+                  <div className="hidden sm:flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
+                    <span>LIVE DEPLOYMENTS</span>
+                  </div>
+                </div>
 
-                  {/* Filter Taxonomy Pills - Sharp Edged */}
-                  <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none pb-1 sm:pb-0">
-                    {[
-                      { id: "all", label: "All Ships", count: allProjects.length },
-                      { id: "web", label: "Web & SaaS", count: webProjects.length },
-                      { id: "android", label: "Android & Mobile", count: androidProjects.length },
-                      { id: "ai-data", label: "AI & Data", count: 3 },
-                      { id: "security", label: "Security & Trust", count: 4 },
-                    ].map((cat) => (
+                {/* 2. Filter Taxonomy Bar - Smooth Horizontal Scroll on Mobile */}
+                <div className="w-full overflow-hidden">
+                  <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none pb-1 pt-0.5 select-none w-full">
+                    {categories.map((cat) => (
                       <button
                         key={cat.id}
                         onClick={() => setSelectedCategory(cat.id)}
-                        className={`px-2.5 py-1 rounded-none text-[10.5px] font-mono transition-all duration-200 cursor-pointer shrink-0 border ${
+                        className={`px-3 py-1.5 sm:py-1 rounded-none text-[10.5px] sm:text-[11px] font-mono tracking-wider transition-all duration-200 cursor-pointer shrink-0 border whitespace-nowrap ${
                           selectedCategory === cat.id
-                            ? "bg-zinc-900 text-white border-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-100 font-semibold shadow-xs"
-                            : "bg-zinc-100/80 dark:bg-zinc-900/60 text-zinc-600 dark:text-zinc-400 border-zinc-200/80 dark:border-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-800"
+                            ? "bg-[#E65A1E] text-white border-[#E65A1E] dark:bg-[#FF7832] dark:text-zinc-950 dark:border-[#FF7832] font-semibold shadow-xs"
+                            : "bg-zinc-100/70 dark:bg-zinc-900/50 text-zinc-650 dark:text-zinc-400 border-zinc-200/80 dark:border-zinc-800/80 hover:bg-zinc-200/70 dark:hover:bg-zinc-800/70 hover:text-zinc-900 dark:hover:text-zinc-100"
                         }`}
                       >
                         {cat.label} ({cat.count})
@@ -705,55 +604,11 @@ const Index: FC = () => {
                         <div className="w-full aspect-[16/9] sm:h-44 rounded-none overflow-hidden border border-zinc-200/80 dark:border-zinc-800/80 bg-zinc-100/60 dark:bg-zinc-950/60 relative group-hover:scale-[1.01] transition-transform duration-300 shadow-2xs">
                           {project.link ? (
                             <a href={project.link} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
-                              {'snapshot' in project && project.snapshot ? (
-                                <img
-                                  src={`${import.meta.env.BASE_URL}${project.snapshot}`}
-                                  alt={`${project.title} Real Homepage Snapshot`}
-                                  className="w-full h-full object-cover object-top select-none pointer-events-none group-hover:brightness-[1.02] transition-all"
-                                  loading="lazy"
-                                />
-                              ) : (
-                                <>
-                                  <img
-                                    src={`${import.meta.env.BASE_URL}${project.imageLight}`}
-                                    alt={`${project.title} Screenshot`}
-                                    className="dark:hidden w-full h-full object-cover select-none pointer-events-none"
-                                    loading="lazy"
-                                  />
-                                  <img
-                                    src={`${import.meta.env.BASE_URL}${project.imageDark}`}
-                                    alt={`${project.title} Screenshot`}
-                                    className="hidden dark:block w-full h-full object-cover select-none pointer-events-none"
-                                    loading="lazy"
-                                  />
-                                </>
-                              )}
+                              {renderProjectBanner(project)}
                             </a>
                           ) : (
                             <div className="w-full h-full">
-                              {'snapshot' in project && project.snapshot ? (
-                                <img
-                                  src={`${import.meta.env.BASE_URL}${project.snapshot}`}
-                                  alt={`${project.title} Real Homepage Snapshot`}
-                                  className="w-full h-full object-cover object-top select-none pointer-events-none"
-                                  loading="lazy"
-                                />
-                              ) : (
-                                <>
-                                  <img
-                                    src={`${import.meta.env.BASE_URL}${project.imageLight}`}
-                                    alt={`${project.title} Screenshot`}
-                                    className="dark:hidden w-full h-full object-cover select-none pointer-events-none"
-                                    loading="lazy"
-                                  />
-                                  <img
-                                    src={`${import.meta.env.BASE_URL}${project.imageDark}`}
-                                    alt={`${project.title} Screenshot`}
-                                    className="hidden dark:block w-full h-full object-cover select-none pointer-events-none"
-                                    loading="lazy"
-                                  />
-                                </>
-                              )}
+                              {renderProjectBanner(project)}
                             </div>
                           )}
                         </div>
@@ -774,7 +629,7 @@ const Index: FC = () => {
                               <img
                                 src={`${import.meta.env.BASE_URL}${project.favicon}`}
                                 alt={project.title}
-                                className="w-full h-full object-contain rounded-none"
+                                className="w-full h-full object-contain rounded-none dark:brightness-110"
                               />
                             </div>
                             <div>
@@ -838,7 +693,7 @@ const Index: FC = () => {
               <section ref={archRef} id="architecture" className={`scroll-reveal ${archVisible ? "revealed" : ""} space-y-6 scroll-mt-12`}>
                 <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2">
                   <div className="flex items-center gap-2.5">
-                    <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100">
+                    <h2 className="text-xl sm:text-2xl font-normal font-dot tracking-wide text-zinc-900 dark:text-zinc-100">
                       360° technical architecture
                     </h2>
                     <span className="px-2 py-0.5 rounded-none bg-sky-500/10 text-sky-600 dark:text-sky-400 text-[10px] font-mono font-bold border border-sky-500/20">
@@ -886,72 +741,7 @@ const Index: FC = () => {
                 </div>
               </section>
 
-              {/* Education Section */}
-              <section ref={eduRef} id="education" className={`scroll-reveal ${eduVisible ? "revealed" : ""} space-y-10 sm:space-y-12 scroll-mt-12`}>
-                <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-900 pb-2">
-                  <h2 className="text-2xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100">
-                    education
-                  </h2>
-                  <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">
-                    <span>JADAVPUR UNIVERSITY</span>
-                    <span>•</span>
-                    <span className="text-sky-600 dark:text-sky-400 font-semibold">B.E. POWER ENG</span>
-                  </div>
-                </div>
 
-                <div className="group/list space-y-10 sm:space-y-12">
-                  {educationList.map((edu, index) => (
-                    <div
-                      key={index}
-                      className="group relative flex flex-col py-4 sm:py-5 pl-6 sm:pl-8 border-l border-zinc-200/80 dark:border-zinc-800/80 transition-all duration-300 md:group-hover/list:opacity-50 hover:!opacity-100 space-y-3.5"
-                    >
-                      <span className="absolute left-[-1px] top-0 bottom-0 w-[2px] transform origin-center scale-y-0 group-hover:scale-y-100 bg-orange-500 dark:bg-orange-400 transition-transform duration-300 ease-out z-10" />
-
-                      <div className="w-full space-y-2.5">
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 w-full">
-                          <div className="flex items-center gap-3.5">
-                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-none border border-zinc-200/90 dark:border-zinc-800/90 bg-zinc-100/60 dark:bg-zinc-900/60 flex items-center justify-center p-1 shadow-xs group-hover:border-zinc-300 dark:group-hover:border-zinc-700 group-hover:scale-105 transition-all duration-300 shrink-0 overflow-hidden">
-                              <img
-                                src={`${import.meta.env.BASE_URL}${edu.logo}`}
-                                alt={edu.institution}
-                                className="w-full h-full object-contain p-0.5"
-                              />
-                            </div>
-                            <div>
-                              <h3 className="text-lg sm:text-xl font-medium font-sans tracking-tight text-zinc-900 dark:text-zinc-100">
-                                {edu.institutionLink ? (
-                                  <a
-                                    href={edu.institutionLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 hover:text-zinc-650 dark:hover:text-zinc-300 hover:underline decoration-1 underline-offset-4 transition-colors font-semibold"
-                                  >
-                                    {edu.institution}
-                                    <ArrowUpRight className="w-3.5 h-3.5 opacity-40 group-hover:opacity-100 transition-opacity text-zinc-400 dark:text-zinc-500" />
-                                  </a>
-                                ) : (
-                                  <span>{edu.institution}</span>
-                                )}
-                              </h3>
-                              <h4 className="text-[14px] sm:text-[14.5px] font-medium text-zinc-700 dark:text-zinc-300 font-sans tracking-tight pt-0.5">
-                                {edu.degree}
-                              </h4>
-                            </div>
-                          </div>
-
-                          <span className="text-[10.5px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest tabular-nums shrink-0 self-start sm:self-auto">
-                            {edu.duration}
-                          </span>
-                        </div>
-
-                        <p className="text-[14px] sm:text-[14.5px] text-zinc-700 dark:text-zinc-200 leading-[1.7] font-sans tracking-tight">
-                          {edu.details}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </section>
 
               {/* Footer */}
               {!isChatOpen && <Footer />}

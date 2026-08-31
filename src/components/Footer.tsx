@@ -22,7 +22,7 @@ const Footer: FC = () => {
   };
 
   return (
-    <footer className="w-full px-6 md:px-12 lg:px-16 pt-4 pb-6 border-t border-zinc-200/60 dark:border-zinc-800/80 mt-6 select-none">
+    <footer className="w-full px-6 md:px-12 lg:px-16 xl:px-20 pt-4 pb-6 border-t border-zinc-200/60 dark:border-zinc-800/80 mt-6 select-none">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
         {/* Left: Copyright & Freshness info */}
         <div className="space-y-1">
@@ -77,7 +77,7 @@ const Footer: FC = () => {
               [ESC] CLOSE
             </button>
             
-            <h3 id="privacy-title" className="text-xl font-normal font-serif italic tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-3 mb-4">
+            <h3 id="privacy-title" className="text-xl font-normal font-dot tracking-wide text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-3 mb-4">
               Privacy Policy
             </h3>
             

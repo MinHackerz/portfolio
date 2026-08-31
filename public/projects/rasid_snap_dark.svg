@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <radialGradient id="emeraldGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00D97E" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#00D97E" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="navBtnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.4"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#FFFFFF" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0C0E10"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+
+  <!-- Ambient Glow Behind Heading -->
+  <circle cx="600" cy="380" r="320" fill="url(#emeraldGlow)"/>
+
+  <!-- Floating Header Pill -->
+  <g transform="translate(250, 24)">
+    <rect width="700" height="64" rx="32" fill="#14171A" stroke="#252A30" stroke-width="1.5"/>
+    
+    <!-- Logo Icon -->
+    <g transform="translate(24, 16)">
+      <rect width="32" height="32" rx="6" fill="#1E232A" stroke="#323842" stroke-width="1"/>
+      <path d="M10 8 h7 a4 4 0 0 1 4 4 v0 a4 4 0 0 1 -4 4 h-7 z" fill="none" stroke="#00D97E" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M10 8 v16" stroke="#00D97E" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M15 16 l6 8" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+    <text x="66" y="38" font-family="'Space Grotesk', system-ui, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" letter-spacing="-0.02em">Rasid</text>
+
+    <!-- Nav Items -->
+    <text x="210" y="38" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Features</text>
+    <text x="310" y="38" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Pricing</text>
+    <text x="400" y="38" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">About</text>
+    <text x="480" y="38" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14" font-weight="500" fill="#94A3B8">Blog</text>
+
+    <!-- CTA Button -->
+    <rect x="560" y="14" width="116" height="36" rx="18" fill="#1C2128" stroke="url(#navBtnGrad)" stroke-width="1.5"/>
+    <text x="618" y="37" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="600" fill="#F8FAFC" text-anchor="middle">Setup a Call</text>
+  </g>
+
+  <!-- Tag Pill -->
+  <g transform="translate(480, 175)">
+    <rect width="240" height="32" rx="16" fill="#14171A" stroke="#252A30" stroke-width="1.2"/>
+    <text x="120" y="21" font-family="'Space Grotesk', system-ui, sans-serif" font-size="12" font-weight="500" fill="#94A3B8" text-anchor="middle" letter-spacing="0.01em">Cryptographically Verified Invoices</text>
+  </g>
+
+  <!-- Hero Typography -->
+  <!-- Line 1: Every invoice verified with -->
+  <text x="600" y="295" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="58" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="-0.03em">Every invoice verified with</text>
+  
+  <!-- Line 2: one scan. (Vibrant Emerald) -->
+  <text x="600" y="380" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="64" font-weight="800" fill="#00D97E" text-anchor="middle" letter-spacing="-0.03em">one scan.</text>
+
+  <!-- Subtitle Paragraph -->
+  <text x="600" y="465" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="400" fill="#94A3B8" text-anchor="middle" letter-spacing="-0.01em">Rasid seals every invoice with a cryptographic QR code while</text>
+  <text x="600" y="500" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="700" fill="#F1F5F9" text-anchor="middle" letter-spacing="-0.01em">intelligently automating your stock inventory.<tspan font-weight="400" fill="#94A3B8"> Customers scan to</tspan></text>
+  <text x="600" y="535" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="400" fill="#94A3B8" text-anchor="middle" letter-spacing="-0.01em">verify authenticity instantly — no fakes, no doubts, no out-of-stock</text>
+  <text x="600" y="570" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" font-weight="400" fill="#94A3B8" text-anchor="middle" letter-spacing="-0.01em">surprises.</text>
+</svg>

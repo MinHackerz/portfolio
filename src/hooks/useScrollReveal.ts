@@ -9,42 +9,14 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
   options?: IntersectionObserverInit
 ): { ref: React.RefObject<T>; isVisible: boolean } {
   const ref = useRef<T>(null!);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
-    // Respect reduced motion preference — reveal immediately
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true);
-      return;
-    }
-
-    // If element is already in viewport on mount, reveal with a slight delay for animation
-    const rect = node.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 20 && rect.bottom > 0) {
-      const timer = setTimeout(() => setIsVisible(true), 100);
-      return () => clearTimeout(timer);
-    }
-
-    // Otherwise, observe for scroll-into-view
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(node);
-        }
-      },
-      {
-        threshold: 0.05,
-        rootMargin: "0px 0px -20px 0px",
-        ...options,
-      }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
+    // Reveal immediately
+    setIsVisible(true);
   }, []);
 
   return { ref, isVisible };

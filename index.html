@@ -9,9 +9,10 @@
     <meta name="description" content="Data & Applied AI Engineer building enterprise data warehouses and custom AI agent automation platforms specializing in SAP BTP, Datasphere, and RAG." />
     <meta name="author" content="Menajul Hoque" />
     
-    <!-- Resource Hints -->
+    <!-- Resource Hints & Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
     <link rel="preload" href="/profile-picture-png.png" as="image" />
 
     <!-- Open Graph / Facebook -->
@@ -49,10 +50,6 @@
       "image": "https://menajul.com/profile-picture-png.png",
       "description": "Data Engineer and Applied AI developer specializing in enterprise data architectures (SAP Datasphere, BTP) and custom AI agents/automation pipelines.",
       "jobTitle": "Data & Applied AI Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Capgemini"
-      },
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": "Jadavpur University"
@@ -100,9 +97,9 @@
           },
           {
             "@type": "CreativeWork",
-            "name": "Tadabbur",
-            "description": "An immersive, distraction-free Quranic study workspace utilizing the Quran Foundation SDK. It offers an advanced text reader with multiple translations and high-quality audio recitation, integrated bookmarking, personal reading progress goals, and prayer timing integrations.",
-            "url": "https://tadabbur-iota.vercel.app/"
+            "name": "QuranGPT",
+            "description": "An AI-powered Islamic knowledge engine and semantic search platform designed to provide contextual answers grounded in the Holy Quran, utilizing advanced language models for accurate, verse-supported interpretations.",
+            "url": "https://quran-gpt.netlify.app/"
           },
           {
             "@type": "CreativeWork",
@@ -170,42 +167,46 @@
       "dateModified": "2026-07-14T01:45:37+05:30"
     }
     </script>
+    <!-- Immediate Theme Initialization to eliminate theme flash & FOUC -->
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      html.dark { background-color: #0C0A09; color: #FAFAF9; }
+      html:not(.dark) { background-color: #FAFAF9; color: #18181B; }
+      body { margin: 0; min-height: 100vh; }
+    </style>
   </head>
   <body>
     <div id="root">
-      <!-- SEO Fallback Content (Visible to search crawlers; hydrated by React on load) -->
-      <div class="hidden" aria-hidden="true">
+      <!-- SEO Fallback Content (Hidden inline to prevent unstyled flash before React mounts) -->
+      <div style="display: none !important;" aria-hidden="true">
         <a href="#main-content">Skip to content</a>
         <header>
           <h1>Menajul Hoque - Data & Applied AI Engineer</h1>
-          <p>I am a Data Engineer and Applied AI developer. I connect enterprise data systems with AI models. At <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer">Capgemini</a>, I build data pipelines and cloud solutions using SAP Datasphere and BTP.</p>
+          <p>I am a Data Engineer and Applied AI developer. I connect enterprise data systems with AI models, architecting cloud data pipelines and autonomous agent workflows.</p>
         </header>
         <nav>
           <a href="#about">About</a>
-          <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
           <a href="#contact">Contact</a>
         </nav>
         <main id="main-content">
           <section id="about">
             <h2>About Menajul Hoque</h2>
-            <p>I am a Data Engineer and Applied AI developer. I connect enterprise data systems with AI models. At Capgemini, I build data pipelines and cloud solutions using SAP Datasphere and BTP.</p>
+            <p>I am a Data Engineer and Applied AI developer. I connect enterprise data systems with AI models, architecting cloud data pipelines and autonomous agent workflows using SAP Datasphere and modern LLM systems.</p>
             <p>In my free time, I build AI web tools, secure document utilities, and custom web apps. I focus on privacy-first client-side encryption and SEO analytics systems.</p>
             <p>Based in West Bengal, I transitioned from Power Engineering at <a href="https://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer">Jadavpur University</a> to data management and LLM pipelines.</p>
-          </section>
-          <section id="experience">
-            <h2>Professional Experience</h2>
-            <article>
-              <h3>Associate Consultant &middot; <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer">Capgemini</a></h3>
-              <p><time datetime="2023-10">October 2023</time> - Present</p>
-              <p>Consulting on enterprise data systems, data warehousing, and ETL integration. Specializing in SAP Datasphere, SAP BTP, SAP BODS, SSIS, and SQL tuning.</p>
-            </article>
-            <article>
-              <h3>Senior Analyst &middot; <a href="https://www.capgemini.com/" target="_blank" rel="noopener noreferrer">Capgemini</a></h3>
-              <p><time datetime="2022-08">August 2022</time> - <time datetime="2023-10">October 2023</time></p>
-              <p>Analyzed complex datasets, wrote Python validation scripts, and designed data pipelines. Focused on SSIS and relational SQL databases.</p>
-            </article>
           </section>
           <section id="projects">
             <h2>Web Applications Portfolio</h2>
@@ -222,8 +223,8 @@
               <p>An offline-first data analytics pipeline designed to identify indicators of fraud across 8.8 million public procurement transactions from India's Central Public Procurement Portal. The tool models single-bid tendencies, detects unusually short submission windows, and serves interactive querying capabilities locally through Python, Flask, and Datasette interfaces.</p>
             </article>
             <article>
-              <h3><a href="https://tadabbur-iota.vercel.app/" target="_blank" rel="noopener noreferrer">Tadabbur</a> (Live - 2025)</h3>
-              <p>An immersive, distraction-free Quranic study workspace and companion platform utilizing the Quran Foundation SDK. It offers an advanced text reader with multiple translations and high-quality audio recitation, integrated bookmarking, personal reading progress goals, social reflection feeds via QuranReflect, and location-based prayer timing integrations.</p>
+              <h3><a href="https://quran-gpt.netlify.app/" target="_blank" rel="noopener noreferrer">QuranGPT</a> (Live - 2025)</h3>
+              <p>An AI-powered Islamic knowledge engine and semantic search platform designed to provide contextual answers grounded in the Holy Quran. It utilizes advanced language models to offer insightful and accurate responses, supported by relevant verses and interpretations from the Quran.</p>
             </article>
             <article>
               <h3><a href="https://pdfsigncheck.com" target="_blank" rel="noopener noreferrer">PDF SignCheck</a> (Live - 2025)</h3>
@@ -245,19 +246,6 @@
             <article>
               <h3><a href="https://github.com/MinHackerz/notifyvault" target="_blank" rel="noopener noreferrer">NotifyVault</a> (Live - 2025)</h3>
               <p>A privacy-focused, encrypted notification logger for Android devices. The app intercepts and caches incoming push notifications in a local, AES-encrypted SQLite Room database, ensuring complete user privacy. Users can categorize, search, and review historical alerts even after they are dismissed from the system tray.</p>
-            </article>
-          </section>
-          <section id="education">
-            <h2>Education & Academic Background</h2>
-            <article>
-              <h3><a href="https://www.jaduniv.edu.in/" target="_blank" rel="noopener noreferrer">Jadavpur University</a>, Kolkata</h3>
-              <p>Bachelor of Engineering (BE) in Power Engineering (August 2018 - June 2022) &middot; CGPA: 8.06</p>
-              <p>Designed a 20MW Wind Power Station using MATLAB/Simulink and developed ocean wave energy converter models. Discovered SQL and Python during studies, choosing to focus on data engineering and machine learning.</p>
-            </article>
-            <article>
-              <h3>Dangram I.C. High School</h3>
-              <p>Higher Secondary (Class XII), Science (2015 - 2017)</p>
-              <p>Completed Higher Secondary board examinations focusing on physics, chemistry, and mathematics.</p>
             </article>
           </section>
           <section id="contact">

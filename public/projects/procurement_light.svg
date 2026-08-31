@@ -1,19 +1,274 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 330" fill="none">
-  <rect width="600" height="330" rx="12" fill="#F8FAFC"/>
-  <rect width="600" height="330" rx="12" stroke="#E2E8F0" stroke-width="1.5"/>
-  <text x="45" y="48" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0F172A">Govt Procurement Intelligence</text>
-  <text x="45" y="65" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">8.8M Public Procurement Transactions • Fraud Analytics</text>
-  <path d="M 50 220 Q 150 200 220 150 T 360 100 T 550 180" fill="none" stroke="#0EA5E9" stroke-width="3.5" stroke-linecap="round"/>
-  <circle cx="360" cy="100" r="6" fill="#EF4444" stroke="#FFFFFF" stroke-width="2"/>
-  <rect x="300" y="58" width="120" height="28" rx="6" fill="#0F172A"/>
-  <text x="360" y="76" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#F8FAFC" text-anchor="middle">Single-Bid Alert: 94%</text>
-  <rect x="45" y="250" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="60" y="272" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Transactions</text>
-  <text x="60" y="290" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0F172A">8.8M</text>
-  <rect x="220" y="250" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="235" y="272" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Single-Bid Rate</text>
-  <text x="235" y="290" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#EF4444">14.2%</text>
-  <rect x="395" y="250" width="160" height="50" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
-  <text x="410" y="272" font-family="system-ui, sans-serif" font-size="10" fill="#64748B">Risk Alerts</text>
-  <text x="410" y="290" font-family="system-ui, sans-serif" font-size="14" font-weight="800" fill="#0EA5E9">495 Flagged</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="50%" stop-color="#F1F5F9"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+
+    <linearGradient id="areaGlowLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#0284C7" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <linearGradient id="lineGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="45%" stop-color="#0369A1"/>
+      <stop offset="70%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+
+    <linearGradient id="alertGradLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EF4444" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#EF4444" stop-opacity="0.02"/>
+    </linearGradient>
+
+    <pattern id="gridLight" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#0F172A" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1200" height="675" fill="url(#bgGradLight)"/>
+  <rect width="1200" height="675" fill="url(#gridLight)"/>
+
+  <!-- Top App Window Header -->
+  <rect x="24" y="20" width="1152" height="52" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+  
+  <!-- Window Controls -->
+  <circle cx="52" cy="46" r="5" fill="#94A3B8"/>
+  <circle cx="68" cy="46" r="5" fill="#94A3B8"/>
+  <circle cx="84" cy="46" r="5" fill="#94A3B8"/>
+
+  <!-- Breadcrumb / System Title -->
+  <text x="110" y="50" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F172A" letter-spacing="-0.01em">CPPP Intelligence Pipeline</text>
+  <rect x="290" y="36" width="70" height="20" rx="4" fill="#E0F2FE" stroke="#BAE6FD" stroke-width="1"/>
+  <text x="325" y="50" font-family="'Space Mono', monospace" font-size="9.5" font-weight="700" fill="#0284C7" text-anchor="middle">v2.4-PROD</text>
+
+  <!-- Live Stream Telemetry Pill -->
+  <g transform="translate(380, 36)">
+    <rect width="420" height="20" rx="4" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <circle cx="12" cy="10" r="3" fill="#059669"/>
+    <text x="24" y="14" font-family="'Space Mono', monospace" font-size="9" fill="#475569">STREAM: <tspan fill="#0F172A" font-weight="700">8,842,109 Records</tspan> · SQLite Indexed · Datasette Core</text>
+  </g>
+
+  <!-- Query Pill -->
+  <g transform="translate(820, 34)">
+    <rect width="336" height="24" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="12" y="16" font-family="'Space Mono', monospace" font-size="9.5" fill="#0284C7">SELECT * <tspan fill="#64748B">FROM tenders WHERE</tspan> risk &gt; 0.85</text>
+  </g>
+
+  <!-- KPI Metric Cards Row -->
+  <!-- Card 1: Total Volume -->
+  <g transform="translate(24, 88)">
+    <rect width="273" height="106" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+    <text x="18" y="28" font-family="'Space Mono', monospace" font-size="10" font-weight="600" fill="#64748B" letter-spacing="0.05em">PUBLIC PROC. VOLUME</text>
+    <text x="18" y="66" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="800" fill="#0F172A" letter-spacing="-0.03em">8.84M</text>
+    <rect x="135" y="46" width="62" height="20" rx="4" fill="#D1FAE5"/>
+    <text x="166" y="60" font-family="'Space Mono', monospace" font-size="9.5" font-weight="700" fill="#059669" text-anchor="middle">+14.2%</text>
+    <text x="18" y="90" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" fill="#64748B">Central Portal 2018–2026 Archive</text>
+  </g>
+
+  <!-- Card 2: Single-Bid Rate (Alert Card) -->
+  <g transform="translate(317, 88)">
+    <rect width="273" height="106" rx="8" fill="#FFFFFF" stroke="#FCA5A5" stroke-width="1.2"/>
+    <text x="18" y="28" font-family="'Space Mono', monospace" font-size="10" font-weight="600" fill="#DC2626" letter-spacing="0.05em">SINGLE-BID MONOPOLY</text>
+    <text x="18" y="66" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="800" fill="#DC2626" letter-spacing="-0.03em">14.28%</text>
+    <rect x="150" y="46" width="105" height="20" rx="4" fill="#FEE2E2" stroke="#FECACA" stroke-width="1"/>
+    <text x="202" y="60" font-family="'Space Mono', monospace" font-size="9" font-weight="700" fill="#B91C1C" text-anchor="middle">CRITICAL ANOMALY</text>
+    <text x="18" y="90" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" fill="#64748B">Zero-competition tender awards</text>
+  </g>
+
+  <!-- Card 3: Collusion Clusters -->
+  <g transform="translate(610, 88)">
+    <rect width="273" height="106" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+    <text x="18" y="28" font-family="'Space Mono', monospace" font-size="10" font-weight="600" fill="#64748B" letter-spacing="0.05em">COLLUSION CLUSTERS</text>
+    <text x="18" y="66" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="800" fill="#0284C7" letter-spacing="-0.03em">495</text>
+    <rect x="95" y="46" width="75" height="20" rx="4" fill="#E0F2FE"/>
+    <text x="132" y="60" font-family="'Space Mono', monospace" font-size="9.5" font-weight="700" fill="#0284C7" text-anchor="middle">FLAGGED</text>
+    <text x="18" y="90" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" fill="#64748B">Bidder pairing &amp; cycle graphs</text>
+  </g>
+
+  <!-- Card 4: Short Submission Window -->
+  <g transform="translate(903, 88)">
+    <rect width="273" height="106" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+    <text x="18" y="28" font-family="'Space Mono', monospace" font-size="10" font-weight="600" fill="#64748B" letter-spacing="0.05em">RUSH SUBMISSION ALERTS</text>
+    <text x="18" y="66" font-family="'Space Grotesk', system-ui, sans-serif" font-size="30" font-weight="800" fill="#D97706" letter-spacing="-0.03em">&lt; 48 Hrs</text>
+    <text x="18" y="90" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" fill="#64748B">Tailored RFP window detection</text>
+  </g>
+
+  <!-- Main Analytics Area: Chart (Left 680px) &amp; Risk Table (Right 452px) -->
+
+  <!-- Left Container: Anomaly Detection Graph -->
+  <g transform="translate(24, 210)">
+    <rect width="680" height="440" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+
+    <!-- Chart Title Bar -->
+    <text x="24" y="34" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14" font-weight="700" fill="#0F172A">Tender Risk Probability &amp; Bid Density Matrix</text>
+    <text x="24" y="52" font-family="'Space Grotesk', system-ui, sans-serif" font-size="11" fill="#64748B">Dynamic timeline analysis of 8.8M procurement records vs suspicious threshold</text>
+
+    <!-- Legend -->
+    <g transform="translate(470, 24)">
+      <circle cx="8" cy="8" r="4" fill="#0284C7"/>
+      <text x="18" y="12" font-family="'Space Mono', monospace" font-size="9" fill="#475569">Normal Bids</text>
+      <circle cx="108" cy="8" r="4" fill="#DC2626"/>
+      <text x="118" y="12" font-family="'Space Mono', monospace" font-size="9" fill="#DC2626">High Risk</text>
+    </g>
+
+    <!-- Chart Grid Lines -->
+    <g transform="translate(45, 80)" stroke="#E2E8F0" stroke-dasharray="3,3" stroke-width="1">
+      <line x1="0" y1="0" x2="600" y2="0"/>
+      <line x1="0" y1="65" x2="600" y2="65"/>
+      <line x1="0" y1="130" x2="600" y2="130"/>
+      <line x1="0" y1="195" x2="600" y2="195"/>
+      <line x1="0" y1="260" x2="600" y2="260"/>
+    </g>
+
+    <!-- Threshold Alert Band -->
+    <rect x="45" y="145" width="600" height="40" fill="url(#alertGradLight)"/>
+    <line x1="45" y1="145" x2="645" y2="145" stroke="#DC2626" stroke-dasharray="4,4" stroke-width="1.5"/>
+    <text x="640" y="140" font-family="'Space Mono', monospace" font-size="9" font-weight="700" fill="#DC2626" text-anchor="end">ANOMALY THRESHOLD (&gt;85%)</text>
+
+    <!-- Area Chart Gradient Path -->
+    <path d="M 45 340 
+             L 45 280 
+             Q 100 270 140 240 
+             T 220 220 
+             T 310 180 
+             T 390 230 
+             T 470 120 
+             T 540 200 
+             T 645 130 
+             L 645 340 Z" 
+          fill="url(#areaGlowLight)"/>
+
+    <!-- Chart Stroke Line -->
+    <path d="M 45 280 
+             Q 100 270 140 240 
+             T 220 220 
+             T 310 180 
+             T 390 230 
+             T 470 120 
+             T 540 200 
+             T 645 130" 
+          fill="none" stroke="url(#lineGradLight)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Data Points &amp; Hotspot Callouts -->
+    <!-- Point 1 (Normal) -->
+    <circle cx="220" cy="220" r="5" fill="#FFFFFF" stroke="#0284C7" stroke-width="2.5"/>
+    
+    <!-- Point 2 (Suspicious Spike 1) -->
+    <circle cx="470" cy="120" r="7" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
+    <g transform="translate(415, 60)">
+      <rect width="110" height="38" rx="6" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1"/>
+      <text x="55" y="16" font-family="'Space Mono', monospace" font-size="8.5" font-weight="700" fill="#B91C1C" text-anchor="middle">SPIKE #8812: 96.4%</text>
+      <text x="55" y="30" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" fill="#64748B" text-anchor="middle">Single-Bid · 18 min window</text>
+    </g>
+
+    <!-- Point 3 (Spike 2) -->
+    <circle cx="645" cy="130" r="7" fill="#DC2626" stroke="#FFFFFF" stroke-width="2.5"/>
+
+    <!-- X-Axis Labels -->
+    <g transform="translate(45, 365)" font-family="'Space Mono', monospace" font-size="9.5" fill="#64748B">
+      <text x="0" y="0">2020-Q1</text>
+      <text x="100" y="0">2021-Q2</text>
+      <text x="200" y="0">2022-Q3</text>
+      <text x="300" y="0">2023-Q4</text>
+      <text x="400" y="0">2024-Q2</text>
+      <text x="500" y="0">2025-Q1</text>
+      <text x="590" y="0">2026-LIVE</text>
+    </g>
+
+    <!-- Bottom Mini-Telemetry -->
+    <rect x="24" y="390" width="632" height="32" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="40" y="411" font-family="'Space Mono', monospace" font-size="10" fill="#64748B">
+      <tspan fill="#059669">● ENGINE HEALTHY</tspan>  |  Throughput: <tspan fill="#0F172A" font-weight="700">42,800 rows/sec</tspan>  |  Latency: <tspan fill="#0F172A" font-weight="700">1.8ms</tspan>  |  Indexed B-Tree: 2.1 GB
+    </text>
+  </g>
+
+  <!-- Right Container: Live Flagged Tender Feed / Data Table (452px) -->
+  <g transform="translate(724, 210)">
+    <rect width="452" height="440" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2"/>
+
+    <!-- Table Header Title -->
+    <text x="20" y="34" font-family="'Space Grotesk', system-ui, sans-serif" font-size="14" font-weight="700" fill="#0F172A">High-Risk Collusion Feed</text>
+    <rect x="360" y="20" width="72" height="20" rx="4" fill="#FEE2E2" stroke="#FECACA" stroke-width="1"/>
+    <text x="396" y="34" font-family="'Space Mono', monospace" font-size="9" font-weight="700" fill="#B91C1C" text-anchor="middle">LIVE FEED</text>
+
+    <!-- Table Column Headers -->
+    <g transform="translate(20, 68)" font-family="'Space Mono', monospace" font-size="9" font-weight="700" fill="#64748B" letter-spacing="0.05em">
+      <text x="0" y="0">TENDER ID</text>
+      <text x="130" y="0">VAL (INR)</text>
+      <text x="230" y="0">RISK</text>
+      <text x="320" y="0">PRIMARY FLAG</text>
+    </g>
+    <line x1="20" y1="78" x2="432" y2="78" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Row 1 (Critical) -->
+    <g transform="translate(20, 92)">
+      <rect width="412" height="68" rx="6" fill="#FFF5F5" stroke="#FECACA" stroke-width="1"/>
+      <text x="12" y="24" font-family="'Space Mono', monospace" font-size="11" font-weight="700" fill="#0F172A">CPP-2026-9810</text>
+      <text x="12" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" fill="#64748B">Railways Traction Infra</text>
+      
+      <text x="130" y="32" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F172A">₹42.8 Cr</text>
+      
+      <rect x="228" y="16" width="58" height="22" rx="4" fill="#FEE2E2"/>
+      <text x="257" y="31" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#DC2626" text-anchor="middle">98.4%</text>
+      
+      <text x="315" y="24" font-family="'Space Mono', monospace" font-size="9.5" font-weight="600" fill="#B91C1C">Single Bidder</text>
+      <text x="315" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" fill="#64748B">Zero Price Variance</text>
+    </g>
+
+    <!-- Row 2 (High) -->
+    <g transform="translate(20, 170)">
+      <rect width="412" height="68" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="12" y="24" font-family="'Space Mono', monospace" font-size="11" font-weight="700" fill="#0F172A">CPP-2026-8742</text>
+      <text x="12" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" fill="#64748B">Power Grid Transformer</text>
+      
+      <text x="130" y="32" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F172A">₹18.2 Cr</text>
+      
+      <rect x="228" y="16" width="58" height="22" rx="4" fill="#FEF3C7"/>
+      <text x="257" y="31" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#D97706" text-anchor="middle">89.1%</text>
+      
+      <text x="315" y="24" font-family="'Space Mono', monospace" font-size="9.5" font-weight="600" fill="#B45309">Window &lt; 4h</text>
+      <text x="315" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" fill="#64748B">Pre-tender leak</text>
+    </g>
+
+    <!-- Row 3 (Medium) -->
+    <g transform="translate(20, 248)">
+      <rect width="412" height="68" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="12" y="24" font-family="'Space Mono', monospace" font-size="11" font-weight="700" fill="#0F172A">CPP-2026-7731</text>
+      <text x="12" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" fill="#64748B">Urban Solid Waste Dev</text>
+      
+      <text x="130" y="32" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F172A">₹9.4 Cr</text>
+      
+      <rect x="228" y="16" width="58" height="22" rx="4" fill="#E0F2FE"/>
+      <text x="257" y="31" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#0284C7" text-anchor="middle">76.5%</text>
+      
+      <text x="315" y="24" font-family="'Space Mono', monospace" font-size="9.5" font-weight="600" fill="#0369A1">Bid Rotation</text>
+      <text x="315" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" fill="#64748B">Shared Director IP</text>
+    </g>
+
+    <!-- Row 4 (Critical) -->
+    <g transform="translate(20, 326)">
+      <rect width="412" height="68" rx="6" fill="#FFF5F5" stroke="#FECACA" stroke-width="1"/>
+      <text x="12" y="24" font-family="'Space Mono', monospace" font-size="11" font-weight="700" fill="#0F172A">CPP-2026-6620</text>
+      <text x="12" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="10.5" fill="#64748B">State Highway Phase IV</text>
+      
+      <text x="130" y="32" font-family="'Space Grotesk', system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F172A">₹64.0 Cr</text>
+      
+      <rect x="228" y="16" width="58" height="22" rx="4" fill="#FEE2E2"/>
+      <text x="257" y="31" font-family="'Space Mono', monospace" font-size="10" font-weight="700" fill="#DC2626" text-anchor="middle">94.2%</text>
+      
+      <text x="315" y="24" font-family="'Space Mono', monospace" font-size="9.5" font-weight="600" fill="#B91C1C">Single Bidder</text>
+      <text x="315" y="44" font-family="'Space Grotesk', system-ui, sans-serif" font-size="9" fill="#64748B">3 Consecutive Wins</text>
+    </g>
+
+    <!-- Datasette Local Link Footer -->
+    <g transform="translate(20, 404)">
+      <text x="0" y="14" font-family="'Space Mono', monospace" font-size="9.5" fill="#64748B">Powered by Datasette SQL Engine · Flask · Python ETL</text>
+    </g>
+  </g>
 </svg>
