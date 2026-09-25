@@ -1,0 +1,108 @@
+.sr-root {
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #f4f4f5;
+  background: #05080c;
+}
+
+.sr-panel {
+  background: rgba(7, 11, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sr-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: 'Space Mono', 'Geist Mono', monospace;
+  transition: opacity 0.25s ease;
+  will-change: transform;
+  opacity: 0;
+}
+
+.sr-label::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 16px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+}
+
+.sr-label-title {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(7, 11, 16, 0.78);
+  border-left: 2px solid #ff5a14;
+  padding: 2px 7px;
+}
+
+.sr-label-sub {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.68);
+  background: rgba(7, 11, 16, 0.55);
+  padding: 1px 7px 2px;
+}
+
+.sr-label-player .sr-label-title {
+  border-left-color: #00d97e;
+}
+
+.sr-label-place .sr-label-title {
+  border-left-color: #8fa3b3;
+}
+
+.sr-label-player .sr-label-sub {
+  display: none;
+}
+
+.sr-label-player.sr-label-hint .sr-label-sub {
+  display: block;
+  color: #ffc29e;
+  animation: sr-blink 1.6s ease-in-out infinite;
+}
+
+@keyframes sr-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+@keyframes sr-flash {
+  0% { opacity: 0.85; }
+  100% { opacity: 0; }
+}
+
+.sr-flash {
+  animation: sr-flash 1.4s ease-out forwards;
+  background: radial-gradient(circle at 50% 55%, rgba(255, 236, 200, 0.95), rgba(255, 120, 40, 0.5) 40%, rgba(120, 10, 0, 0.2) 75%);
+}
+
+@keyframes sr-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sr-rise {
+  animation: sr-rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.sr-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sr-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-label-player.sr-label-hint .sr-label-sub,
+  .sr-rise,
+  .sr-flash {
+    animation: none;
+  }
+}
