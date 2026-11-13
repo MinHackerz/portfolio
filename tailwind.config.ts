@@ -19,7 +19,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["'Space Grotesk'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        sans: ["'Geist'", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        display: ["'Instrument Serif'", "Georgia", "serif"],
         serif: ["'DotGothic16'", "'Silkscreen'", "monospace"],
         mono: ["'Space Mono'", "'Geist Mono'", "monospace"],
         dot: ["'DotGothic16'", "'Silkscreen'", "monospace"],

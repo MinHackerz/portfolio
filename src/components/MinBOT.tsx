@@ -1,5 +1,5 @@
 import { type FC, useState, useEffect, useRef } from "react"
-import { ArrowLeft, Send, Sparkles, HelpCircle } from "lucide-react"
+import { ArrowLeft, Send, Sparkles } from "lucide-react"
 import profileKnowledge from "../data/personal_knowledge.json"
 
 interface Message {
@@ -18,6 +18,16 @@ const CORE_SUGGESTED_QUESTIONS = [
   "What was your WBJEE prep at Al-Ameen Mission?",
   "List your professional certifications"
 ];
+
+const BotAvatar: FC = () => (
+  <img
+    src={`${import.meta.env.BASE_URL}profile-icon.png`}
+    alt=""
+    width={28}
+    height={28}
+    className="w-7 h-7 shrink-0 rounded-full object-cover border border-zinc-200 dark:border-zinc-800"
+  />
+)
 
 const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState<Message[]>([
@@ -56,7 +66,7 @@ const MinBOT: FC<MinBOTProps> = ({ isOpen, onClose }) => {
         // Bold formatting
         if (part.startsWith("**") && part.endsWith("**")) {
           return (
-            <strong key={partIdx} className="font-semibold text-zinc-900 dark:text-zinc-100">
+            <strong key={partIdx} className="font-semibold">
               {part.slice(2, -2)}
             </strong>
           )
@@ -198,124 +208,111 @@ ${JSON.stringify(profileKnowledge, null, 2)}`
   }
 
   return (
-    <div 
-      className="fixed inset-0 z-50 bg-transparent px-6 pt-8 pb-6 md:px-12 md:py-8 lg:relative lg:inset-auto lg:z-auto lg:h-[calc(100vh-80px)] lg:w-full lg:p-0 flex flex-col justify-between transition-all duration-500 animate-fade-in"
-    >
-      {/* Header Container */}
-      <div className="flex items-center justify-between pb-3 bg-transparent border-b border-zinc-100 dark:border-zinc-900">
-        <div className="flex items-center gap-4">
-          <button 
+    <div className="fixed inset-0 z-50 bg-[#FAFAF9] dark:bg-[#161210] animate-fade-in">
+      <div className="mx-auto flex h-full w-full max-w-2xl flex-col px-4 sm:px-6">
+        {/* Header */}
+        <div className="flex items-center justify-between gap-3 pt-5 pb-3">
+          <button
             onClick={onClose}
-            className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 active:text-zinc-900 dark:active:text-zinc-100 transition-colors text-[10px] font-mono uppercase tracking-widest font-semibold active:scale-95"
+            className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[13px] text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to Profile</span>
+            <span>Back</span>
           </button>
-          
-          {messages.length > 1 && (
-            <button 
+
+          <div className="flex items-center gap-2 text-[13px] font-medium text-zinc-900 dark:text-zinc-100 select-none">
+            <Sparkles className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true" />
+            MinBOT
+          </div>
+
+          {messages.length > 1 ? (
+            <button
               onClick={handleClear}
-              className="inline-flex items-center gap-1.5 text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 active:text-zinc-900 dark:active:text-zinc-100 transition-colors text-[10px] font-mono uppercase tracking-widest font-semibold border-l border-zinc-250/20 dark:border-zinc-800/80 pl-4 active:scale-95"
+              className="rounded-full px-2.5 py-1 text-[13px] text-zinc-500 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
             >
-              Clear Chat
+              Clear
             </button>
+          ) : (
+            <span className="w-[52px]" aria-hidden="true" />
           )}
         </div>
-        
-        <div className="flex items-center gap-2 select-none">
-          <div className="relative">
-            <span className="absolute inset-0 w-2 h-2 rounded-full bg-emerald-500/30 animate-ping" />
-            <span className="relative block w-2 h-2 rounded-full bg-emerald-500" />
-          </div>
-          <span className="text-[9.5px] font-mono tracking-widest uppercase text-zinc-400 dark:text-zinc-400 font-semibold">MinBOT Active</span>
-        </div>
-      </div>
 
-      {/* Conversation List */}
-      <div ref={chatListRef} data-chat-scroll className="flex-1 overflow-y-auto py-4 space-y-5 font-sans text-[13px] leading-[1.65] pr-1.5 scrollbar-minimal">
-        {messages.map((msg, index) => (
-          <div 
-            key={index} 
-            className={`flex flex-col gap-1 w-full ${msg.role === "user" ? "items-end" : "items-start"}`}
-          >
-            {msg.role === "user" ? (
-              <div className="space-y-1 max-w-[85%]">
-                <div className="text-[8px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest text-right">You</div>
-                <div className="bg-zinc-900 dark:bg-zinc-100 text-white dark:text-black rounded-none px-3.5 py-2 text-[13.5px] shadow-sm">
-                  {parseMessageContent(msg.content)}
-                </div>
-              </div>
-            ) : (
-              <div className="space-y-1 max-w-[88%]">
-                <div className="text-[8px] font-mono text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">MinBOT</div>
-                <div className="border-l border-zinc-200 dark:border-zinc-800/80 pl-3.5 py-0.5 text-zinc-800 dark:text-zinc-200 text-[13.5px] font-sans leading-relaxed select-text">
-                  {parseMessageContent(msg.content)}
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-        
-        {/* Custom staggered bouncing dots & rotating sparkle thinking indicator */}
-        {isLoading && (
-          <div className="flex items-center gap-3 pl-3.5 border-l border-dashed border-zinc-200 dark:border-zinc-800 py-1.5 animate-pulse">
-            <div className="relative flex items-center justify-center">
-              <Sparkles className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 animate-spin [animation-duration:3s]" />
-            </div>
-            <div className="flex items-center gap-1 bg-zinc-100/50 dark:bg-zinc-900/40 rounded-none px-2.5 py-1 border border-zinc-200/20 dark:border-zinc-800/20">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce [animation-delay:-0.3s]" />
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce [animation-delay:-0.15s]" />
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce" />
-              <span className="text-[8.5px] font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500 pl-1.5">thinking</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Suggested Queries Grid */}
-      <div className="py-3.5 bg-transparent space-y-2 border-t border-zinc-100 dark:border-zinc-900">
-        <div className="flex items-center gap-1 select-none">
-          <HelpCircle className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500" />
-          <span className="text-[8.5px] font-mono uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Ask regarding...</span>
-        </div>
-        <div className="flex flex-wrap gap-1.5 max-h-[85px] overflow-y-auto scrollbar-none">
-          {suggestedPrompts.map((prompt, pIdx) => (
-            <button
-              key={pIdx}
-              onClick={() => handleSend(prompt)}
-              disabled={isLoading}
-              className="text-[9px] font-mono px-3 py-1 border border-zinc-200/80 dark:border-zinc-900 rounded-none bg-zinc-50/20 dark:bg-zinc-950/10 text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:text-zinc-900 dark:hover:text-zinc-100 hover:border-zinc-350 dark:hover:border-zinc-800 active:bg-zinc-50 dark:active:bg-zinc-900/50 active:text-zinc-900 dark:active:text-zinc-100 active:border-zinc-350 dark:active:border-zinc-800 active:scale-95 transition-all duration-300 disabled:opacity-50"
+        {/* Conversation */}
+        <div ref={chatListRef} data-chat-scroll className="flex-1 overflow-y-auto py-4 space-y-4 font-sans scrollbar-minimal">
+          {messages.map((msg, index) => (
+            <div
+              key={index}
+              className={`flex w-full ${msg.role === "user" ? "justify-end" : "justify-start"}`}
             >
-              {prompt}
-            </button>
+              {msg.role === "user" ? (
+                <div className="max-w-[85%] rounded-2xl rounded-br-md bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 px-4 py-2.5 text-[14px] leading-relaxed">
+                  {parseMessageContent(msg.content)}
+                </div>
+              ) : (
+                <div className="flex items-end gap-2.5 max-w-[92%]">
+                  <BotAvatar />
+                  <div className="min-w-0 rounded-2xl rounded-bl-md border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 px-4 py-2.5 text-[14px] leading-relaxed text-zinc-800 dark:text-zinc-200 select-text">
+                    {parseMessageContent(msg.content)}
+                  </div>
+                </div>
+              )}
+            </div>
           ))}
+
+          {isLoading && (
+            <div className="flex items-end gap-2.5 justify-start">
+              <BotAvatar />
+              <div className="inline-flex items-center gap-1.5 rounded-2xl rounded-bl-md border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 px-4 py-3" role="status" aria-label="MinBOT is thinking">
+                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-bounce [animation-delay:-0.3s]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-bounce [animation-delay:-0.15s]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-bounce" />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Suggestions */}
+        <div className="pt-3 pb-2">
+          <div className="flex flex-wrap gap-1.5 max-h-[84px] overflow-y-auto scrollbar-none">
+            {suggestedPrompts.map((prompt, pIdx) => (
+              <button
+                key={pIdx}
+                onClick={() => handleSend(prompt)}
+                disabled={isLoading}
+                className="rounded-full border border-zinc-200/80 dark:border-zinc-800/80 px-3 py-1 text-[12px] text-zinc-500 dark:text-zinc-400 hover:border-zinc-300 dark:hover:border-zinc-700 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors disabled:opacity-50"
+              >
+                {prompt}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Input */}
+        <div className="pb-5 sm:pb-8 pt-1">
+          <form
+            onSubmit={(e) => { e.preventDefault(); handleSend(); }}
+            className="flex items-center gap-2 rounded-full border border-zinc-200/80 dark:border-zinc-800/80 bg-white dark:bg-zinc-900/60 pl-4 pr-1.5 py-1.5 focus-within:border-zinc-400 dark:focus-within:border-zinc-600 transition-colors"
+          >
+            <input
+              type="text"
+              placeholder="Ask about Menajul…"
+              aria-label="Ask MinBOT a question"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              disabled={isLoading}
+              className="flex-1 min-w-0 text-[14px] bg-transparent text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none disabled:opacity-50"
+            />
+            <button
+              type="submit"
+              disabled={isLoading || !input.trim()}
+              aria-label="Send"
+              className="w-8 h-8 shrink-0 rounded-full bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors disabled:opacity-40 flex items-center justify-center"
+            >
+              <Send className="w-3.5 h-3.5" />
+            </button>
+          </form>
         </div>
       </div>
-
-      {/* Input Form Container */}
-      <div className="py-4 bg-transparent border-t border-zinc-100 dark:border-zinc-900">
-        <form 
-          onSubmit={(e) => { e.preventDefault(); handleSend(); }}
-          className="flex gap-2 bg-zinc-50/20 dark:bg-zinc-950/10 border border-zinc-200/80 dark:border-zinc-900 rounded-none px-3 py-1.5 focus-within:bg-zinc-50/30 dark:focus-within:bg-zinc-900/20 focus-within:border-zinc-350 dark:focus-within:border-zinc-800 transition-all duration-300"
-        >
-          <input
-            type="text"
-            placeholder="Ask about Menajul..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            disabled={isLoading}
-            className="flex-1 text-[13.5px] bg-transparent text-zinc-900 dark:text-zinc-100 focus:outline-none disabled:opacity-50 px-1"
-          />
-          <button
-            type="submit"
-            disabled={isLoading || !input.trim()}
-            className="p-1 rounded-none bg-zinc-900 text-white dark:bg-zinc-100 dark:text-black hover:bg-zinc-700 dark:hover:bg-zinc-200 active:bg-zinc-700 dark:active:bg-zinc-200 transition-colors disabled:opacity-50 flex items-center justify-center self-center active:scale-95"
-          >
-            <Send className="w-3.5 h-3.5" />
-          </button>
-        </form>
-      </div>
-
     </div>
   )
 }

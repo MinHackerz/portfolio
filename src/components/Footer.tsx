@@ -1,5 +1,4 @@
 import { FC, useState, useEffect } from "react";
-import AnalogClock from "./AnalogClock";
 import { ThemeToggle } from "./ThemeToggle";
 
 const Footer: FC = () => {
@@ -22,40 +21,25 @@ const Footer: FC = () => {
   };
 
   return (
-    <footer className="w-full px-6 md:px-12 lg:px-16 xl:px-20 pt-4 pb-6 border-t border-zinc-200/60 dark:border-zinc-800/80 mt-6 select-none">
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-        {/* Left: Copyright & Freshness info */}
-        <div className="space-y-1">
-          <div className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 uppercase tracking-widest font-medium">
-            Menajul Hoque &copy; {new Date().getFullYear()}
-          </div>
-          <div className="text-[9px] font-mono text-zinc-400/70 dark:text-zinc-600 uppercase tracking-widest">
-            Published Jan 2025 &middot; Updated August 2026
-          </div>
-        </div>
+    <footer className="w-full pt-6 pb-4 border-t border-zinc-200/60 dark:border-zinc-800/80 select-none">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-zinc-400 dark:text-zinc-500">
+        <span>Menajul Hoque &copy; {new Date().getFullYear()}</span>
 
-        {/* Center: Analog Clock */}
-        <div className="flex items-center justify-center">
-          <AnalogClock />
-        </div>
-
-        {/* Right: Actions (Privacy Policy + Theme Toggle + Top Scroll) */}
         <div className="flex items-center gap-5">
           <button
             onClick={() => setIsPrivacyOpen(true)}
-            className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 uppercase tracking-widest hover:underline transition-colors duration-200 cursor-pointer"
+            className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-200 cursor-pointer"
           >
-            Privacy Policy
+            Privacy
           </button>
 
           <ThemeToggle />
-          
+
           <button
             onClick={scrollToTop}
-            className="text-[10px] font-mono text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 uppercase tracking-widest transition-colors duration-200 cursor-pointer flex items-center gap-1 group"
+            className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors duration-200 cursor-pointer"
           >
-            <span>/ top</span>
-            <span className="group-hover:-translate-y-0.5 transition-transform duration-200">&uarr;</span>
+            Top
           </button>
         </div>
       </div>
@@ -77,7 +61,7 @@ const Footer: FC = () => {
               [ESC] CLOSE
             </button>
             
-            <h3 id="privacy-title" className="text-xl font-normal font-dot tracking-wide text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-3 mb-4">
+            <h3 id="privacy-title" className="text-xl font-medium tracking-tight text-zinc-900 dark:text-zinc-100 border-b border-zinc-100 dark:border-zinc-900 pb-3 mb-4">
               Privacy Policy
             </h3>
             
