@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { flushSync } from 'react-dom';
 
 export const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
@@ -27,103 +28,53 @@ export const ThemeToggle = () => {
     }
   };
 
-  const toggleTheme = () => {
+  const toggleTheme = (event: React.MouseEvent<HTMLButtonElement>) => {
     const newTheme = !isDark;
+    const root = document.documentElement;
 
-    // Use View Transitions API with Vibrating Particle Shower Sweep if supported
     if (
-      document.startViewTransition &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      !document.startViewTransition ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
-      // Create a container for vibrating energy particles
-      const particleContainer = document.createElement('div');
-      particleContainer.className = 'fixed inset-0 z-[10000] pointer-events-none overflow-hidden';
-      
-      const numParticles = 36;
-      const particles: HTMLDivElement[] = [];
-
-      for (let i = 0; i < numParticles; i++) {
-        const p = document.createElement('div');
-        const size = Math.random() * 2.5 + 1.5; // 1.5px to 4px
-        const leftPercent = Math.random() * 100;
-        const glowColor = newTheme
-          ? 'rgba(245, 158, 11, 0.95)'
-          : 'rgba(255, 255, 255, 0.95)';
-        const shadowColor = newTheme
-          ? 'rgba(245, 158, 11, 0.85)'
-          : 'rgba(255, 255, 255, 0.85)';
-
-        p.style.position = 'absolute';
-        p.style.width = `${size}px`;
-        p.style.height = `${size}px`;
-        p.style.borderRadius = '50%';
-        p.style.left = `${leftPercent}%`;
-        p.style.top = '0%';
-        p.style.backgroundColor = glowColor;
-        p.style.boxShadow = `0 0 ${size * 3}px ${shadowColor}`;
-        p.style.opacity = '0';
-
-        particleContainer.appendChild(p);
-        particles.push(p);
-      }
-
-      document.body.appendChild(particleContainer);
-
-      const transition = document.startViewTransition(() => {
-        applyTheme(newTheme);
-      });
-
-      transition.ready.then(() => {
-        const duration = 900;
-        const easing = 'cubic-bezier(0.25, 1, 0.5, 1)';
-
-        // Animate new layer top-to-bottom reveal
-        document.documentElement.animate(
-          {
-            clipPath: [
-              'inset(0 0 100% 0)',
-              'inset(0 0 0% 0)',
-            ],
-          },
-          {
-            duration,
-            easing,
-            pseudoElement: '::view-transition-new(root)',
-          }
-        );
-
-        // Animate each particle traveling top-to-bottom with horizontal vibration jitter
-        particles.forEach((p) => {
-          const jitterOffset = (Math.random() - 0.5) * 28; // Vibrating jitter range (-14px to +14px)
-          const delay = Math.random() * 70; // Micro staggered delay
-
-          p.animate(
-            [
-              { top: '0%', opacity: 0, transform: 'translateX(0px)' },
-              { top: '2%', opacity: 1, transform: `translateX(${jitterOffset}px)`, offset: 0.05 },
-              { top: '33%', opacity: 1, transform: `translateX(${-jitterOffset}px)`, offset: 0.35 },
-              { top: '66%', opacity: 1, transform: `translateX(${jitterOffset / 1.5}px)`, offset: 0.68 },
-              { top: '96%', opacity: 1, transform: `translateX(${-jitterOffset / 2}px)`, offset: 0.95 },
-              { top: '100%', opacity: 0, transform: 'translateX(0px)' },
-            ],
-            {
-              duration: duration - delay,
-              delay,
-              easing,
-              fill: 'forwards',
-            }
-          );
-        });
-
-        setTimeout(() => {
-          if (particleContainer.parentNode) {
-            particleContainer.parentNode.removeChild(particleContainer);
-          }
-        }, duration + 150);
-      });
-    } else {
       applyTheme(newTheme);
+      return;
     }
+
+    // Circular reveal that grows out of the toggle button
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // Freeze CSS colour transitions so each snapshot is a clean, finished frame
+    root.classList.add('theme-switching');
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => applyTheme(newTheme));
+    });
+
+    transition.ready.then(() => {
+      root.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${radius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 650,
+          easing: 'cubic-bezier(0.65, 0, 0.35, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
+
+    transition.finished.finally(() => {
+      root.classList.remove('theme-switching');
+    });
   };
 
   return (
