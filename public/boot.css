@@ -1,0 +1,4 @@
+/* Paints the right background before the app's stylesheet loads. A file, not inline, for the CSP. */
+html.dark { background-color: #161210; color: #FAFAF9; }
+html:not(.dark) { background-color: #FAFAF9; color: #18181B; }
+body { margin: 0; min-height: 100vh; }
